@@ -21,8 +21,7 @@ void Model::Fit(const DataSet& trainingSet, const DataSet& validateSet)
 
             if (j % m_config.batchSize == 0)
             {
-                //std::cout << "j: " << j << std::endl;
-                /*std::cout << "batch size: " << m_config.batchSize << std::endl;*/
+                
                 ClearGradient();
             }
 
