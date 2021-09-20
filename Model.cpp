@@ -10,14 +10,17 @@ void Model::Fit(const DataSet& trainingSet, const DataSet& validateSet)
 {
     float loss;
     for (int i = 0; i < m_config.train_epoch; i++)
-    {
-        std::cout << "Epoch:" << i << std::endl;
+    {   
+        if (i % 1000 == 0)
+        {
+            std::cout << "Epoch:" << i << std::endl;
+        }
         for (size_t j = 0; j < trainingSet.Size(); j++)
         {
-            if (j % 100 == 0)
+            /*if (j % 100 == 0)
             {
                 std::cout << "\r" << j << " samples scanned" << std::endl;
-            }
+            }*/
 
             if (j % m_config.batchSize == 0)
             {

@@ -2,47 +2,50 @@
 #include <fstream>
 #include <cstdlib>
 
+/*
+* Using neural network to simulate the Linear Regression Model
+*/
 LRModel::LRModel(const Configuration& config) : Model(config)
 {
     std::srand(123456789);
-    //b = Vector<float>(m_config.category_number); // initilized to all 0
+    b = Vector<float>(m_config.category_number); // initilized to all 0
     W = Matrix<float>(m_config.category_number, config.feature_number);
-    W.FanInFanOutRandomize();
+    /*b.FanInFanOutRandomize();
+    W.FanInFanOutRandomize();*/
     Setup();
 }
 
 void LRModel::ClearGradient()
 {
-    //db = 0;
+    db = 0;
     dW = 0;
 }
 
 void LRModel::Update()
 {
-    //db.Div((float)m_config.batchSize);
+    db.Div((float)m_config.batchSize);
     dW.Div((float)m_config.batchSize);
-    //b.Sub(m_config.learning_rate, db);
+    b.Sub(m_config.learning_rate, db);
     W.Sub(m_config.learning_rate, dW);
 }
 
 void LRModel::ComputeGradient(const Vector<float>& x, const Vector<float>& y)
 {
     (y_diff = y_hat).Sub(y);
-    //db.Add(y_diff);
+    db.Add(y_diff);
     dW.AddMul(y_diff, x);
 }
 
 size_t LRModel::Eval(const Vector<float>& x)
 {
-    // y_hat = softmax(Wx + b);
-    //y_hat.AssignMul(W, x).Add(b).SoftMax();
-    y_hat.AssignMul(W, x);
+    y_hat.AssignMul(W, x).Add(b);
+    //y_hat.AssignMul(W, x);
     return y_hat.Max().second;
 }
 
 void LRModel::Setup()
 {
-    //db = Vector<float>(b.Size());
+    db = Vector<float>(b.Size());
     dW = Matrix<float>(W.Row(), W.Col());
 }
 
@@ -60,7 +63,7 @@ bool LRModel::Save()
 {
     std::ofstream fout(m_config.modelSavePath.c_str());
     fout << "LRModel" << std::endl;
-    //fout << b << W;
-    fout << W;
+    fout << b << W;
+    //fout << W;
     return true;
 }

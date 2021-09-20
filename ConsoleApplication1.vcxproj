@@ -160,7 +160,6 @@
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="activateFunction.h" />
     <ClInclude Include="BPNNConfiguration.h" />
     <ClInclude Include="BPNNDataSet.h" />
     <ClInclude Include="BPNNModel.h" />
@@ -181,6 +180,7 @@
     <Text Include="label.txt" />
     <Text Include="data.txt" />
     <Text Include="label1.txt" />
+    <Text Include="test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,7 @@
-4
-1
-4
-0.5
-1000
+feature_number: 4
+category_number: 1
+batchSize: 4
+learning_rate: 0.01
+train_epoch: 30000
+ModelType: LR
+modelSavePath: LR_model_test.txt

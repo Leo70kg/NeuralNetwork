@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 	//v6 -= v5;
 	//v6.Print();*/
 
-	/*DataSet* dataSet = new BPNNDataSet();
+	DataSet* dataSet = new BPNNDataSet();
 	dataSet->Load("data.txt", "label.txt");
 	
 	Vector<float> v(dataSet->GetData(0));
@@ -114,17 +114,16 @@ int main(int argc, char* argv[])
 	std::cout << config->feature_number << " " << config->category_number << std::endl;
 	std::cout << config->learning_rate << " " << config->batchSize << std::endl;
 	std::cout << config->train_epoch << std::endl;
-	config->type = ModelType::ModelType_LR;
-	config->modelSavePath = "model_test.txt";
+	
 	std::unique_ptr<Model> lr = config->CreateModel();
 	
 	lr->Fit(*dataSet, *dataSet);
 
 	delete config;
-	delete dataSet;*/
+	delete dataSet;
 
-	DataSet* dataSet = new BPNNDataSet();
-	dataSet->Load("data1.txt", "label1.txt");
+	/*DataSet* dataSet = new BPNNDataSet();
+	dataSet->Load("data.txt", "label.txt");
 
 	Vector<float> v(dataSet->GetData(0));
 	v.Print();
@@ -134,20 +133,12 @@ int main(int argc, char* argv[])
 	BPNNConfiguration* config = new BPNNConfiguration();
 	config->Load("config1.txt");
 
-	std::cout << config->feature_number << " " << config->category_number << std::endl;
-	std::cout << config->learning_rate << " " << config->batchSize << std::endl;
-	std::cout << config->train_epoch << std::endl;
-	config->type = ModelType::ModelType_BPNN;
-	config->modelSavePath = "model_test1.txt";
-	config->LayerNumber = 3;
-	config->hiddenLayerSizes = std::vector<int>{ 2, 3};
-
 	std::unique_ptr<Model> lr = config->CreateModel();
 
 	lr->Fit(*dataSet, *dataSet);
 
 	delete config;
-	delete dataSet;
+	delete dataSet;*/
 
 	return 0;
 }

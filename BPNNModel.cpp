@@ -19,6 +19,7 @@ BPNNModel::BPNNModel(const BPNNConfiguration& config):Model(config), m_config(co
     std::srand(123456789);
     for (int i = 0; i < L; i++)
     {
+        biases[i].FanInFanOutRandomize();
         weights[i].FanInFanOutRandomize();
     }
 

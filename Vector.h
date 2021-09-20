@@ -5,6 +5,7 @@
 #include <fstream>
 #include <algorithm>
 #include <cassert>
+#include <random>
 #include "Matrix.h"
 #include <iostream>
 
@@ -51,6 +52,7 @@ public:
 	Vector<T>& MulScalarVecSub(T value, const Vector<T>& other);
 	Vector<T>& AssignMulTMat(const Matrix<T>& W, const Vector<T>& v);
 	T Sum();
+	void FanInFanOutRandomize();
 
 	Vector<T>& operator += (const Vector<T>& other);
 	Vector<T>& operator -= (const Vector<T>& other);
@@ -509,5 +511,16 @@ Vector<T>& Vector<T>::Div(T val)
 	return *this;
 }
 
+template<class T>
+void Vector<T>::FanInFanOutRandomize()
+{
+	int seed = 3; 
+	std::default_random_engine gen(seed);
+	std::normal_distribution<T> dis(0, 1);
+	for (size_t i = 0; i < v_len; i++)
+	{
+		v_data[i] = static_cast<T>(dis(gen));
+	}
+}
 
 #endif
