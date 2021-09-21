@@ -8,6 +8,9 @@
 #include "BPNNModel.h"
 #include "LRModel.h"
 #include "Configuration.h"
+#include "MnistDataSet.h"
+#include "BaseDataSet.h"
+#include "MnistModel.h"
 
 
 int main(int argc, char* argv[])
@@ -100,7 +103,7 @@ int main(int argc, char* argv[])
 	//v6 -= v5;
 	//v6.Print();*/
 
-	DataSet* dataSet = new BPNNDataSet();
+	/*DataSet* dataSet = new BPNNDataSet();
 	dataSet->Load("data.txt", "label.txt");
 	
 	Vector<float> v(dataSet->GetData(0));
@@ -120,7 +123,7 @@ int main(int argc, char* argv[])
 	lr->Fit(*dataSet, *dataSet);
 
 	delete config;
-	delete dataSet;
+	delete dataSet;*/
 
 	/*DataSet* dataSet = new BPNNDataSet();
 	dataSet->Load("data.txt", "label.txt");
@@ -139,6 +142,27 @@ int main(int argc, char* argv[])
 
 	delete config;
 	delete dataSet;*/
+
+	BaseDataSet* dataSet = new MnistDataSet(10);
+	dataSet->Load("mnist_train_data.csv", "mnist_train_label.csv");
+
+	Vector<float> v(dataSet->GetData(0));
+	//v.Print();
+	OneHotVector t(dataSet->GetTarget(0));
+
+	BaseConfiguration* config = new BaseConfiguration();
+	config->Load("test.txt");
+
+	std::cout << config->feature_number << " " << config->category_number << std::endl;
+	std::cout << config->learning_rate << " " << config->batchSize << std::endl;
+	std::cout << config->train_epoch << std::endl;
+
+	std::unique_ptr<BaseModel> lr = config->CreateModel();
+
+	lr->Fit(*dataSet, *dataSet);
+
+	delete config;
+	delete dataSet;
 
 	return 0;
 }

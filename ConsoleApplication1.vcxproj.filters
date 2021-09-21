@@ -45,6 +45,21 @@
     <ClCompile Include="LRModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MnistDataSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseDataSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MnistModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseConfiguration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.h">
@@ -81,6 +96,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LRModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OneHotVector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MnistDataSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseDataSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MnistModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseConfiguration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

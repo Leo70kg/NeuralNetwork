@@ -5,9 +5,11 @@
 #include <fstream>
 #include <algorithm>
 #include <cassert>
+#include <iostream>
 #include <random>
 #include "Matrix.h"
-#include <iostream>
+#include "OneHotVector.h"
+
 
 template<class T>
 class Matrix;
@@ -44,6 +46,7 @@ public:
 	Vector<T>& Add(T scale, const Vector<T>& other);
 	Vector<T>& Sub(const Vector<T>& other);
 	Vector<T>& Sub(T scale, const Vector<T>& other);
+	Vector<T>& Sub(const OneHotVector& other);
 	Vector<T>& Mul(const Vector<T>& other);
 	Vector<T>& Div(T val);
 	Vector<T>& AddMul(T scale, const Vector<T>& other);
@@ -51,6 +54,7 @@ public:
 	Vector<T>& AssignMul(const Matrix<T>& W, const Vector<T>& v);
 	Vector<T>& MulScalarVecSub(T value, const Vector<T>& other);
 	Vector<T>& AssignMulTMat(const Matrix<T>& W, const Vector<T>& v);
+	T CrossEntropyError(const OneHotVector& target);
 	T Sum();
 	void FanInFanOutRandomize();
 
@@ -493,6 +497,13 @@ Vector<T>& Vector<T>::Sub(T scale, const Vector<T>& other)
 }
 
 template<class T>
+Vector<T>& Vector<T>::Sub(const OneHotVector& other)
+{
+	this->v_data[other.m_index] --;
+	return *this;
+}
+
+template<class T>
 Vector<T>& Vector<T>::Mul(const Vector<T>& other)
 {
 	for (int i = 0; i < v_len; ++i)
@@ -509,6 +520,13 @@ Vector<T>& Vector<T>::Div(T val)
 	}
 
 	return *this;
+}
+
+template<class T>
+T Vector<T>::CrossEntropyError(const OneHotVector& target)
+{
+	T value = v_data[target.m_index];
+	return -log(value);
 }
 
 template<class T>

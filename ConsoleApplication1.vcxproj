@@ -148,10 +148,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseConfiguration.cpp" />
+    <ClCompile Include="BaseDataSet.cpp" />
+    <ClCompile Include="BaseModel.cpp" />
     <ClCompile Include="BPNNConfiguration.cpp" />
     <ClCompile Include="BPNNDataSet.cpp" />
     <ClCompile Include="BPNNModel.cpp" />
     <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="MnistDataSet.cpp" />
+    <ClCompile Include="MnistModel.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="DataSet.cpp" />
     <ClCompile Include="LayerBase.cpp" />
@@ -160,6 +165,9 @@
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseConfiguration.h" />
+    <ClInclude Include="BaseDataSet.h" />
+    <ClInclude Include="BaseModel.h" />
     <ClInclude Include="BPNNConfiguration.h" />
     <ClInclude Include="BPNNDataSet.h" />
     <ClInclude Include="BPNNModel.h" />
@@ -169,7 +177,10 @@
     <ClInclude Include="LayerBase.h" />
     <ClInclude Include="LRModel.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="MnistDataSet.h" />
+    <ClInclude Include="MnistModel.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="OneHotVector.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>

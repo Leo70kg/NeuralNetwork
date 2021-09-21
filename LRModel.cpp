@@ -10,8 +10,8 @@ LRModel::LRModel(const Configuration& config) : Model(config)
     std::srand(123456789);
     b = Vector<float>(m_config.category_number); // initilized to all 0
     W = Matrix<float>(m_config.category_number, config.feature_number);
-    /*b.FanInFanOutRandomize();
-    W.FanInFanOutRandomize();*/
+    b.FanInFanOutRandomize();
+    W.FanInFanOutRandomize();
     Setup();
 }
 
