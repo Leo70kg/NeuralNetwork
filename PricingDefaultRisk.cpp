@@ -3,20 +3,21 @@
 
 PricingDefaultRisk::PricingDefaultRisk(const BSDEConfiguration& config) : Equation(config) 
 { 
-	sigma = 0.2;
-    rate = 0.02;   // interest rate R
-    delta = 2.0 / 3;
-    gammah = 0.2;
-    gammal = 0.02;
-    mu_bar = 0.02;
-    vh = 50.0;
-    vl = 70.0;
+	sigma = (float)0.2;
+    rate = (float)0.02;   // interest rate R
+    delta = (float)(2.0 / 3);
+    gammah = (float)0.2;
+    gammal = (float)0.02;
+    mu_bar = (float)0.02;
+    vh = (float)50.0;
+    vl = (float)70.0;
     slope = (gammah - gammal) / (vh - vl);
 
     DwSample();
     XSample();
 }
 
+PricingDefaultRisk::~PricingDefaultRisk() {}
 
 float PricingDefaultRisk::f_tf(float t, const Vector<float>& x, float y, const Vector<float>& z) const
 {
@@ -72,3 +73,13 @@ bool PricingDefaultRisk::DwSample()
 
     return true;
 }
+
+//bool PricingDefaultRisk::YTerminal()
+//{
+//    for (int i = 0; i < num_sample; i++)
+//    {
+//         y_terminal[i] = g_tf(0.0, x_sample[i][num_time_interval]);
+//    }
+//
+//    return true;
+//}

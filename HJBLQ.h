@@ -8,7 +8,8 @@ class HJBLQ : public Equation
 {
 public:
     HJBLQ() = default;
-    float f_tf(float t, const Vector<float>& x, float y, const Vector<float>& z) const override;
+    ~HJBLQ();
+	float f_tf(float t, const Vector<float>& x, float y, const Vector<float>& z) const override;
     float f_tf_diff_y(float y) const override;
     float g_tf(float t, const Vector<float>& x) const override;
 

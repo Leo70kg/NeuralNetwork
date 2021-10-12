@@ -9,7 +9,8 @@ class PricingDefaultRisk : public Equation
 public:
     PricingDefaultRisk() = default;
     PricingDefaultRisk(const BSDEConfiguration& config);
-    float f_tf(float t, const Vector<float>&x, float y, const Vector<float>&z) const override;
+    ~PricingDefaultRisk();
+	float f_tf(float t, const Vector<float>&x, float y, const Vector<float>&z) const override;
     float f_tf_diff_y(float y) const override;
     float g_tf(float t, const Vector<float>&x) const override;
     bool XSample() override;

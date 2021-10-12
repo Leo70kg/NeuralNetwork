@@ -3,17 +3,17 @@
 
 BSDEModel::BSDEModel(const BSDEConfiguration& config) : m_config(config)
 {   
-    size_t numOfSubnet = m_config.numTimeInterval - 1;
-    size_t L = m_config.subnetLayerNumber;     // layer number in each subnet
+    int numOfSubnet = m_config.numTimeInterval - 1;
+    int L = m_config.subnetLayerNumber;     // layer number in each subnet
     delta_t = m_config.totalTime / m_config.numTimeInterval;
-    size_t dim = m_config.feature_number;
+    int dim = m_config.feature_number;
 
     std::default_random_engine generator;
     std::uniform_real_distribution<float> distribution(m_config.yInitRange[0], m_config.yInitRange[1]);
     y_init = distribution(generator);
 
     z_init.Resize(m_config.feature_number);
-    z_init.UniformDist(-0.1, 0.1);
+    z_init.UniformDist((float)-0.1, (float)0.1);
 
     y_init_diff = 0.0;
     z_init_diff_mean.Resize(dim);
@@ -45,20 +45,17 @@ BSDEModel::BSDEModel(const BSDEConfiguration& config) : m_config(config)
 
 void BSDEModel::Setup()
 {
-    size_t numOfSubnet = m_config.numTimeInterval - 1;
-    size_t L = m_config.subnetLayerNumber;
-    size_t dim = m_config.feature_number;
+    int numOfSubnet = m_config.numTimeInterval - 1;
+    int L = m_config.subnetLayerNumber;
+    int dim = m_config.feature_number;
 
     d_weights.resize(L * numOfSubnet);
     layers.resize(L * numOfSubnet);
     activate_layers.resize(L * numOfSubnet);
     gradient_layers.resize(L * numOfSubnet);
     y_layers.resize(numOfSubnet + 2);
-    //z_layers.resize(numOfSubnet + 1);
 
     y_layers[0].Resize(1);
-    /*z_layers[0].Resize(dim);
-    z_layers[0].UniformDist(-0.1, 0.1);*/
 
     for (int t = 0; t < numOfSubnet; t++)
     {
@@ -70,23 +67,21 @@ void BSDEModel::Setup()
             d_weights[i + t * L].Resize(weights[i + t * L].Row(), weights[i + t * L].Col());
         }
         y_layers[t + 1].Resize(1);
-        /*z_layers[t + 1].Resize(dim);*/
     }
     y_layers[numOfSubnet + 1].Resize(1);
 }
 
 void BSDEModel::ComputeGradient(const Equation& equation, const float y, size_t index)
 {
-    size_t numOfSubnet = m_config.numTimeInterval - 1;
-    size_t dim = m_config.feature_number;
-    size_t L = m_config.subnetLayerNumber;
-    size_t numTimeInterval = m_config.numTimeInterval;
+    int numOfSubnet = m_config.numTimeInterval - 1;
+    int dim = m_config.feature_number;
+    int L = m_config.subnetLayerNumber;
 
     float Yn_diffYn_1 = y_layers[numOfSubnet + 1][0] - y;
     for (int t = numOfSubnet - 1; t >= 0; t--) {
         //float L_diff_Yn = y_layers[numOfSubnet + 1][0] - y;
 
-        (gradient_layers[(t + 1) * L - 1] = equation.GetDwSample()[index][t + 1]).Mul(Yn_diffYn_1).Mul(1.0 / dim);
+        (gradient_layers[(t + 1) * L - 1] = equation.GetDwSample()[index][t + 1]).Mul(Yn_diffYn_1).Mul((float)(1.0 / dim));
 
         for (int i = L - 2; i >= 0; i--)
         {
@@ -116,10 +111,9 @@ void BSDEModel::ComputeGradient(const Equation& equation, const float y, size_t 
 void BSDEModel::Update()
 {
     /*std::cout << "Update started" << std::endl;*/
-    size_t numOfSubnet = m_config.numTimeInterval - 1;
-    size_t dim = m_config.feature_number;
-    size_t L = m_config.subnetLayerNumber;
-    size_t numOfSample = m_config.sampleSize;
+    int numOfSubnet = m_config.numTimeInterval - 1;
+    int L = m_config.subnetLayerNumber;
+    int numOfSample = m_config.sampleSize;
 
     for (int t = 0; t < numOfSubnet; t++) {
         for (int i = 0; i < L; i++)
@@ -161,7 +155,7 @@ float BSDEModel::Eval(const Equation& equation, size_t index)
             else activate_layers[i + t * L];
         }
         z = activate_layers[L - 1 + t * L];
-        z.Mul(1.0 / (float)dim);
+        z.Mul((float)(1.0 / dim));
     }
     y_layers[numOfSubnet + 1][0] = y_layers[numOfSubnet][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][numOfSubnet], y_layers[numOfSubnet][0], z) +
         Vector<float>::ReduceSum(z, equation.GetDwSample()[index][numOfSubnet]);
@@ -183,40 +177,33 @@ void BSDEModel::ClearGradient()
     }
 }
 
-bool BSDEModel::Save()
+bool BSDEModel::Save(int epoch)
 {
-    std::ofstream fout(m_config.modelSavePath.c_str(), std::ios::app);
-    fout << "BSDE" << std::endl;
-    /*int numOfSubnet = m_config.numTimeInterval - 1;
-    int L = m_config.subnetLayerNumber;
+	std::string folder_name = "output/";
+	std::string file_path = folder_name + m_config.modelSavePath.c_str();
+    std::ofstream fout(file_path, std::ios::app);
 
-    for (int t = 0; t < numOfSubnet; t++) {
-        for (int i = 0; i < L; i++)
-        {
-            fout << weights[i + t * L];
-        }
-    }*/
-
-    fout << y_init;
+    fout << "\nEpoch: " << epoch << ", Y0: " << y_init << ", Loss: " << loss;
     
     return true;
 }
 
 float BSDEModel::Loss(float y, float y_pred)
 {
-    return 0.5 * pow(y_pred - y, 2.0);
+    return (float) (0.5 * pow(y_pred - y, 2.0));
 }
 
 // Use SGD
 void BSDEModel::Fit(const Equation& equation)
 {
-    size_t numTimeInterval = m_config.numTimeInterval;
+    int numTimeInterval = m_config.numTimeInterval;
     for (int i = 0; i < m_config.train_epoch; i++)
     {   
-        float loss = 0.0;
-        for (size_t j = 0; j < equation.GetXSample().size(); j++)
+        loss = 0.0;
+        for (int j = 0; j < (int)equation.GetXSample().size(); j++)
         {
             float y = equation.g_tf(0.0, equation.GetXSample()[j][numTimeInterval]);
+           
            /* std::cout << "\r" << i << " epoch" << std::endl;
             std::cout << "\r" << j << "th sample" << std::endl;*/
 
@@ -229,7 +216,7 @@ void BSDEModel::Fit(const Equation& equation)
             ComputeGradient(equation, y, j);
             loss += Loss(y, pred);
 
-            if (j == equation.GetXSample().size() - 1)
+            if (j == (int)equation.GetXSample().size() - 1)
             {
                 Update();
             }
@@ -244,7 +231,7 @@ void BSDEModel::Fit(const Equation& equation)
 
         if (i % 100 == 0)
         {
-            Save();
+            Save(i);
             std::cout << "Epoch:" << i << std::endl;
             std::cout << "In training set, loss: " << loss / equation.GetXSample().size() << ", Y0: " << y_init << std::endl << std::endl;
         }

@@ -8,7 +8,7 @@ class Equation
 public:
     Equation() = default;
     Equation(const BSDEConfiguration& config);
-   
+	virtual ~Equation() {} 
     virtual float f_tf(float t, const Vector<float>& x, float y, const Vector<float>& z) const = 0;
     virtual float f_tf_diff_y(float y) const = 0;
     virtual float g_tf(float t, const Vector<float>& x) const = 0;
@@ -18,13 +18,12 @@ public:
     const std::vector<std::vector<Vector<float>>>& GetDwSample() const;
 
 protected:
-    size_t dim;
+    int dim;
     float total_time;
-    size_t num_sample;
-    size_t num_time_interval;
+    int num_sample;
+    int num_time_interval;
     float delta_t;
     float sqrt_delta_t;
-    //float y_init;
 
     // size is the number of time intervals
     std::vector<std::vector<Vector<float>>> x_sample;

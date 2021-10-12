@@ -12,6 +12,7 @@ Equation::Equation(const BSDEConfiguration& config)
 
     x_sample.resize(num_sample);
     dw_sample.resize(num_sample);
+    //y_terminal.resize(num_sample);
 }
 
 const std::vector<std::vector<Vector<float>>>& Equation::GetXSample() const
@@ -23,3 +24,4 @@ const std::vector<std::vector<Vector<float>>>& Equation::GetDwSample() const
 {
     return dw_sample;
 }
+

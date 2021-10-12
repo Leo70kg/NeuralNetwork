@@ -19,7 +19,7 @@ public:
     float Eval(const Equation& equation, size_t index);
     void ClearGradient();
     float Loss(float y, float y_pred);
-    bool Save();
+    bool Save(int epoch);
 
 
 private:
@@ -41,6 +41,8 @@ private:
 
     float delta_t;
     float y_hat;
+    float loss;
+
 };
 
 

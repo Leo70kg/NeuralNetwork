@@ -4,7 +4,6 @@
 
 bool BSDEConfiguration::Load(const std::string& filePath)
 {
-    //Configuration::Load(filePath);
     std::ifstream fin(filePath.c_str(), std::ifstream::binary);
     if (!fin)
         return false;
@@ -15,12 +14,13 @@ bool BSDEConfiguration::Load(const std::string& filePath)
     int count = 0;
     while (!fin.eof())
     {
-        //float num;
         std::string s;
         getline(fin, s);
-        size_t i = 0;
-        for (; i < s.length(); i++) { if (s[i] == ':') break; }
 
+		if (s.length() == 0) break;
+		size_t i = 0;
+        for (; i < s.length(); i++) { if (s[i] == ':') break; }
+		
         // remove the first chars, which aren't digits
         s = s.substr(i + 1, s.length() - i);
         s.erase(remove_if(s.begin(), s.end(), ::isspace), s.end());
@@ -37,10 +37,10 @@ bool BSDEConfiguration::Load(const std::string& filePath)
             std::string delimiter = ",";
             while ((pos = s.find(delimiter)) != std::string::npos) {
                 token = s.substr(0, pos);
-                this->yInitRange.push_back(std::stoi(token));
+                this->yInitRange.push_back(std::stof(token));
                 s.erase(0, pos + delimiter.length());
             }
-            this->yInitRange.push_back(std::stoi(s));
+            this->yInitRange.push_back(std::stof(s));
         }
         else if (count == 10)
         {
@@ -57,20 +57,20 @@ bool BSDEConfiguration::Load(const std::string& filePath)
         else
         {
             config_file_param.push_back(s);
-        }
+		}
         ++count;
-
     }
+
     fin.close();
-    this->feature_number = config_model_param[0];
-    this->category_number = config_model_param[1];
-    this->batchSize = config_model_param[2];
+    this->feature_number = (int)config_model_param[0];
+    this->category_number = (int)config_model_param[1];
+    this->batchSize = (int)config_model_param[2];
     this->learning_rate = config_model_param[3];
-    this->train_epoch = config_model_param[4];
+    this->train_epoch = (int)config_model_param[4];
     this->totalTime = config_model_param[5];
-    this->numTimeInterval = config_model_param[6];
-    this->sampleSize = config_model_param[7];
-    this->subnetLayerNumber = config_model_param[8];
+    this->numTimeInterval = (int)config_model_param[6];
+    this->sampleSize = (int)config_model_param[7];
+    this->subnetLayerNumber = (int)config_model_param[8];
 
     this->modelSavePath = config_file_param[0];
     std::cout << "Config data loaded successfully!" << std::endl;

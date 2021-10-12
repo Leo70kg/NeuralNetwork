@@ -1,8 +1,0 @@
-feature_number: 784
-category_number: 10
-batchSize: 2000
-learning_rate: 0.01
-train_epoch: 500
-LayerNumber: 3
-hiddenLayerSizes: 256, 128
-modelSavePath: Mnist_model_test.txt

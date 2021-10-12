@@ -85,13 +85,12 @@ public:
 	Vector<T>& ReluDiff();
 	std::pair<T, size_t> Max() const;
 
-	friend std::ostream& operator << (std::ostream& out, const Vector<T>& v);
 	template<class U>
 	friend std::ofstream& operator << (std::ofstream& fout, const Vector<U>& v);
 	template<class U>
 	friend std::ifstream& operator >> (std::ifstream& fin, Vector<U>& v);
 
-	template<class T>
+	template<class U>
 	friend class Matrix;
 
 	static T ReduceSum(const Vector<T>& other1, const Vector<T>& other2) {

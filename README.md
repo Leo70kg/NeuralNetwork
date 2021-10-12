@@ -1,2 +1,2 @@
 # NeuralNetwork
-The implementation of neural network from scratch for master dissertation
+The implementation of neural network from scratch for solving non linear PDE 

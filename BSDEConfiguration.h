@@ -12,12 +12,12 @@ class BSDEConfiguration
 public:
     
     BSDEConfiguration() = default;
-    static std::unique_ptr<BSDEConfiguration> CreateConfiguration(const std::string & filePath);
+	static std::unique_ptr<BSDEConfiguration> CreateConfiguration(const std::string & filePath);
     virtual bool Load(const std::string & filePath);
     virtual bool Save(const std::string & filePath);
     virtual std::unique_ptr<BSDEModel> CreateModel();
     
-    size_t train_epoch;
+    int train_epoch;
     float learning_rate;
 
     // dimension of output value
