@@ -2,7 +2,7 @@ OBJS = BSDEConfiguration.o BSDEModel.o Equation.o HJBLQ.o PricingDefaultRisk.o a
 SOURCE = BSDEConfiguration.cpp BSDEModel.cpp Equation.cpp HJBLQ.cpp PricingDefaultRisk.cpp app.cpp 
 HEADER = BSDEConfiguration.h BSDEModel.h Equation.h HJBLQ.h Matrix.h OneHotVector.h PricingDefaultRisk.h Utility.h Vector.h 
 
-OUT = BSDE 
+OUT = BSDE.out 
 CC  = g++ 
 FLAGS  = -g -c -Wall -O3 -std=c++11
 LFLAGS =  
