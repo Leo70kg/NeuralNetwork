@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
 	clock_t start, end;
 	start = clock();
 	BSDEConfiguration* config = new BSDEConfiguration();
-	config->Load("pricing_default_risk.txt");
+	config->Load("config/pricing_default_risk.txt");
 
 	/*
 	std::cout << config->feature_number << " " << config->category_number << std::endl;

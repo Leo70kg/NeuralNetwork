@@ -125,8 +125,8 @@ void BSDEModel::Update()
 
     }
 
-    y_init -= y_init_diff / numOfSample;
-    z_init.Sub(z_init_diff_mean.Mul(1.0f / numOfSample));
+    y_init += y_init_diff / numOfSample;
+    z_init.Add(z_init_diff_mean.Mul(1.0f / numOfSample));
     /*std::cout << "Update finished" << std::endl;*/
 }
 
@@ -235,9 +235,6 @@ void BSDEModel::Fit(const Equation& equation)
             std::cout << "Epoch:" << i << std::endl;
             std::cout << "In training set, loss: " << loss / equation.GetXSample().size() << ", Y0: " << y_init << std::endl << std::endl;
         }
-        /*std::cout << "y_init_diff: " << y_init_diff / equation.GetXSample().size() << std::endl;
-        std::cout << "z_init_diff: " << z_init_diff_mean[10] << std::endl;
-        std::cout << "In training set, loss: " << loss / equation.GetXSample().size() << ", Y0: " << y_init << std::endl << std::endl;*/
 
     }
     
