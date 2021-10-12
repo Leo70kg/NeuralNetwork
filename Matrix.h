@@ -38,14 +38,20 @@ public:
 
 	Matrix<T>& operator = (T value);
 	void Resize(size_t _row, size_t _col);
+	void Resize(size_t _row, size_t _col, T value);
 
 	std::pair<size_t, size_t> Size() const;
 	Matrix<T>& Add(T scale, const Matrix<T>& other);
+	Matrix<T>& Add(const Matrix<T>& other1, const Matrix<T>& other2);
 	Matrix<T>& Sub(T scale, const Matrix<T>& other);
+	Matrix<T>& Mul(T value);
+	Matrix<T>& Mul(const Matrix<T>& other1, const Matrix<T>& other2);
 	Matrix<T>& Div(T value);
 	Matrix<T>& AddMul(const Vector<T>& a, const Vector<T>& b);
+	Matrix<T>& Square();
 
 	void FanInFanOutRandomize();
+	Matrix<T>& Normalised(T scale);
 
 	template<class U>
 	friend std::ofstream& operator << (std::ofstream& fout, const Matrix<U>& m);
@@ -168,6 +174,19 @@ void Matrix<T>::Resize(size_t _row, size_t _col)
 }
 
 template<class  T>
+void Matrix<T>::Resize(size_t _row, size_t _col, T value)
+{
+	if (row != _row || col != _col)
+	{
+		row = _row;
+		col = _col;
+		delete[] m_data;
+		m_data = new T[row * col];
+		memset(m_data, value, sizeof(T) * row * col);
+	}
+}
+
+template<class  T>
 Matrix<T>& Matrix<T>::operator = (T value)
 {
 	for (int i = 0; i < row * col; i++)
@@ -214,9 +233,41 @@ Matrix<T>& Matrix<T>::Add(T scale, const Matrix<T>& other)
 }
 
 template<class T>
+Matrix<T>& Matrix<T>::Add(const Matrix<T>& other1, const Matrix<T>& other2)
+{
+	auto len = this->col * this->row;
+	for (size_t i = 0; i < len; i++)
+	{
+		m_data[i] = other1.m_data[i] + other2.m_data[i];
+	}
+
+	return *this;
+}
+
+template<class T>
 Matrix<T>& Matrix<T>::Sub(T scale, const Matrix<T>& other)
 {
 	return Add(-scale, other);
+}
+
+template<class T>
+Matrix<T>& Matrix<T>::Mul(T value)
+{
+	for (int i = 0; i < row * col; i++)
+	{
+		m_data[i] *= value;
+	}
+	return *this;
+}
+
+template<class T>
+Matrix<T>& Matrix<T>::Mul(const Matrix<T>& other1, const Matrix<T>& other2)
+{
+	for (int i = 0; i < row * col; i++)
+	{
+		m_data[i] = other1.m_data[i] * other2.m_data[i];
+	}
+	return *this;
 }
 
 template<class T>
@@ -246,6 +297,18 @@ Matrix<T>& Matrix<T>::AddMul(const Vector<T>& a, const Vector<T>& b)
 }
 
 template<class T>
+Matrix<T>& Matrix<T>::Square()
+{
+	Matrix<T> res;
+	res.Resize(row, col);
+	for (int i = 0; i < row * col; i++)
+	{
+		res.m_data[i] = pow(m_data[i], 2);
+	}
+	return res;
+}
+
+template<class T>
 void Matrix<T>::FanInFanOutRandomize()
 {
 	T r = static_cast<T>(4 * sqrt(6.0 / (row + col)));
@@ -255,6 +318,21 @@ void Matrix<T>::FanInFanOutRandomize()
 		float val = (std::rand() % 10000) / 10000.0f;
 		m_data[i] = static_cast<T>((val * 2 - 1) * r);
 	}
+}
+
+template<class T>
+Matrix<T>& Matrix<T>::Normalised(T scale)
+{
+	std::default_random_engine gen;
+	std::normal_distribution<double> dis(0.0, 1.0);
+
+	size_t len = row * col;
+	for (size_t i = 0; i < len; i++)
+	{
+		m_data[i] = static_cast<T>(dis(gen)) * scale;
+	}
+
+	return *this;
 }
 
 template<class T>

@@ -1,4 +1,6 @@
 ﻿#include <stdio.h>
+#include <boost\math\differentiation\autodiff.hpp>
+#include <boost/multiprecision/cpp_bin_float.hpp>
 #include "Vector.h"
 #include "Matrix.h"
 #include "BPNNDataSet.h"
@@ -6,18 +8,42 @@
 #include <iomanip> 
 #include "BPNNConfiguration.h"
 #include "BPNNModel.h"
+#include "BSDEDataSet.h"
+#include "BSDEModel.h"
+#include "BSDEConfiguration.h"
 #include "LRModel.h"
 #include "Configuration.h"
 #include "MnistDataSet.h"
 #include "BaseDataSet.h"
 #include "MnistModel.h"
+#include "Utility.h"
+#include "PricingDefaultRisk.h"
 
+using namespace boost::math::differentiation;
+
+promote<float> f(float t, const Vector<float>& x, float y, const Vector<float>& z)
+{
+	float sigma = 0.2;
+	float rate = 0.02;   // interest rate R
+	float delta = 2.0 / 3;
+	float gammah = 0.2;
+	float gammal = 0.02;
+	float mu_bar = 0.02;
+	float vh = 50.0;
+	float vl = 70.0;
+	float slope = (gammah - gammal) / (vh - vl);
+
+	float piecewise_linear = Utility<float>::Relu(Utility<float>::Relu(y - vh) * slope + gammah - gammal) + gammal;
+
+	return (-(1 - delta) * piecewise_linear - rate) * y;
+
+	
+}
 
 int main(int argc, char* argv[])
 {
-	
-	//std::vector<int> vec1 = { 1,2,3 };
-	//std::vector<int> vec2 = { 4,5,6 };
+	/*std::vector<float> vec1 = { 1.0,2.0 ,3.0 };
+	std::vector<float> vec2 = { 4.0,5.0,6.0 };*/
 	//std::vector<std::vector<int>> vec3(3, std::vector<int>(3, 2));
 	//for (int i = 0; i < vec3.size(); i++) {
 	//	for (int j = 0; j < vec3[0].size(); j++) {
@@ -25,8 +51,8 @@ int main(int argc, char* argv[])
 	//	}
 	//}
 
-	//Vector<int> v1(vec1);
-	//Vector<int> v2(vec2);
+	/*Vector<float> x(vec1);
+	Vector<float> z(vec2);*/
 
 	//v1.Add(v2);
 	//v1.Print();
@@ -143,26 +169,64 @@ int main(int argc, char* argv[])
 	delete config;
 	delete dataSet;*/
 
-	BaseDataSet* dataSet = new MnistDataSet(10);
-	dataSet->Load("mnist_train_data.csv", "mnist_train_label.csv");
+	//BaseDataSet* dataSet = new MnistDataSet(10);
+	//dataSet->Load("mnist_train_data.csv", "mnist_train_label.csv");
 
-	Vector<float> v(dataSet->GetData(0));
-	//v.Print();
-	OneHotVector t(dataSet->GetTarget(0));
+	//BaseDataSet* dataSetTest = new MnistDataSet(10);
+	//dataSetTest->Load("mnist_test_data.csv", "mnist_test_label.csv");
 
-	BaseConfiguration* config = new BaseConfiguration();
-	config->Load("test.txt");
+	//Vector<float> v(dataSet->GetData(0));
+	////v.Print();
+	//OneHotVector t(dataSet->GetTarget(0));
+
+	//BaseConfiguration* config = new BaseConfiguration();
+	//config->Load("test.txt");
+
+	//std::cout << config->feature_number << " " << config->category_number << std::endl;
+	//std::cout << config->learning_rate << " " << config->batchSize << std::endl;
+	//std::cout << config->train_epoch << std::endl;
+
+	//std::unique_ptr<BaseModel> lr = config->CreateModel();
+
+	//lr->Fit(*dataSet, *dataSetTest);
+
+	//delete config;
+	//delete dataSet;
+	//delete dataSetTest;
+
+	//using namespace boost::math::differentiation;
+
+	//constexpr unsigned Order = 5;                  // Highest order derivative to be calculated.
+	//auto const x = make_fvar<double, Order>(2.0);  // Find derivatives at x=2.
+	//auto const y = fourth_power(x);
+	//for (unsigned i = 0; i <= Order; ++i)
+	//	std::cout << "y.derivative(" << i << ") = " << y.derivative(i) << std::endl;
+
+	clock_t start, end;
+	start = clock();
+	BSDEConfiguration* config = new BSDEConfiguration();
+	config->Load("pricing_default_risk_d100.txt");
 
 	std::cout << config->feature_number << " " << config->category_number << std::endl;
 	std::cout << config->learning_rate << " " << config->batchSize << std::endl;
 	std::cout << config->train_epoch << std::endl;
+	std::cout << config->totalTime << std::endl;
+	std::cout << config->numTimeInterval << std::endl;
+	std::cout << config->subnetLayerNumber << std::endl;
+	std::cout << config->sampleSize << std::endl;
+	std::cout << config->yInitRange[0] << " " << config->yInitRange[1] << std::endl;
+	std::cout << config->subnetHiddenLayerSizes[0] << " " << config->subnetHiddenLayerSizes[1] << std::endl;
 
-	std::unique_ptr<BaseModel> lr = config->CreateModel();
+	Equation* pricingDefaultRisk = new PricingDefaultRisk(*config);
 
-	lr->Fit(*dataSet, *dataSet);
+	std::unique_ptr<BSDEModel> lr = config->CreateModel();
+	lr->Fit(*pricingDefaultRisk);
 
 	delete config;
-	delete dataSet;
+	delete pricingDefaultRisk;
+	end = clock();
 
+	std::cout << "Time consuming: " << (double)(end - start) / CLOCKS_PER_SEC << " seconds" << std::endl;
 	return 0;
 }
+

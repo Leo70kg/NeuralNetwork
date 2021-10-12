@@ -1,0 +1,12 @@
+feature_number: 100
+category_number: 100
+batchSize: 256
+learning_rate: 0.008
+train_epoch: 1000
+total_time: 1
+num_time_interval: 40
+sample_size: 256
+subnetLayerNumber: 3
+y_init_range: 40, 50
+hidden_layer_sizes: 110, 110
+modelSavePath: PDRD100_model_test.txt

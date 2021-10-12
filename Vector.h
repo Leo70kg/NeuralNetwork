@@ -7,6 +7,7 @@
 #include <cassert>
 #include <iostream>
 #include <random>
+#include <ctime>
 #include "Matrix.h"
 #include "OneHotVector.h"
 
@@ -35,6 +36,9 @@ public:
 	Vector(Vector<T>&& other);
 
 	void Resize(size_t len);
+	void Resize(size_t len, T value);
+	void ResizeUniformDist(size_t len, T low, T high);
+	void Reset(T value);
 
 	T operator[] (size_t index) const;
 	T& operator[] (size_t index);
@@ -44,19 +48,32 @@ public:
 
 	Vector<T>& Add(const Vector<T>& other);
 	Vector<T>& Add(T scale, const Vector<T>& other);
+	Vector<T>& Add(const Vector<T>& other1, const Vector<T>& other2);
+	Vector<T>& Add(const Vector<T>& other, T val);
+	Vector<T>& Add(T val);
 	Vector<T>& Sub(const Vector<T>& other);
 	Vector<T>& Sub(T scale, const Vector<T>& other);
+	Vector<T>& Sub(const Vector<T>& other, T val);
 	Vector<T>& Sub(const OneHotVector& other);
 	Vector<T>& Mul(const Vector<T>& other);
+	Vector<T>& Mul(T val);
+	Vector<T>& Mul(T scale, const Vector<T>& other);
 	Vector<T>& Div(T val);
 	Vector<T>& AddMul(T scale, const Vector<T>& other);
 	Vector<T>& AddMul(const Matrix<T>& m, const Vector<T>& v);
+	Vector<T>& AddMul(T scale, const Vector<T>& other1, const Vector<T>& other2);
 	Vector<T>& AssignMul(const Matrix<T>& W, const Vector<T>& v);
 	Vector<T>& MulScalarVecSub(T value, const Vector<T>& other);
 	Vector<T>& AssignMulTMat(const Matrix<T>& W, const Vector<T>& v);
+	Vector<T>& ReduceSum(const Matrix<T>& m);
 	T CrossEntropyError(const OneHotVector& target);
 	T Sum();
+	T SumSquare();
+	T Min() const;
+
 	void FanInFanOutRandomize();
+	Vector<T>& Normalised(T scale, int seed);
+	Vector<T>& UniformDist(T low, T high);
 
 	Vector<T>& operator += (const Vector<T>& other);
 	Vector<T>& operator -= (const Vector<T>& other);
@@ -65,9 +82,10 @@ public:
 	Vector<T>& Sigmod();
 	Vector<T>& Tanh();
 	Vector<T>& Relu();
+	Vector<T>& ReluDiff();
 	std::pair<T, size_t> Max() const;
 
-	friend std::ostream& operator<<(std::ostream& out, const Vector<T>& v);
+	friend std::ostream& operator << (std::ostream& out, const Vector<T>& v);
 	template<class U>
 	friend std::ofstream& operator << (std::ofstream& fout, const Vector<U>& v);
 	template<class U>
@@ -75,6 +93,16 @@ public:
 
 	template<class T>
 	friend class Matrix;
+
+	static T ReduceSum(const Vector<T>& other1, const Vector<T>& other2) {
+		T res = 0;
+		for (int i = 0; i < other1.v_len; ++i)
+		{
+			res += other1.v_data[i] * other2.v_data[i];
+		}
+
+		return res;
+	}
 
 private:
 	size_t v_len;
@@ -217,6 +245,43 @@ void Vector<T>::Resize(size_t len)
 }
 
 template<class T>
+void Vector<T>::Resize(size_t len, T value)
+{
+	if (v_len != len)
+	{
+		Resize(len);
+	}
+	
+	for (size_t i = 0; i < v_len; ++i)
+	{
+		v_data[i] = value;
+	}
+}
+
+template<class T>
+void Vector<T>::ResizeUniformDist(size_t len, T low, T high)
+{
+	std::default_random_engine generator;
+	std::uniform_real_distribution<double> distribution(low, high);
+
+	if (v_len != len)
+	{
+		v_len = len;
+		delete[]v_data;
+		v_data = new T[v_len];
+		memset(v_data, distribution(generator), sizeof(T) * v_len);
+	}
+}
+
+template<class T>
+void Vector<T>::Reset(T value)
+{
+	for (int i = 0; i < v_len; i++) {
+		v_data[i] = value;
+	}
+}
+
+template<class T>
 Vector<T>& Vector<T>::AddMul(T scale, const Vector<T>& other)
 {
 	for (size_t i = 0; i < v_len; ++i)
@@ -238,6 +303,17 @@ Vector<T>& Vector<T>::AddMul(const Matrix<T>& m, const Vector<T>& v)
 			v_data[i] += *mdata + v.v_data[j];
 		}
 	}
+	return *this;
+}
+
+template<class T>
+Vector<T>& Vector<T>::AddMul(T scale, const Vector<T>& other1, const Vector<T>& other2)
+{
+	for (int i = 0; i < v_len; ++i)
+	{
+		v_data[i] += other1.v_data[i] * other2.v_data[i] * scale;
+	}
+
 	return *this;
 }
 
@@ -287,6 +363,28 @@ Vector<T>& Vector<T>::AssignMulTMat(const Matrix<T>& W, const Vector<T>& v)
 	return *this;
 }
 
+// Each row of Matrix summation
+template<class T>
+Vector<T>& Vector<T>::ReduceSum(const Matrix<T>& m)
+{
+	if (v_len != m.row)
+	{
+		Resize(m.row);
+		*this = 0;
+	}
+	T* data = v_data;
+	T* mdata = m.m_data;
+	for (size_t i = 0; i < m.row; i++, mdata++)
+	{
+		for (size_t j = 0; j < m.col; j++, mdata++)
+		{
+			data[i] += *mdata;
+		}
+	}
+	
+	return *this;
+}
+
 template<class T>
 T Vector<T>::Sum()
 {	
@@ -299,6 +397,29 @@ T Vector<T>::Sum()
 	return sum;
 }
 
+template<class T>
+T Vector<T>::SumSquare()
+{
+	T sum = 0;
+	for (int i = 0; i < v_len; ++i)
+	{
+		sum += v_data[i] * v_data[i];
+	}
+
+	return sum;
+}
+
+template<class T>
+T Vector<T>::Min() const
+{
+	T _min = v_data[0];
+	for (int i = 1; i < v_len; ++i)
+	{
+		_min = _min < v_data[i] ? _min : v_data[i];
+	}
+
+	return _min;
+}
 
 template<class T>
 Vector<T>& Vector<T>::operator += (const Vector<T>& other)
@@ -393,6 +514,23 @@ Vector<T>& Vector<T>::Relu()
 }
 
 template<class T>
+Vector<T>& Vector<T>::ReluDiff()
+{
+	for (size_t i = 0; i < v_len; i++)
+	{
+		if (v_data[i] <= 0)
+		{
+			v_data[i] = (T)0;
+		}
+		else {
+			v_data[i] = (T)1;
+		}
+	}
+
+	return *this;
+}
+
+template<class T>
 std::pair<T, size_t> Vector<T>::Max() const
 {
 	auto res = std::make_pair<T, size_t>(0, -1);
@@ -479,6 +617,40 @@ Vector<T>& Vector<T>::Add(T scale, const Vector<T>& other)
 }
 
 template<class T>
+Vector<T>& Vector<T>::Add(const Vector<T>& other1, const Vector<T>& other2)
+{
+	for (int i = 0; i < v_len; ++i)
+	{
+		v_data[i] = other1.v_data[i] + other2.v_data[i];
+	}
+
+	return *this;
+}
+
+template<class T>
+inline Vector<T>& Vector<T>::Add(const Vector<T>& other, T val)
+{
+	for (int i = 0; i < v_len; ++i)
+	{
+		v_data[i] = other.v_data[i] + val;
+	}
+
+	return *this;
+}
+
+template<class T>
+inline Vector<T>& Vector<T>::Add(T val)
+{
+	for (int i = 0; i < v_len; ++i)
+	{
+		v_data[i] += val;
+	}
+
+	return *this;
+}
+
+
+template<class T>
 Vector<T>& Vector<T>::Sub(const Vector<T>& other)
 {
 	*this -= other;
@@ -497,6 +669,17 @@ Vector<T>& Vector<T>::Sub(T scale, const Vector<T>& other)
 }
 
 template<class T>
+inline Vector<T>& Vector<T>::Sub(const Vector<T>& other, T val)
+{
+	for (int i = 0; i < v_len; ++i)
+	{
+		v_data[i] = other.v_data[i] - val;
+	}
+
+	return *this;
+}
+
+template<class T>
 Vector<T>& Vector<T>::Sub(const OneHotVector& other)
 {
 	this->v_data[other.m_index] --;
@@ -508,6 +691,28 @@ Vector<T>& Vector<T>::Mul(const Vector<T>& other)
 {
 	for (int i = 0; i < v_len; ++i)
 		v_data[i] = v_data[i] * other.v_data[i];
+	return *this;
+}
+
+template<class T>
+Vector<T>& Vector<T>::Mul(T val)
+{
+	for (int i = 0; i < v_len; ++i)
+	{
+		v_data[i] *= val;
+	}
+
+	return *this;
+}
+
+template<class T>
+inline Vector<T>& Vector<T>::Mul(T scale, const Vector<T>& other)
+{
+	for (int i = 0; i < v_len; ++i)
+	{
+		v_data[i] = scale * other.v_data[i];
+	}
+
 	return *this;
 }
 
@@ -539,6 +744,34 @@ void Vector<T>::FanInFanOutRandomize()
 	{
 		v_data[i] = static_cast<T>(dis(gen));
 	}
+}
+
+template<class T>
+Vector<T>& Vector<T>::Normalised(T scale, int seed)
+{
+	std::default_random_engine gen(seed);
+	std::normal_distribution<T> dis(0.0, 1.0);
+
+	for (size_t i = 0; i < v_len; i++)
+	{
+		v_data[i] = static_cast<T>(dis(gen)) * scale;
+	}
+
+	return *this;
+}
+
+template<class T>
+Vector<T>& Vector<T>::UniformDist(T low, T high)
+{
+	std::default_random_engine generator;
+	std::uniform_real_distribution<T> distribution(low, high);
+
+	for (size_t i = 0; i < v_len; i++)
+	{
+		v_data[i] = static_cast<T>(distribution(generator));
+	}
+
+	return *this;
 }
 
 #endif

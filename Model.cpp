@@ -1,4 +1,10 @@
 #include "Model.h"
+
+/*
+This model is used for training the output data as one value,
+especially for solving the numerical solution of PDE or Linear
+regression.
+*/
 float Model::Loss(const Vector<float>& y)
 {
     return y_hat.Sub(y).Sum();

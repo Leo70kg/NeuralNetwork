@@ -81,7 +81,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>D:\Software\Microsoft SDKs\MPI\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(IncludePath)</IncludePath>
     <LibraryPath>D:\Software\Microsoft SDKs\MPI\Lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -124,11 +124,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;MPICH_SKIP_MPICXX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalIncludeDirectories>D:\Software\boost\boost_1_77_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>msmpi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Software\boost\boost_1_77_0\bin\x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -154,15 +156,19 @@
     <ClCompile Include="BPNNConfiguration.cpp" />
     <ClCompile Include="BPNNDataSet.cpp" />
     <ClCompile Include="BPNNModel.cpp" />
+    <ClCompile Include="BSDEConfiguration.cpp" />
+    <ClCompile Include="BSDEDataSet.cpp" />
+    <ClCompile Include="BSDEModel.cpp" />
     <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="Equation.cpp" />
+    <ClCompile Include="HJBLQ.cpp" />
     <ClCompile Include="MnistDataSet.cpp" />
     <ClCompile Include="MnistModel.cpp" />
+    <ClCompile Include="PricingDefaultRisk.cpp" />
     <ClCompile Include="test.cpp" />
     <ClCompile Include="DataSet.cpp" />
-    <ClCompile Include="LayerBase.cpp" />
     <ClCompile Include="LRModel.cpp" />
     <ClCompile Include="Model.cpp" />
-    <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseConfiguration.h" />
@@ -171,16 +177,20 @@
     <ClInclude Include="BPNNConfiguration.h" />
     <ClInclude Include="BPNNDataSet.h" />
     <ClInclude Include="BPNNModel.h" />
+    <ClInclude Include="BSDEConfiguration.h" />
+    <ClInclude Include="BSDEDataSet.h" />
+    <ClInclude Include="BSDEModel.h" />
     <ClInclude Include="Configuration.h" />
     <ClInclude Include="DataSet.h" />
-    <ClInclude Include="Layer.h" />
-    <ClInclude Include="LayerBase.h" />
+    <ClInclude Include="Equation.h" />
+    <ClInclude Include="HJBLQ.h" />
     <ClInclude Include="LRModel.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MnistDataSet.h" />
     <ClInclude Include="MnistModel.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="OneHotVector.h" />
+    <ClInclude Include="PricingDefaultRisk.h" />
     <ClInclude Include="Utility.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
@@ -188,9 +198,15 @@
     <Text Include="config.txt" />
     <Text Include="config1.txt" />
     <Text Include="data1.txt" />
+    <Text Include="HJBtest.txt" />
     <Text Include="label.txt" />
     <Text Include="data.txt" />
     <Text Include="label1.txt" />
+    <Text Include="mnist_test_data.txt" />
+    <Text Include="mnist_test_label.txt" />
+    <Text Include="mnist_train_data.txt" />
+    <Text Include="mnist_train_label.txt" />
+    <Text Include="pricing_default_risk_d100.txt" />
     <Text Include="test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

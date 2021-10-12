@@ -22,7 +22,11 @@ public:
     virtual std::unique_ptr<Model> CreateModel();
     size_t train_epoch;
     float learning_rate;
+
+    // dimension of output value
     int category_number;
+
+    // dimension of inout value
     int feature_number;
     int batchSize;
 
@@ -32,16 +36,6 @@ public:
     std::string validateLabelPath;
     std::string modelSavePath;
     ModelType type;
-
-protected:
-   /* static int GetIntAttribute(tinyxml2::XMLElement * element, const std::string & attrName);
-    static std::string GetStringAttribute(tinyxml2::XMLElement * element, const std::string & attrName);
-    static std::string GetStringAttribute(tinyxml2::XMLElement * element, const std::string & subElement,
-        const std::string & attrName);
-    static float GetFloatValue(tinyxml2::XMLElement * element, const std::string & subElement);
-    static int GetIntValue(tinyxml2::XMLElement * element, const std::string & subElement);
-    static bool GetBooleanValue(tinyxml2::XMLElement * element, const std::string & subElement);
-    static std::vector<tinyxml2::XMLElement*> GetAllChildren(tinyxml2::XMLElement * element, const std::string & subElement);*/
 
 };
 

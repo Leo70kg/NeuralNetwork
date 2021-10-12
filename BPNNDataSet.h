@@ -2,7 +2,6 @@
 #define __BPNNDATASET_H__
 
 #include "DataSet.h"
-#include "Utility.h"
 
 class BPNNDataSet : public DataSet
 {

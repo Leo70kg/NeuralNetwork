@@ -18,9 +18,6 @@
     <ClCompile Include="test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LayerBase.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,9 +34,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BPNNDataSet.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Utility.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LRModel.cpp">
@@ -60,18 +54,30 @@
     <ClCompile Include="BaseConfiguration.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BSDEModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BSDEConfiguration.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BSDEDataSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Equation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HJBLQ.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PricingDefaultRisk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LayerBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Layer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Model.h">
@@ -90,9 +96,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BPNNDataSet.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Utility.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LRModel.h">
@@ -116,6 +119,27 @@
     <ClInclude Include="BaseConfiguration.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BSDEModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BSDEConfiguration.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BSDEDataSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Equation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HJBLQ.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PricingDefaultRisk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="data.txt">
@@ -137,6 +161,24 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="test.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="mnist_train_data.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="mnist_train_label.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="mnist_test_data.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="mnist_test_label.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="HJBtest.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="pricing_default_risk_d100.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

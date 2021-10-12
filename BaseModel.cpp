@@ -1,5 +1,9 @@
 #include "BaseModel.h"
 
+/*
+This model is used for training the output data as one-hot vector,
+especially for the classification problem.
+*/
 float BaseModel::Loss(const OneHotVector& y)
 {
     return y_hat.CrossEntropyError(y);
@@ -12,7 +16,7 @@ void BaseModel::Fit(const BaseDataSet& trainingSet, const BaseDataSet& validateS
     float loss;
     for (int i = 0; i < m_config.train_epoch; i++)
     {
-        if (i % 1000 == 0)
+        if (i % 50 == 0)
         {
             std::cout << "Epoch:" << i << std::endl;
         }
@@ -35,14 +39,18 @@ void BaseModel::Fit(const BaseDataSet& trainingSet, const BaseDataSet& validateS
                 j == trainingSet.Size() - 1)
             {
                 Update();
-                //Save("temp.txt");
             }
         }
-        float accuracy = Test(trainingSet, loss);
-        std::cout << std::endl << "In training set, accuracy : " << accuracy << " loss: " << loss << std::endl;
-        accuracy = Test(validateSet, loss);
-        std::cout << "In validate set, accuracy : " << accuracy << " loss: " << loss << std::endl << std::endl;
+        if (i % 50 == 0)
+        {
+            float accuracy = Test(trainingSet, loss);
+            std::cout << std::endl << "In training set, accuracy : " << accuracy << " loss: " << loss << std::endl;
+            accuracy = Test(validateSet, loss);
+            std::cout << "In validate set, accuracy : " << accuracy << " loss: " << loss << std::endl << std::endl;
+        }
+        
     }
+    Save();
 }
 
 float BaseModel::Test(const BaseDataSet& dataSet, float& loss)
