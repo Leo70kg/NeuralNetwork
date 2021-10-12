@@ -125,8 +125,8 @@ void BSDEModel::Update()
 
     }
 
-    y_init += y_init_diff / numOfSample;
-    z_init.Add(z_init_diff_mean.Mul(1.0f / numOfSample));
+    y_init -= y_init_diff / numOfSample;
+    z_init.Sub(z_init_diff_mean.Mul(1.0f / numOfSample));
     /*std::cout << "Update finished" << std::endl;*/
 }
 

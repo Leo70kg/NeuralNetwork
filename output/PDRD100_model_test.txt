@@ -11,3 +11,5 @@ Epoch: 800, Y0: 41.0005, Loss: 672.236
 Epoch: 900, Y0: 39.7984, Loss: 434.285
 Epoch: 1000, Y0: 38.5789, Loss: 445.035
 Epoch: 0, Y0: 33.3902, Loss: 19432.1
+Epoch: 100, Y0: nan, Loss: nan
+Epoch: 200, Y0: nan, Loss: nan
