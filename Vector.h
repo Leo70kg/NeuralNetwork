@@ -7,6 +7,7 @@
 #include <cassert>
 #include <iostream>
 #include <random>
+#include <chrono>
 #include <ctime>
 #include "Matrix.h"
 #include "OneHotVector.h"
@@ -72,7 +73,7 @@ public:
 	T Min() const;
 
 	void FanInFanOutRandomize();
-	Vector<T>& Normalised(T scale, int seed);
+	Vector<T>& Normalised(T scale);
 	Vector<T>& UniformDist(T low, T high);
 
 	Vector<T>& operator += (const Vector<T>& other);
@@ -746,12 +747,13 @@ void Vector<T>::FanInFanOutRandomize()
 }
 
 template<class T>
-Vector<T>& Vector<T>::Normalised(T scale, int seed)
+Vector<T>& Vector<T>::Normalised(T scale)
 {
+	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 	std::default_random_engine gen(seed);
 	std::normal_distribution<T> dis(0.0, 1.0);
-
-	for (size_t i = 0; i < v_len; i++)
+	
+	for (int i = 0; i < v_len; i++)
 	{
 		v_data[i] = static_cast<T>(dis(gen)) * scale;
 	}
@@ -761,7 +763,7 @@ Vector<T>& Vector<T>::Normalised(T scale, int seed)
 
 template<class T>
 Vector<T>& Vector<T>::UniformDist(T low, T high)
-{
+{	
 	std::default_random_engine generator;
 	std::uniform_real_distribution<T> distribution(low, high);
 

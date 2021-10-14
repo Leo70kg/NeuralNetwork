@@ -62,8 +62,8 @@ bool BSDEConfiguration::Load(const std::string& filePath)
     }
 
     fin.close();
-    this->feature_number = (int)config_model_param[0];
-    this->category_number = (int)config_model_param[1];
+    this->dim_input = (int)config_model_param[0];
+    this->dim_output = (int)config_model_param[1];
     this->batchSize = (int)config_model_param[2];
     this->learning_rate = config_model_param[3];
     this->train_epoch = (int)config_model_param[4];

@@ -21,10 +21,10 @@ public:
     float learning_rate;
 
     // dimension of output value
-    int category_number;
+    int dim_output;
 
-    // dimension of inout value
-    int feature_number;
+    // dimension of input value
+    int dim_input;
     int batchSize;
     std::string modelSavePath;
 

@@ -8,7 +8,7 @@ Equation::Equation(const BSDEConfiguration& config)
     num_time_interval = config.numTimeInterval;
     delta_t = config.totalTime / config.numTimeInterval;
     sqrt_delta_t = sqrt(delta_t);
-    dim = config.feature_number;
+    dim = config.dim_input;
 
     x_sample.resize(num_sample);
     dw_sample.resize(num_sample);

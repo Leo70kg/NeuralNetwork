@@ -66,20 +66,9 @@ bool PricingDefaultRisk::DwSample()
         dw_sample[i].resize(num_time_interval);
         for (int j = 0; j < num_time_interval; j++) {
             dw_sample[i][j].Resize(dim);
-            dw_sample[i][j].Normalised(sqrt_delta_t, (i + j) * (j + dim));
-        }
-
-    }
-
+			dw_sample[i][j].Normalised(sqrt_delta_t);
+		}
+	}
     return true;
 }
 
-//bool PricingDefaultRisk::YTerminal()
-//{
-//    for (int i = 0; i < num_sample; i++)
-//    {
-//         y_terminal[i] = g_tf(0.0, x_sample[i][num_time_interval]);
-//    }
-//
-//    return true;
-//}
