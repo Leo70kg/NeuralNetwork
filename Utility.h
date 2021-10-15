@@ -28,16 +28,6 @@ public:
 		
 	}
 
-	/*static T ReduceSum(const Vector<T>& other1, const Vector<T>& other2) {
-		T res = 0;
-		for (int i = 0; i < other1.Size(); ++i)
-		{
-			res += other1.Data()[i] * other2.Data()[i];
-		}
-
-		return res;
-	}*/
-
 };
 
 #endif

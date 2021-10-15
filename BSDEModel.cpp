@@ -79,8 +79,6 @@ void BSDEModel::ComputeGradient(const Equation& equation, const float y, size_t 
     float Yn_diffYn_1 = y_layers[numOfSubnet + 1][0] - y;
     
 	for (int t = numOfSubnet - 1; t >= 0; t--) {
-        //float L_diff_Yn = y_layers[numOfSubnet + 1][0] - y;
-
         (gradient_layers[(t + 1) * L - 1] = equation.GetDwSample()[index][t + 1]).Mul(Yn_diffYn_1).Mul((float)(1.0 / dim));
 
         for (int i = L - 2; i >= 0; i--)
@@ -101,19 +99,10 @@ void BSDEModel::ComputeGradient(const Equation& equation, const float y, size_t 
         }
 
         Yn_diffYn_1 *= 1 - delta_t * equation.f_tf_diff_y(y_layers[t + 1][0]);
-		//dy *= 1 - delta_t * equation.f_tf_diff_y(y_layers[t+1][0]);
 	}
 	dz.AddMul(Yn_diffYn_1, equation.GetDwSample()[index][0]);
-	//dy *= 1 - delta_t * equation.f_tf_diff_y(y_layers[0][0]);
-	
 	dy += Yn_diffYn_1 * (1 - delta_t * equation.f_tf_diff_y(y_layers[0][0]));
 
-
-	//std::cout << "Yn_diffYn_1: " << dy << std::endl;
-    // y_init_diff += Yn_diffYn_1 * (1 - delta_t * equation.f_tf_diff_y(y_layers[0][0]));
-	
-	// (z_init_diff = equation.GetDwSample()[index][0]).Mul(Yn_diffYn_1);
-	//z_init_diff_mean.Add(z_init_diff);
 }
 
 void BSDEModel::Update()
@@ -238,36 +227,9 @@ void BSDEModel::Fit(const Equation& equation)
             {
                 Update();
 			}
-			
-			//float new_pred = Eval(equation, j);
-			
-			/*
-			if (j < 3) {
-				std::cout << "pred: " << pred << std::endl;
-				std::cout << "new pred: " << new_pred << std::endl;
-				std::cout << "true: " << y << std::endl;
-			}
-			*/
-			/*
-			delta1 = (new_pred - y) * dy;
-			delta2 = dz.Mul(new_pred - y);
-			
-			//std::cout << "delta1: " << delta1 << std::endl;
-			//std::cout << "dy: " << dy << std::endl;
-			y_diff -= (0.005 * delta1);
-			z_diff.Sub(delta2.Mul(0.001));
-			*/
-			//std::cout << "y_init: " << y_init << std::endl << std::endl;
-        }
-		
+		}	
 		std::cout << "y_init: " << y_init << std::endl;
 		std::cout << "true mean: " << sum / m_config.sampleSize << std::endl;
-		
-		//y_init = y_diff;
-		//z_init = z_diff;
-		
-		//y_init -= delta / m_config.sampleSize;
-		
 
         if (i % 100 == 0)
         {
