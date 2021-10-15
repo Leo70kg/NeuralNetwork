@@ -1,3 +1,5 @@
+#include <random>
+#include <chrono>
 #include "PricingDefaultRisk.h"
 #include "Utility.h"
 
@@ -63,10 +65,21 @@ bool PricingDefaultRisk::DwSample()
 {
     for (int i = 0; i < num_sample; i++)
     {
-        dw_sample[i].resize(num_time_interval);
-        for (int j = 0; j < num_time_interval; j++) {
+        unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();  
+		std::default_random_engine gen(seed);  
+		std::normal_distribution<float> dis(0.0, 1.0);
+		
+		dw_sample[i].resize(num_time_interval);
+        
+		for (int j = 0; j < num_time_interval; j++) {
             dw_sample[i][j].Resize(dim);
-			dw_sample[i][j].Normalised(sqrt_delta_t);
+			
+			for (int k = 0; k < dim; k++)
+			{
+				dw_sample[i][j][k] = static_cast<float>(dis(gen)) * sqrt_delta_t;
+			}
+		
+			//dw_sample[i][j].Normalised(sqrt_delta_t);
 		}
 	}
     return true;

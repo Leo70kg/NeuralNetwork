@@ -96,3 +96,8 @@ Epoch: 100, Y0: 41.4654, Loss: 359.416
 Epoch: 0, Y0: 62.6387, Loss: 60567.1
 Epoch: 0, Y0: 61.9471, Loss: 100866
 Epoch: 0, Y0: 64.2651, Loss: 73388.5
+Epoch: 0, Y0: 64.0003, Loss: 73438.7
+Epoch: 0, Y0: 55.8515, Loss: 27130.1
+Epoch: 0, Y0: 55.8968, Loss: 30452
+Epoch: 0, Y0: 55.91, Loss: 11046.3
+Epoch: 0, Y0: 64.3152, Loss: 22827.3
