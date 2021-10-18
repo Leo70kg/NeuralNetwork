@@ -1,6 +1,6 @@
 dim_input: 20
 dim_output: 20
-batchSize: 1
+batchSize: 256
 learning_rate: 0.008
 train_epoch: 1500
 total_time: 1
