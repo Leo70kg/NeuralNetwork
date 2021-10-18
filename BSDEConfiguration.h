@@ -26,7 +26,8 @@ public:
     // dimension of input value
     int dim_input;
     int batchSize;
-    std::string modelSavePath;
+	int logging_frequency;
+	std::string modelSaveName;
 
     float totalTime;
     int numTimeInterval;
