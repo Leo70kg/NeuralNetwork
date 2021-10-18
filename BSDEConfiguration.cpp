@@ -25,12 +25,12 @@ bool BSDEConfiguration::Load(const std::string& filePath)
         s = s.substr(i + 1, s.length() - i);
         s.erase(remove_if(s.begin(), s.end(), ::isspace), s.end());
 
-        if (count < 9)
+        if (count < 10)
         {
             // convert the remaining text to an integer
             config_model_param.push_back(std::stof(s.c_str()));
         }
-        else if (count == 9)
+        else if (count == 10)
         {
             size_t pos = 0;
             std::string token;
@@ -42,7 +42,7 @@ bool BSDEConfiguration::Load(const std::string& filePath)
             }
             this->yInitRange.push_back(std::stof(s));
         }
-        else if (count == 10)
+        else if (count == 11)
         {
             size_t pos = 0;
             std::string token;
@@ -71,8 +71,8 @@ bool BSDEConfiguration::Load(const std::string& filePath)
     this->numTimeInterval = (int)config_model_param[6];
     this->sampleSize = (int)config_model_param[7];
     this->subnetLayerNumber = (int)config_model_param[8];
-
-    this->modelSavePath = config_file_param[0];
+	this->logging_frequency = (int)config_model_param[9];
+    this->modelSaveName = config_file_param[0];
     std::cout << "Config data loaded successfully!" << std::endl;
 
     return true;

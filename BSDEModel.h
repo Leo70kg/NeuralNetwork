@@ -2,10 +2,12 @@
 #define __BSDEMODEL_H__
 
 #include <memory>
+#include <time.h>
+#include <string>
 #include "Vector.h"
 #include "Equation.h"
 #include "BSDEConfiguration.h"
-#include <string>
+
 
 class BSDEModel
 {
@@ -20,7 +22,7 @@ public:
     void ClearGradient();
     float Loss(float y, float y_pred);
     bool Save(int epoch);
-
+	bool SaveInit();
 
 private:
     const BSDEConfiguration& m_config;
@@ -42,7 +44,9 @@ private:
     float delta_t;
     float y_hat;
     float loss;
-
+	
+	std::string save_file_path;
+	clock_t start, end;
 };
 
 

@@ -7,6 +7,9 @@ BSDEModel::BSDEModel(const BSDEConfiguration& config) : m_config(config)
     int L = m_config.subnetLayerNumber;     // layer number in each subnet
     delta_t = m_config.totalTime / m_config.numTimeInterval;
 
+	save_file_path = "output/" + m_config.modelSaveName + Utility<float>::currentTimeStampToString();
+	SaveInit();
+
     std::default_random_engine generator;
     std::uniform_real_distribution<float> distribution(m_config.yInitRange[0], m_config.yInitRange[1]);
     y_init = distribution(generator);
@@ -40,6 +43,7 @@ BSDEModel::BSDEModel(const BSDEConfiguration& config) : m_config(config)
     }
 
     Setup();
+	start = clock();
 }
 
 void BSDEModel::Setup()
@@ -178,13 +182,34 @@ void BSDEModel::ClearGradient()
 	dz.Reset(0.0);
 }
 
+bool BSDEModel::SaveInit()
+{
+	std::ofstream fout(save_file_path, std::ios::app);
+
+    fout << "Dimension: " << m_config.dim_input << "\n";
+	fout << "Total time: " << m_config.totalTime << "\n";
+    fout << "Number of time intervals: " << m_config.numTimeInterval << "\n";
+	fout << "y_init_range: " << m_config.yInitRange[0] << ", " << m_config.yInitRange[1] << "\n";
+	fout << "Number of neurons in each hidden layer of each subnet: ";
+	for (int i = 0; i < m_config.subnetLayerNumber - 1; i++)
+	{
+		fout << m_config.subnetHiddenLayerSizes[i] << ", ";
+	}
+
+	fout << "\nEpochs: " << m_config.train_epoch << "\n";
+	fout << "Batch size: " << m_config.batchSize << "\n";
+	fout << "Sample size: " << m_config.sampleSize << "\n";
+	fout << "Logging frequency: " << m_config.logging_frequency << "\n\n\nTraining:\n";
+
+    return true;
+}
+
 bool BSDEModel::Save(int epoch)
 {
-	std::string folder_name = "output/";
-	std::string file_path = folder_name + m_config.modelSavePath.c_str();
-    std::ofstream fout(file_path, std::ios::app);
+    std::ofstream fout(save_file_path, std::ios::app);
+	end = clock();
 
-    fout << "\nEpoch: " << epoch << ", Y0: " << y_init << ", Loss: " << loss;
+    fout << "Epoch: " << epoch << ", Y0: " << y_init << ", Loss: " << loss << ", Runtime(sec): " << (double)(end - start) / CLOCKS_PER_SEC << "\n";
     
     return true;
 }
@@ -199,7 +224,7 @@ void BSDEModel::Fit(const Equation& equation)
 {
 	int numTimeInterval = m_config.numTimeInterval;
 
-	for (int i = 0; i < m_config.train_epoch; i++)
+	for (int i = 1; i <= m_config.train_epoch; i++)
     {   
 		//std::cout << "echo: " << i << std::endl;
 		loss = 0.0;
@@ -228,10 +253,10 @@ void BSDEModel::Fit(const Equation& equation)
                 Update();
 			}
 		}	
-		std::cout << "y_init: " << y_init << std::endl;
-		std::cout << "true mean: " << sum / m_config.sampleSize << std::endl;
+		//std::cout << "y_init: " << y_init << std::endl;
+		//std::cout << "true mean: " << sum / m_config.sampleSize << std::endl;
 
-        if (i % 100 == 0)
+        if (i % m_config.logging_frequency == 0)
         {
             Save(i);
             std::cout << "Epoch:" << i << std::endl;
