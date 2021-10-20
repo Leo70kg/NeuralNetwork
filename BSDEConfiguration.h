@@ -15,7 +15,7 @@ public:
 	static std::unique_ptr<BSDEConfiguration> CreateConfiguration(const std::string & filePath);
     virtual bool Load(const std::string & filePath);
     virtual bool Save(const std::string & filePath);
-    virtual std::unique_ptr<BSDEModel> CreateModel();
+    virtual std::unique_ptr<BSDEModel> CreateModel(const int rank, const int nprocs);
     
     int train_epoch;
     float learning_rate;

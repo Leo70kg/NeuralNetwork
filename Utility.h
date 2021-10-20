@@ -1,6 +1,7 @@
 #ifndef __UTILITY_H__
 #define __UTILITY_H__
 
+#include <mpi.h>
 #include <iostream>
 #include <algorithm>
 #include <chrono>
@@ -40,6 +41,14 @@ public:
 		str += ".txt";
 
 		return str;
+	}
+
+	static void addTheElem(float* in, float* inout, int* len, MPI_Datatype* datatype)
+	{
+		for (int i = 0; i < *len; i++)
+		{
+			inout[i] += in[i];
+		}
 	}
 
 };

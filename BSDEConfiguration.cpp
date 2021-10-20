@@ -83,9 +83,9 @@ bool BSDEConfiguration::Save(const std::string& filePath)
     return true;
 }
 
-std::unique_ptr<BSDEModel> BSDEConfiguration::CreateModel()
+std::unique_ptr<BSDEModel> BSDEConfiguration::CreateModel(const int rank, const int nprocs)
 {
-    return std::unique_ptr<BSDEModel>(new BSDEModel(*this));
+    return std::unique_ptr<BSDEModel>(new BSDEModel(*this, rank, nprocs));
 }
 
 std::unique_ptr<BSDEConfiguration> BSDEConfiguration::CreateConfiguration(const std::string& filePath)

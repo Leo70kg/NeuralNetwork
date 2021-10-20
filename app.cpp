@@ -1,6 +1,4 @@
-﻿#include <stdio.h>
-#include <iostream>
-#include <iomanip> 
+﻿#include <mpi.h>
 #include "Vector.h"
 #include "Matrix.h"
 #include "BSDEModel.h"
@@ -13,6 +11,12 @@ int main(int argc, char* argv[])
 {
 	BSDEConfiguration* config = new BSDEConfiguration();
 	config->Load("config/pricing_default_risk.txt");
+	Equation* pricingDefaultRisk = new PricingDefaultRisk(*config);
+	
+	int myrank, nprocs;
+	MPI_Init(&argc, &argv);
+	MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
+	MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
 
 	/*
 	std::cout << config->dim_input << " " << config->dim_output << std::endl;
@@ -27,13 +31,13 @@ int main(int argc, char* argv[])
 	std::cout << config->logging_frequency << std::endl;
 	*/
 
-	Equation* pricingDefaultRisk = new PricingDefaultRisk(*config);
-
-	std::unique_ptr<BSDEModel> lr = config->CreateModel();
+	std::unique_ptr<BSDEModel> lr = config->CreateModel(myrank, nprocs);
 	lr->Fit(*pricingDefaultRisk);
 
 	delete pricingDefaultRisk;
-	
+
+	MPI_Finalize();
+
 	return 0;
 }
 

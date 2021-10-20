@@ -4,6 +4,7 @@
 #include <memory>
 #include <time.h>
 #include <string>
+#include <mpi.h>
 #include "Vector.h"
 #include "Equation.h"
 #include "BSDEConfiguration.h"
@@ -13,7 +14,7 @@ class BSDEModel
 {
 public:
     BSDEModel() = default;
-    BSDEModel(const BSDEConfiguration& _config);
+    BSDEModel(const BSDEConfiguration& _config, const int _rank, const int _nprocs);
     void Fit(const Equation& equation);
     void Setup();
     void ComputeGradient(const Equation& equation, const float y, size_t index);
@@ -26,19 +27,23 @@ public:
 
 private:
     const BSDEConfiguration& m_config;
-    std::vector<Matrix<float>> weights;
+    const int m_rank;
+	const int m_nprocs;
+	int root_rank;
+	std::vector<Matrix<float>> weights;
     std::vector<Matrix<float>> d_weights;
     std::vector<Vector<float>> layers;
     std::vector<Vector<float>> activate_layers;
     std::vector<Vector<float>> gradient_layers;
     std::vector<Vector<float>> y_layers;
+	
+	// Used in MPI_Reduce: to sum up the updated weights in each process.
+	std::vector<Matrix<float>> sum_weights;
 
 	float dy;
 	Vector<float> dz;
 
     float y_init;
-    float y_init_diff;
-
     Vector<float> z_init;
 
     float delta_t;

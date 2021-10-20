@@ -1,15 +1,19 @@
 #include "BSDEModel.h"
 #include "Utility.h"
 
-BSDEModel::BSDEModel(const BSDEConfiguration& config) : m_config(config)
+BSDEModel::BSDEModel(const BSDEConfiguration& config, const int rank, const int nprocs) : m_config(config), m_rank(rank), m_nprocs(nprocs)
 {   
     int numOfSubnet = m_config.numTimeInterval - 1;
     int L = m_config.subnetLayerNumber;     // layer number in each subnet
     delta_t = m_config.totalTime / m_config.numTimeInterval;
+	root_rank = 0;
 
-	save_file_path = "output/" + m_config.modelSaveName + Utility<float>::currentTimeStampToString();
-	SaveInit();
-
+	if (m_rank == root_rank)
+	{
+		save_file_path = "output/" + m_config.modelSaveName + Utility<float>::currentTimeStampToString();
+		SaveInit();
+	}
+	
     std::default_random_engine generator;
     std::uniform_real_distribution<float> distribution(m_config.yInitRange[0], m_config.yInitRange[1]);
     y_init = distribution(generator);
@@ -21,6 +25,7 @@ BSDEModel::BSDEModel(const BSDEConfiguration& config) : m_config(config)
 	dz.Resize(m_config.dim_input);
 	
     weights.resize(L * numOfSubnet);
+	sum_weights.resize(L * numOfSubnet);
 
     for (int t = 0; t < numOfSubnet; t++) {
     
@@ -31,15 +36,15 @@ BSDEModel::BSDEModel(const BSDEConfiguration& config) : m_config(config)
 
 			weights[i + t * L] = Matrix<float>(hidden,
                 i == 0 ? m_config.dim_input : m_config.subnetHiddenLayerSizes[i - 1]);
-        }
-
+		}
         weights[L - 1 + t * L] = Matrix<float>(m_config.dim_output, m_config.subnetHiddenLayerSizes.back());
-          
+
         std::srand(123456789);
         for (int i = 0; i < L; i++)
         {
             weights[i + t * L].FanInFanOutRandomize();
-        }
+			sum_weights[i + t * L].Resize(weights[i + t * L].Row(), weights[i + t * L].Col());
+		}
     }
 
     Setup();
@@ -223,23 +228,34 @@ float BSDEModel::Loss(float y, float y_pred)
 void BSDEModel::Fit(const Equation& equation)
 {
 	int numTimeInterval = m_config.numTimeInterval;
+	int numOfSubnet = m_config.numTimeInterval - 1;
+    int L = m_config.subnetLayerNumber;     // layer number in each subnet
+	
+	MPI_Op myOp;
+	MPI_Op_create((MPI_User_function*)Utility<float>::addTheElem, true, &myOp);
 
+	float total_loss = 0.0;
+	float total_y_init = 0.0;
+	Vector<float> total_z_init(z_init.Size());
 	for (int i = 1; i <= m_config.train_epoch; i++)
     {   
 		//std::cout << "echo: " << i << std::endl;
 		loss = 0.0;
         
-		float sum = 0.0;
+		//float sum = 0.0;
 		for (int j = 0; j < m_config.sampleSize; j++)
         {
+			int chuckSize = m_config.sampleSize / m_nprocs; 
+			if (j < chuckSize * m_rank || j > chuckSize * (m_rank + 1)) continue;
+			
 			float y = equation.g_tf(0.0, equation.GetXSample()[j][numTimeInterval]);
-			sum += y;  
+			//sum += y;  
 
             if (j % m_config.batchSize == 0)
             {
                 ClearGradient();
             }
-
+			
             float pred = Eval(equation, j);
             ComputeGradient(equation, y, j);
             
@@ -252,17 +268,55 @@ void BSDEModel::Fit(const Equation& equation)
             {
                 Update();
 			}
-		}	
+		}
+
 		//std::cout << "y_init: " << y_init << std::endl;
 		//std::cout << "true mean: " << sum / m_config.sampleSize << std::endl;
+		
+		MPI_Barrier(MPI_COMM_WORLD);
+		
+		MPI_Reduce(&loss, &total_loss, 1, MPI_FLOAT, MPI_SUM, root_rank, MPI_COMM_WORLD);
+		MPI_Reduce(&y_init, &total_y_init, 1, MPI_FLOAT, MPI_SUM, root_rank, MPI_COMM_WORLD);
 
-        if (i % m_config.logging_frequency == 0)
-        {
-            Save(i);
-            std::cout << "Epoch:" << i << std::endl;
-            std::cout << "In training set, loss: " << loss / equation.GetXSample().size() << ", Y0: " << y_init << std::endl << std::endl;
-        }
+		// Send updated weights parameters in each process to root process.
+		for (int k = 0; k < L * numOfSubnet; k++)
+		{
+			MPI_Reduce(weights[k].Data(), sum_weights[k].Data(), weights[k].Row() * weights[k].Col(), MPI_FLOAT, myOp, root_rank, MPI_COMM_WORLD);
+		}
+		
+		MPI_Reduce(z_init.Data(), total_z_init.Data(), z_init.Size(), MPI_FLOAT, myOp, root_rank, MPI_COMM_WORLD);
 
-    }
+		if (m_rank == root_rank)
+		{
+			for (int k = 0; k < L * numOfSubnet; k++)
+			{
+				(weights[k] = sum_weights[k]).Div(m_nprocs);
+			}
+			
+			y_init = total_y_init / m_nprocs;
+			(z_init = total_z_init).Div(m_nprocs);
+
+			if (i % m_config.logging_frequency == 0)
+			{
+				Save(i);
+				std::cout << "Epoch:" << i << std::endl;
+				std::cout << "In training set, loss: " << total_loss / equation.GetXSample().size() << ", Y0: " << y_init << std::endl << std::endl;
+			}
+		}
+		
+		for (int k = 0; k < L * numOfSubnet; k++)
+		{
+			MPI_Bcast(weights[k].Data(), weights[k].Row() * weights[k].Col(), MPI_FLOAT, root_rank, MPI_COMM_WORLD);
+		}
+
+		MPI_Bcast(&y_init, 1, MPI_FLOAT, root_rank, MPI_COMM_WORLD);
+		MPI_Bcast(z_init.Data(), z_init.Size(), MPI_FLOAT, root_rank, MPI_COMM_WORLD);
+    
+		MPI_Barrier(MPI_COMM_WORLD);
+	}
+
+	MPI_Op_free(&myOp);
     
 }
+
+
