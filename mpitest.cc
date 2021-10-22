@@ -15,6 +15,16 @@ void pushTheElem(float* in, float* inout, int *len, MPI_Datatype *datatype) {
 
 int main(int argc, char* argv[])
 {
+	
+	
+	std::cout << argv[1] << std::endl;
+	if (argv[1] == NULL) 
+	{
+		printf("please enter the file name.\n");
+		exit(0);
+	}
+	std::string filename = argv[1];
+	std::cout << filename << std::endl;
 	int myrank;
 	int nprocs;
 	int source;

@@ -1,6 +1,4 @@
-OBJS 	= BSDEConfiguration.o BSDEModel.o Equation.o HJBLQ.o PricingDefaultRisk.o app.o 
-SOURCE 	= BSDEConfiguration.cpp BSDEModel.cpp Equation.cpp HJBLQ.cpp PricingDefaultRisk.cpp app.cpp 
-HEADER 	= BSDEConfiguration.h BSDEModel.h Equation.h HJBLQ.h Matrix.h OneHotVector.h PricingDefaultRisk.h Utility.h Vector.h 
+OBJS 	= BSDEConfiguration.o BSDEModel.o Equation.o HJBLQ.o PricingDefaultRisk.o AllenCahn.o app.o 
 
 OUT 	= BSDE.out 
 CC  	= g++ 
@@ -22,6 +20,8 @@ BSDEModel.o: BSDEModel.cpp BSDEModel.h
 Equation.o: Equation.cpp Equation.h 
 
 HJBLQ.o: HJBLQ.cpp HJBLQ.h
+
+AllenCahn.o: AllenCahn.cpp AllenCahn.h
 
 PricingDefaultRisk.o: PricingDefaultRisk.cpp PricingDefaultRisk.h  
 

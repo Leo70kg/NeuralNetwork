@@ -1,15 +1,15 @@
-#ifndef __HJBLQ_H__
-#define __HJBLQ_H__
+#ifndef __ALLENCAHN_H__
+#define __ALLENCAHN_H__
 
 #include "Vector.h"
 #include "Equation.h"
 
-class HJBLQ : public Equation
+class AllenCahn : public Equation
 {
 public:
-    HJBLQ() = default;
-    HJBLQ(const BSDEConfiguration& config);
-	~HJBLQ();
+    AllenCahn() = default;
+	AllenCahn(const BSDEConfiguration& config);
+	~AllenCahn();
 	float f_tf(float t, const Vector<float>& x, float y, const Vector<float>& z) const override;
     float f_tf_diff_y(float y) const override;
     void f_tf_diff_z(Vector<float>& diff_z, const Vector<float>& z) const override;
@@ -19,7 +19,7 @@ public:
 
 private:
     float sigma;
-    float lambd;
+    
 };
 
 #endif

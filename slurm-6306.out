@@ -1,0 +1,111 @@
+ModuleCmd_Load.c(213):ERROR:105: Unable to locate a modulefile for 'gcc'
+ModuleCmd_Load.c(213):ERROR:105: Unable to locate a modulefile for 'openmpi'
+Config data loaded successfully!
+Config data loaded successfully!
+Config data loaded successfully!
+Config data loaded successfully!
+Epoch:100
+In training set, loss: 927.655, Y0: 53.7724
+
+Epoch:200
+In training set, loss: 669.787, Y0: 53.8347
+
+Epoch:300
+In training set, loss: 544.736, Y0: 53.8837
+
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 6306 ON hpc01 CANCELLED AT 2021-10-21T21:51:29 ***
+slurmstepd: error: *** STEP 6306.0 ON hpc01 CANCELLED AT 2021-10-21T21:51:29 ***
+
+
+###############################################################################
+TCHPC Cluster: chuck
+Job 6306 (BSDE_job_4_procs) for User 'zuoy' in Account 'mschpc'
+Finished at: Thu Oct 21 21:51:29 IST 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 6306
+Cluster: chuck
+User/Group: zuoy/zuoy
+State: CANCELLED (exit code 0)
+Nodes: 1
+Cores per node: 4
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 00:39:08 core-walltime
+Job Wall-clock time: 00:09:47
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 15.43 GB (15.43 GB/node)
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+6306         BSDE_job_+         4             1                                                      00:09:47 CANCELLED+      0:0 
+6306.batch        batch         4      1      1                                                      00:09:47  CANCELLED      0:0 
+6306.0        pmi_proxy         1      1      1                                                      00:09:47  CANCELLED      0:0 
+
+
+Job details:
+============
+
+JobId=6306 JobName=BSDE_job_4_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=401839 Nice=0 Account=mschpc QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   DerivedExitCode=0:0
+   RunTime=00:09:47 TimeLimit=01:00:00 TimeMin=N/A
+   SubmitTime=2021-10-21T21:20:40 EligibleTime=2021-10-21T21:20:40
+   AccrueTime=2021-10-21T21:20:40
+   StartTime=2021-10-21T21:41:42 EndTime=2021-10-21T21:51:29 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-10-21T21:41:42
+   Partition=compute AllocNode:Sid=chuck:4333
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=hpc01
+   BatchHost=hpc01
+   NumNodes=1 NumCPUs=4 NumTasks=4 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=4,mem=15800M,node=1,billing=4
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+     Nodes=hpc01 CPU_IDs=0-3 Mem=15800 GRES=
+   MinCPUsNode=1 MinMemoryNode=15800M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/Dissertation/NeuralNetwork/myscript.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/Dissertation/NeuralNetwork
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/Dissertation/NeuralNetwork/slurm-6306.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/Dissertation/NeuralNetwork/slurm-6306.out
+   Power=
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+burkel8            0 |         MSCHPC         3 |       315,360   315,357
+gavind3            0 |         MSCHPC         3 |       315,360   315,357
+ibarj              0 |         MSCHPC         3 |       315,360   315,357
+jose               0 |         MSCHPC         3 |       315,360   315,357
+maguic10           0 |         MSCHPC         3 |       315,360   315,357
+mjp                0 |         MSCHPC         3 |       315,360   315,357
+murras11           0 |         MSCHPC         3 |       315,360   315,357
+paddy              0 |         MSCHPC         3 |       315,360   315,357
+parfreyk           0 |         MSCHPC         3 |       315,360   315,357
+rmcsorle           0 |         MSCHPC         3 |       315,360   315,357
+zuoy               3 |         MSCHPC         3 |       315,360   315,357
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################

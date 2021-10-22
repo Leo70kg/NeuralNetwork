@@ -5,14 +5,45 @@
 #include "BSDEConfiguration.h"
 #include "Utility.h"
 #include "PricingDefaultRisk.h"
+#include "HJBLQ.h"
+#include "AllenCahn.h"
 
 
 int main(int argc, char* argv[])
 {
-	BSDEConfiguration* config = new BSDEConfiguration();
-	config->Load("config/pricing_default_risk.txt");
-	Equation* pricingDefaultRisk = new PricingDefaultRisk(*config);
+	if (argv[1] == NULL || argv[2] == NULL)
+	{
+		printf("Please enter the file name or equation name.\n");
+		exit(0);
+	}
+	std::string filepath;
+	filepath += "config/";
+	filepath += argv[1];
 	
+	BSDEConfiguration* config = new BSDEConfiguration();
+	config->Load(filepath);
+	
+	Equation* equation;
+
+	switch(argv[2][0]) 
+	{    
+		case 'H':
+			equation = new HJBLQ(*config);
+			break; 
+
+		case 'P':
+			equation = new PricingDefaultRisk(*config);   
+			break; 
+
+		case 'A':
+			equation = new AllenCahn(*config);
+			break;
+
+		default:
+			printf("Please choose a PDE\n");
+			exit(0);
+	}
+
 	int myrank, nprocs;
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
@@ -32,9 +63,9 @@ int main(int argc, char* argv[])
 	*/
 
 	std::unique_ptr<BSDEModel> lr = config->CreateModel(myrank, nprocs);
-	lr->Fit(*pricingDefaultRisk);
-
-	delete pricingDefaultRisk;
+	lr->Fit(*equation);
+	
+	delete equation;
 
 	MPI_Finalize();
 

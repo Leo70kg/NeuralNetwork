@@ -1,0 +1,129 @@
+ModuleCmd_Load.c(213):ERROR:105: Unable to locate a modulefile for 'gcc'
+ModuleCmd_Load.c(213):ERROR:105: Unable to locate a modulefile for 'openmpi'
+Config data loaded successfully!
+Config data loaded successfully!
+Config data loaded successfully!
+Config data loaded successfully!
+Epoch:100
+In training set, loss: 205.429, Y0: 51.0685
+
+Epoch:200
+In training set, loss: 74.1369, Y0: 51.0837
+
+Epoch:300
+In training set, loss: 36.166, Y0: 51.082
+
+Epoch:400
+In training set, loss: 19.986, Y0: 51.0783
+
+Epoch:500
+In training set, loss: 11.7731, Y0: 51.0746
+
+Epoch:600
+In training set, loss: 7.2115, Y0: 51.0712
+
+Epoch:700
+In training set, loss: 4.539, Y0: 51.0684
+
+Epoch:800
+In training set, loss: 2.91654, Y0: 51.066
+
+Epoch:900
+In training set, loss: 1.90465, Y0: 51.0642
+
+Epoch:1000
+In training set, loss: 1.26146, Y0: 51.0627
+
+
+
+###############################################################################
+TCHPC Cluster: chuck
+Job 6310 (BSDE_job_4_procs) for User 'zuoy' in Account 'mschpc'
+Finished at: Thu Oct 21 23:44:17 IST 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 6310
+Cluster: chuck
+User/Group: zuoy/zuoy
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 4
+CPU Utilized: 03:26:58
+CPU Efficiency: 99.86% of 03:27:16 core-walltime
+Job Wall-clock time: 00:51:49
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 15.43 GB (15.43 GB/node)
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+6310         BSDE_job_+         4             1                                                      00:51:49  COMPLETED      0:0 
+6310.batch        batch         4      1      1          0         hpc01            0            0   00:51:49  COMPLETED      0:0 
+6310.0        pmi_proxy         1      1      1          0         hpc01            0            0   00:51:49  COMPLETED      0:0 
+
+
+Job details:
+============
+
+JobId=6310 JobName=BSDE_job_4_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=401633 Nice=0 Account=mschpc QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   DerivedExitCode=0:0
+   RunTime=00:51:49 TimeLimit=05:00:00 TimeMin=N/A
+   SubmitTime=2021-10-21T22:52:28 EligibleTime=2021-10-21T22:52:28
+   AccrueTime=2021-10-21T22:52:28
+   StartTime=2021-10-21T22:52:28 EndTime=2021-10-21T23:44:17 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-10-21T22:52:28
+   Partition=compute AllocNode:Sid=chuck:4333
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=
+   BatchHost=hpc01
+   NumNodes=1 NumCPUs=4 NumTasks=4 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=4,mem=15800M,node=1,billing=4
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+     Nodes=hpc01 CPU_IDs=0-3 Mem=15800 GRES=
+   MinCPUsNode=1 MinMemoryNode=15800M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/Dissertation/NeuralNetwork/myscript.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/Dissertation/NeuralNetwork
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/Dissertation/NeuralNetwork/slurm-6310.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/Dissertation/NeuralNetwork/slurm-6310.out
+   Power=
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+burkel8            0 |         MSCHPC         9 |       315,360   315,351
+gavind3            0 |         MSCHPC         9 |       315,360   315,351
+ibarj              0 |         MSCHPC         9 |       315,360   315,351
+jose               0 |         MSCHPC         9 |       315,360   315,351
+maguic10           0 |         MSCHPC         9 |       315,360   315,351
+mjp                0 |         MSCHPC         9 |       315,360   315,351
+murras11           0 |         MSCHPC         9 |       315,360   315,351
+paddy              0 |         MSCHPC         9 |       315,360   315,351
+parfreyk           0 |         MSCHPC         9 |       315,360   315,351
+rmcsorle           0 |         MSCHPC         9 |       315,360   315,351
+zuoy               9 |         MSCHPC         9 |       315,360   315,351
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################

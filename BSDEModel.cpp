@@ -48,7 +48,8 @@ BSDEModel::BSDEModel(const BSDEConfiguration& config, const int rank, const int 
     }
 
     Setup();
-	start = clock();
+	MPI_Barrier(MPI_COMM_WORLD);
+	start = MPI_Wtime();
 }
 
 void BSDEModel::Setup()
@@ -109,7 +110,18 @@ void BSDEModel::ComputeGradient(const Equation& equation, const float y, size_t 
 
         Yn_diffYn_1 *= 1 - delta_t * equation.f_tf_diff_y(y_layers[t + 1][0]);
 	}
-	dz.AddMul(Yn_diffYn_1, equation.GetDwSample()[index][0]);
+	
+	Vector<float> diff_z; 
+	equation.f_tf_diff_z(diff_z, z_init); 
+	if (diff_z.Size() == 0) 
+	{
+		dz.AddMul(Yn_diffYn_1, equation.GetDwSample()[index][0]);
+	}
+	else
+	{
+		diff_z.Mul(-delta_t).Add(equation.GetDwSample()[index][0]);
+		dz.AddMul(Yn_diffYn_1, diff_z);
+	}
 	dy += Yn_diffYn_1 * (1 - delta_t * equation.f_tf_diff_y(y_layers[0][0]));
 
 }
@@ -132,8 +144,8 @@ void BSDEModel::Update()
 	dy /= (float) m_config.batchSize;
 	dz.Div((float)m_config.batchSize);
 
-	y_init -= 0.01 * dy;
-	z_init.Sub(0.01, dz);
+	y_init -= m_config.learning_rate * dy;
+	z_init.Sub(m_config.learning_rate, dz);
 
     /*std::cout << "Update finished" << std::endl;*/
 }
@@ -204,7 +216,8 @@ bool BSDEModel::SaveInit()
 	fout << "\nEpochs: " << m_config.train_epoch << "\n";
 	fout << "Batch size: " << m_config.batchSize << "\n";
 	fout << "Sample size: " << m_config.sampleSize << "\n";
-	fout << "Logging frequency: " << m_config.logging_frequency << "\n\n\nTraining:\n";
+	fout << "Logging frequency: " << m_config.logging_frequency << "\n";
+	fout << "Number of processors: " << m_nprocs << "\n\n\nTraining:\n";
 
     return true;
 }
@@ -212,9 +225,9 @@ bool BSDEModel::SaveInit()
 bool BSDEModel::Save(int epoch)
 {
     std::ofstream fout(save_file_path, std::ios::app);
-	end = clock();
+	end = MPI_Wtime();
 
-    fout << "Epoch: " << epoch << ", Y0: " << y_init << ", Loss: " << loss << ", Runtime(sec): " << (double)(end - start) / CLOCKS_PER_SEC << "\n";
+    fout << "Epoch: " << epoch << ", Y0: " << y_init << ", Loss: " << total_loss << ", Runtime(sec): " << end - start << "\n";
     
     return true;
 }
@@ -234,13 +247,13 @@ void BSDEModel::Fit(const Equation& equation)
 	MPI_Op myOp;
 	MPI_Op_create((MPI_User_function*)Utility<float>::addTheElem, true, &myOp);
 
-	float total_loss = 0.0;
+	total_loss = 0.0;
 	float total_y_init = 0.0;
 	Vector<float> total_z_init(z_init.Size());
 	for (int i = 1; i <= m_config.train_epoch; i++)
     {   
 		//std::cout << "echo: " << i << std::endl;
-		loss = 0.0;
+		float loss = 0.0;
         
 		//float sum = 0.0;
 		for (int j = 0; j < m_config.sampleSize; j++)
@@ -294,14 +307,7 @@ void BSDEModel::Fit(const Equation& equation)
 			}
 			
 			y_init = total_y_init / m_nprocs;
-			(z_init = total_z_init).Div(m_nprocs);
-
-			if (i % m_config.logging_frequency == 0)
-			{
-				Save(i);
-				std::cout << "Epoch:" << i << std::endl;
-				std::cout << "In training set, loss: " << total_loss / equation.GetXSample().size() << ", Y0: " << y_init << std::endl << std::endl;
-			}
+			(z_init = total_z_init).Div(m_nprocs);	
 		}
 		
 		for (int k = 0; k < L * numOfSubnet; k++)
@@ -311,7 +317,16 @@ void BSDEModel::Fit(const Equation& equation)
 
 		MPI_Bcast(&y_init, 1, MPI_FLOAT, root_rank, MPI_COMM_WORLD);
 		MPI_Bcast(z_init.Data(), z_init.Size(), MPI_FLOAT, root_rank, MPI_COMM_WORLD);
-    
+	
+		if (m_rank == root_rank)
+		{
+			if (i % m_config.logging_frequency == 0)
+			{
+				Save(i);
+				std::cout << "Epoch:" << i << std::endl;
+				std::cout << "In training set, loss: " << total_loss << ", Y0: " << y_init << std::endl << std::endl;
+			}
+		}
 		MPI_Barrier(MPI_COMM_WORLD);
 	}
 

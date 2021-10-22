@@ -36,7 +36,10 @@ float PricingDefaultRisk::f_tf_diff_y(float y) const
     return slope * Utility<float>::ReluDiff(relu * slope + gammah - gammal)* Utility<float>::ReluDiff(relu);
 }
 
-
+void PricingDefaultRisk::f_tf_diff_z(Vector<float>& diff_z, const Vector<float>& z) const
+{
+	diff_z.Resize(0);
+}
 
 float PricingDefaultRisk::g_tf(float t, const Vector<float>& x) const
 {

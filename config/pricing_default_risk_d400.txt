@@ -1,7 +1,7 @@
-dim_input: 200
-dim_output: 200
+dim_input: 400
+dim_output: 400
 batchSize: 1
-learning_rate: 0.01
+learning_rate: 0.008
 train_epoch: 1000
 total_time: 1
 num_time_interval: 40

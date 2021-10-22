@@ -48,10 +48,11 @@ private:
 
     float delta_t;
     float y_hat;
-    float loss;
-	
+    //float loss;
+	float total_loss;
+
 	std::string save_file_path;
-	clock_t start, end;
+	double start, end;
 };
 
 
