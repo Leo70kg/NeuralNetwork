@@ -44,6 +44,7 @@ BSDEModel::BSDEModel(const BSDEConfiguration& config) : m_config(config)
 
     Setup();
 	start = clock();
+
 }
 
 void BSDEModel::Setup()
@@ -104,7 +105,18 @@ void BSDEModel::ComputeGradient(const Equation& equation, const float y, size_t 
 
         Yn_diffYn_1 *= 1 - delta_t * equation.f_tf_diff_y(y_layers[t + 1][0]);
 	}
-	dz.AddMul(Yn_diffYn_1, equation.GetDwSample()[index][0]);
+	
+	Vector<float> diff_z; 
+	equation.f_tf_diff_z(diff_z, z_init); 
+	if (diff_z.Size() == 0) 
+	{
+		dz.AddMul(Yn_diffYn_1, equation.GetDwSample()[index][0]);
+	}
+	else
+	{
+		diff_z.Mul(-delta_t).Add(equation.GetDwSample()[index][0]);
+		dz.AddMul(Yn_diffYn_1, diff_z);
+	}
 	dy += Yn_diffYn_1 * (1 - delta_t * equation.f_tf_diff_y(y_layers[0][0]));
 
 }
@@ -127,8 +139,8 @@ void BSDEModel::Update()
 	dy /= (float) m_config.batchSize;
 	dz.Div((float)m_config.batchSize);
 
-	y_init -= 0.01 * dy;
-	z_init.Sub(0.01, dz);
+	y_init -= m_config.learning_rate * dy;
+	z_init.Sub(m_config.learning_rate, dz);
 
     /*std::cout << "Update finished" << std::endl;*/
 }
@@ -199,7 +211,8 @@ bool BSDEModel::SaveInit()
 	fout << "\nEpochs: " << m_config.train_epoch << "\n";
 	fout << "Batch size: " << m_config.batchSize << "\n";
 	fout << "Sample size: " << m_config.sampleSize << "\n";
-	fout << "Logging frequency: " << m_config.logging_frequency << "\n\n\nTraining:\n";
+	fout << "Logging frequency: " << m_config.logging_frequency << "\n";
+	fout << "Model name: " << m_config.modelSaveName << "\n\n\nTraining:\n";
 
     return true;
 }
@@ -226,14 +239,13 @@ void BSDEModel::Fit(const Equation& equation)
 
 	for (int i = 1; i <= m_config.train_epoch; i++)
     {   
-		//std::cout << "echo: " << i << std::endl;
 		loss = 0.0;
         
-		float sum = 0.0;
+		//float sum = 0.0;
 		for (int j = 0; j < m_config.sampleSize; j++)
         {
 			float y = equation.g_tf(0.0, equation.GetXSample()[j][numTimeInterval]);
-			sum += y;  
+			//sum += y;  
 
             if (j % m_config.batchSize == 0)
             {
@@ -255,14 +267,12 @@ void BSDEModel::Fit(const Equation& equation)
 		}	
 		//std::cout << "y_init: " << y_init << std::endl;
 		//std::cout << "true mean: " << sum / m_config.sampleSize << std::endl;
-
-        if (i % m_config.logging_frequency == 0)
-        {
-            Save(i);
-            std::cout << "Epoch:" << i << std::endl;
-            std::cout << "In training set, loss: " << loss / equation.GetXSample().size() << ", Y0: " << y_init << std::endl << std::endl;
-        }
-
-    }
+		if (i % m_config.logging_frequency == 0)
+		{
+			Save(i);
+			std::cout << "Epoch:" << i << std::endl;
+			std::cout << "In training set, loss: " << loss << ", Y0: " << y_init << std::endl << std::endl;
+		}
+	}
     
 }

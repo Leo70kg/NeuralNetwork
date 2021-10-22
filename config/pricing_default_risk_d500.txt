@@ -1,13 +1,13 @@
-dim_input: 20
-dim_output: 20
+dim_input: 500
+dim_output: 500
 batchSize: 1
-learning_rate: 0.008
-train_epoch: 1500
+learning_rate: 0.01
+train_epoch: 1000
 total_time: 1
 num_time_interval: 40
 sample_size: 256
 subnetLayerNumber: 3
-logging_frequency: 40
+logging_frequency: 100
 y_init_range: 40, 50
 hidden_layer_sizes: 110, 110
-modelSavePath: PDRD100_
+modelSavePath: pricing_default_risk_serial_

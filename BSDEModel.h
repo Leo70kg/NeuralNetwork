@@ -44,7 +44,7 @@ private:
     float delta_t;
     float y_hat;
     float loss;
-	
+
 	std::string save_file_path;
 	clock_t start, end;
 };

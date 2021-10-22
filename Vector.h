@@ -69,7 +69,7 @@ public:
 	Vector<T>& ReduceSum(const Matrix<T>& m);
 	T CrossEntropyError(const OneHotVector& target);
 	T Sum();
-	T SumSquare();
+	T SumSquare() const;
 	T Min() const;
 
 	void FanInFanOutRandomize();
@@ -398,7 +398,7 @@ T Vector<T>::Sum()
 }
 
 template<class T>
-T Vector<T>::SumSquare()
+T Vector<T>::SumSquare() const
 {
 	T sum = 0;
 	for (int i = 0; i < v_len; ++i)

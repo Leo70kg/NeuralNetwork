@@ -1,40 +1,37 @@
 #include <random>
 #include <chrono>
-#include "HJBLQ.h"
+#include "AllenCahn.h"
 
-HJBLQ::HJBLQ(const BSDEConfiguration& config) : Equation(config)
+AllenCahn::AllenCahn(const BSDEConfiguration& config) : Equation(config)
 {   
 	sigma = (float) sqrt(2.0);   
-	lambd = (float) 1.0;
 	DwSample();  
-	XSample();  
+	XSample();
 }
 
-HJBLQ::~HJBLQ() {}  
+AllenCahn::~AllenCahn() {}  
 
-float HJBLQ::f_tf(float t, const Vector<float>& x, float y, const Vector<float>& z) const 
+float AllenCahn::f_tf(float t, const Vector<float>& x, float y, const Vector<float>& z) const 
 {   
-	return -lambd * z.SumSquare(); 
+	return y - pow(y, 3); 
 }  
 
-float HJBLQ::f_tf_diff_y(float y) const  
+float AllenCahn::f_tf_diff_y(float y) const  
 {  
-	return 0.0; 
+	return 1.0 - 3 * pow(y, 2); 
 }
 
-void HJBLQ::f_tf_diff_z(Vector<float>& diff_z, const Vector<float>& z) const
+void AllenCahn::f_tf_diff_z(Vector<float>& diff_z, const Vector<float>& z) const
 {
-	diff_z.Resize(z.Size());
-	diff_z.AddMul(2.0, z).Mul(-lambd);
-
+	diff_z.Resize(0);
 }
 
-float HJBLQ::g_tf(float t, const Vector<float>& x) const  
+float AllenCahn::g_tf(float t, const Vector<float>& x) const  
 {  
-	return log((1.0 + x.SumSquare()) / 2.0);
+	return 0.5 / (1.0 + 0.2 * x.SumSquare());
 } 
 
-bool HJBLQ::XSample()  
+bool AllenCahn::XSample()
 { 
 	for (int i = 0; i < num_sample; i++)  
 	{       
@@ -52,7 +49,7 @@ bool HJBLQ::XSample()
 	return true;  
 }
 
-bool HJBLQ::DwSample()  
+bool AllenCahn::DwSample()  
 {  
 	for (int i = 0; i < num_sample; i++)  
 	{  

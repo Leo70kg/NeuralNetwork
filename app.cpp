@@ -7,12 +7,44 @@
 #include "BSDEConfiguration.h"
 #include "Utility.h"
 #include "PricingDefaultRisk.h"
+#include "HJBLQ.h"
+#include "AllenCahn.h"
 
 
 int main(int argc, char* argv[])
 {
+	if (argv[1] == NULL || argv[2] == NULL)
+	{
+		printf("Please enter the file name or equation name.\n");
+		exit(0);
+	}
+	std::string filepath;
+	filepath += "config/";
+	filepath += argv[1];
+	
 	BSDEConfiguration* config = new BSDEConfiguration();
-	config->Load("config/pricing_default_risk.txt");
+	config->Load(filepath);
+	
+	Equation* equation;
+
+	switch(argv[2][0]) 
+	{    
+		case 'H':
+			equation = new HJBLQ(*config);
+			break; 
+
+		case 'P':
+			equation = new PricingDefaultRisk(*config);   
+			break; 
+
+		case 'A':
+			equation = new AllenCahn(*config);
+			break;
+
+		default:
+			printf("Please choose a PDE\n");
+			exit(0);
+	}
 
 	/*
 	std::cout << config->dim_input << " " << config->dim_output << std::endl;
@@ -27,13 +59,11 @@ int main(int argc, char* argv[])
 	std::cout << config->logging_frequency << std::endl;
 	*/
 
-	Equation* pricingDefaultRisk = new PricingDefaultRisk(*config);
-
 	std::unique_ptr<BSDEModel> lr = config->CreateModel();
-	lr->Fit(*pricingDefaultRisk);
-
-	delete pricingDefaultRisk;
+	lr->Fit(*equation);
 	
+	delete equation;
+
 	return 0;
 }
 
