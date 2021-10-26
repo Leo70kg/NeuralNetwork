@@ -46,6 +46,22 @@ int main(int argc, char* argv[])
 			exit(0);
 	}
 
+	std::cout << "Dimension: " << config->dim_input << "\n";
+	std::cout << "Total time: " << config->totalTime << "\n";
+	std::cout << "Number of time intervals: " << config->numTimeInterval << "\n";
+	std::cout << "y_init_range: " << config->yInitRange[0] << ", " << config->yInitRange[1] << "\n"; 
+	std::cout << "Number of neurons in each hidden layer of each subnet: ";
+	for (int i = 0; i < config->subnetLayerNumber - 1; i++)
+	{
+		std::cout << config->subnetHiddenLayerSizes[i] << ", ";
+	}
+	
+	std::cout << "\nEpochs: " << config->train_epoch << "\n";
+	std::cout << "Batch size: " << config->batchSize << "\n";
+	std::cout << "Sample size: " << config->sampleSize << "\n";
+	std::cout << "Logging frequency: " << config->logging_frequency << "\n";
+	std::cout << "Model name: " << config->modelSaveName << "\n\n\nTraining:\n";
+	
 	/*
 	std::cout << config->dim_input << " " << config->dim_output << std::endl;
 	std::cout << config->learning_rate << " " << config->batchSize << std::endl;  

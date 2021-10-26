@@ -1,0 +1,126 @@
+Config data loaded successfully!
+Epoch:100
+In training set, loss: 441.089, Y0: 54.614
+
+Epoch:200
+In training set, loss: 209.559, Y0: 54.5701
+
+Epoch:300
+In training set, loss: 105.762, Y0: 54.5663
+
+Epoch:400
+In training set, loss: 53.9855, Y0: 54.5705
+
+Epoch:500
+In training set, loss: 27.6172, Y0: 54.5749
+
+Epoch:600
+In training set, loss: 14.13, Y0: 54.5778
+
+Epoch:700
+In training set, loss: 7.22825, Y0: 54.5792
+
+Epoch:800
+In training set, loss: 3.69885, Y0: 54.5797
+
+Epoch:900
+In training set, loss: 1.89451, Y0: 54.5798
+
+Epoch:1000
+In training set, loss: 0.97154, Y0: 54.5796
+
+
+
+###############################################################################
+TCHPC Cluster: kelvin
+Job 17844 (BSDE_job_1_procs) for User 'zuoy' in Account 'hpc_21_01207'
+Finished at: Tue Oct 26 16:59:56 IST 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 17844
+Cluster: kelvin
+User/Group: zuoy/zuoy
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 01:26:40
+CPU Efficiency: 8.33% of 17:20:12 core-walltime
+Job Wall-clock time: 01:26:41
+Memory Utilized: 34.17 MB
+Memory Efficiency: 0.15% of 22.46 GB
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+17844        BSDE_job_+        12             1                                                      01:26:41  COMPLETED      0:0 
+17844.batch       batch        12      1      1     34988K   kelvin-n092        0.85M        0.01M   01:26:41  COMPLETED      0:0 
+
+
+Job details:
+============
+
+JobId=17844 JobName=BSDE_job_1_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=20001250 Nice=0 Account=hpc_21_01207 QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   DerivedExitCode=0:0
+   RunTime=01:26:41 TimeLimit=05:00:00 TimeMin=N/A
+   SubmitTime=2021-10-26T15:32:40 EligibleTime=2021-10-26T15:32:40
+   AccrueTime=2021-10-26T15:32:40
+   StartTime=2021-10-26T15:33:15 EndTime=2021-10-26T16:59:56 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-10-26T15:33:15
+   Partition=compute AllocNode:Sid=kelvin01:19621
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=
+   BatchHost=kelvin-n092
+   NumNodes=1 NumCPUs=12 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=12,mem=23000M,node=1,billing=12
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=(null)
+     Nodes=kelvin-n092 CPU_IDs=0-11 Mem=23000 GRES=
+   MinCPUsNode=1 MinMemoryNode=23000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/scripts/script1.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/slurm-17844.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/slurm-17844.out
+   Power=
+   NtasksPerTRES:0
+
+
+Disk quota details:
+===================
+
+Quota Type           Name  Filesystem     Usage in MB     Limit in MB    % Used
+-------------------------------------------------------------------------------
+USER                 zuoy       /home              52          51,200     0.10%
+
+GROUP              mschpc   /projects             999          51,200     1.95%
+GROUP          pi-dgolden   /projects               0          51,200     0.00%
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+zuoy              17 |   HPC_21_01207        17 |       100,000    99,983
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################

@@ -9,4 +9,4 @@
 module load gcc  
 
 # launch the code 
-./BSDE.out pricing_default_risk_d500.txt P
+./BSDE.out HJBLQ3.txt H

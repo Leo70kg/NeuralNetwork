@@ -1,0 +1,190 @@
+Config data loaded successfully!
+Epoch:100
+In training set, loss: 48.193, Y0: 4.67127
+
+Epoch:200
+In training set, loss: 25.0698, Y0: 4.91829
+
+Epoch:300
+In training set, loss: 15.9789, Y0: 5.06364
+
+Epoch:400
+In training set, loss: 11.5816, Y0: 5.16208
+
+Epoch:500
+In training set, loss: 9.08523, Y0: 5.23421
+
+Epoch:600
+In training set, loss: 7.49056, Y0: 5.29005
+
+Epoch:700
+In training set, loss: 6.38138, Y0: 5.33503
+
+Epoch:800
+In training set, loss: 5.56152, Y0: 5.37235
+
+Epoch:900
+In training set, loss: 4.92851, Y0: 5.40398
+
+Epoch:1000
+In training set, loss: 4.42392, Y0: 5.43126
+
+Epoch:1100
+In training set, loss: 4.01188, Y0: 5.4551
+
+Epoch:1200
+In training set, loss: 3.669, Y0: 5.47617
+
+Epoch:1300
+In training set, loss: 3.3793, Y0: 5.49495
+
+Epoch:1400
+In training set, loss: 3.13137, Y0: 5.51182
+
+Epoch:1500
+In training set, loss: 2.91683, Y0: 5.52708
+
+Epoch:1600
+In training set, loss: 2.72937, Y0: 5.54095
+
+Epoch:1700
+In training set, loss: 2.56416, Y0: 5.55362
+
+Epoch:1800
+In training set, loss: 2.41742, Y0: 5.56525
+
+Epoch:1900
+In training set, loss: 2.28614, Y0: 5.57597
+
+Epoch:2000
+In training set, loss: 2.16795, Y0: 5.58587
+
+
+
+###############################################################################
+TCHPC Cluster: lonsdale
+Job 1905 (BSDE_job_1_procs) for User 'zuoy' in Account 'mschpc'
+Finished at: Sat Oct 23 02:01:23 IST 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 1905
+Cluster: lonsdale
+User/Group: zuoy/zuoy
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 8
+CPU Utilized: 01:07:25
+CPU Efficiency: 12.50% of 08:59:28 core-walltime
+Job Wall-clock time: 01:07:26
+Memory Utilized: 17.20 MB
+Memory Efficiency: 0.11% of 14.65 GB
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+1905         BSDE_job_+         8             1                                                      01:07:26  COMPLETED      0:0 
+1905.batch        batch         8      1      1     17612K lonsdale-n149        0.85M        0.01M   01:07:26  COMPLETED      0:0 
+
+
+Job details:
+============
+
+JobId=1905 JobName=BSDE_job_1_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=10777304 Nice=0 Account=mschpc QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   DerivedExitCode=0:0
+   RunTime=01:07:26 TimeLimit=05:00:00 TimeMin=N/A
+   SubmitTime=2021-10-23T00:53:55 EligibleTime=2021-10-23T00:53:55
+   AccrueTime=2021-10-23T00:53:55
+   StartTime=2021-10-23T00:53:57 EndTime=2021-10-23T02:01:23 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-10-23T00:53:57
+   Partition=compute AllocNode:Sid=lonsdale01:10708
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=
+   BatchHost=lonsdale-n149
+   NumNodes=1 NumCPUs=8 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=8,mem=15000M,node=1,billing=8
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=(null)
+     Nodes=lonsdale-n149 CPU_IDs=0-7 Mem=15000 GRES=
+   MinCPUsNode=1 MinMemoryNode=15000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/scripts/script7.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/slurm-1905.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/slurm-1905.out
+   Power=
+   NtasksPerTRES:0
+
+
+Disk quota details:
+===================
+
+Quota Type           Name  Filesystem     Usage in MB     Limit in MB    % Used
+-------------------------------------------------------------------------------
+USER                 zuoy       /home              52          51,200     0.10%
+
+GROUP              mschpc   /projects             999          51,200     1.95%
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+banerjan           0 |         MSCHPC       267 |       400,000   399,733
+bufa               0 |         MSCHPC       267 |       400,000   399,733
+burgesan           0 |         MSCHPC       267 |       400,000   399,733
+burkel8            0 |         MSCHPC       267 |       400,000   399,733
+cheny16            0 |         MSCHPC       267 |       400,000   399,733
+fortunma           0 |         MSCHPC       267 |       400,000   399,733
+gavind3            0 |         MSCHPC       267 |       400,000   399,733
+georgei            0 |         MSCHPC       267 |       400,000   399,733
+hdelane            0 |         MSCHPC       267 |       400,000   399,733
+jose               0 |         MSCHPC       267 |       400,000   399,733
+kieransd           0 |         MSCHPC       267 |       400,000   399,733
+kriegerp           0 |         MSCHPC       267 |       400,000   399,733
+lil7               0 |         MSCHPC       267 |       400,000   399,733
+luharvey           0 |         MSCHPC       267 |       400,000   399,733
+lyux               0 |         MSCHPC       267 |       400,000   399,733
+maguic10           0 |         MSCHPC       267 |       400,000   399,733
+mckeowsa           0 |         MSCHPC       267 |       400,000   399,733
+murras11           0 |         MSCHPC       267 |       400,000   399,733
+ocassidy           0 |         MSCHPC       267 |       400,000   399,733
+oconnk19           0 |         MSCHPC       267 |       400,000   399,733
+oobyrne            0 |         MSCHPC       267 |       400,000   399,733
+paddy              0 |         MSCHPC       267 |       400,000   399,733
+parfreyk           0 |         MSCHPC       267 |       400,000   399,733
+pcoogan            0 |         MSCHPC       267 |       400,000   399,733
+rmcsorle           0 |         MSCHPC       267 |       400,000   399,733
+rmorrin            0 |         MSCHPC       267 |       400,000   399,733
+sanfilia           0 |         MSCHPC       267 |       400,000   399,733
+sbaldwin           0 |         MSCHPC       267 |       400,000   399,733
+skeane7            0 |         MSCHPC       267 |       400,000   399,733
+sosnowsf         194 |         MSCHPC       267 |       400,000   399,733
+suibhnef           0 |         MSCHPC       267 |       400,000   399,733
+vickersc           0 |         MSCHPC       267 |       400,000   399,733
+wosulliv           0 |         MSCHPC       267 |       400,000   399,733
+yyang2             0 |         MSCHPC       267 |       400,000   399,733
+zhangm9            0 |         MSCHPC       267 |       400,000   399,733
+zuoy              73 |         MSCHPC       267 |       400,000   399,733
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################
