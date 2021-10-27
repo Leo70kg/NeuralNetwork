@@ -32,6 +32,7 @@ private:
     std::vector<Vector<float>> activate_layers;
     std::vector<Vector<float>> gradient_layers;
     std::vector<Vector<float>> y_layers;
+	std::vector<Vector<float>> z_layers;
 
 	float dy;
 	Vector<float> dz;
