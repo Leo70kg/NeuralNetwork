@@ -10,4 +10,4 @@
 module load gcc  
 
 # launch the code 
-./BSDE.out pricing_default_risk_d200.txt P
+./BSDE.out AllenCahn_d100_2.txt A
