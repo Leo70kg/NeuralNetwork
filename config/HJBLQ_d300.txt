@@ -1,9 +1,9 @@
-dim_input: 100
-dim_output: 100
+dim_input: 300
+dim_output: 300
 batchSize: 64
 learning_rate: 0.01
 train_epoch: 2000
-total_time: 1
+total_time: 2
 num_time_interval: 20
 sample_size: 256
 subnetLayerNumber: 3

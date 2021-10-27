@@ -43,12 +43,32 @@ int main(int argc, char* argv[])
 			printf("Please choose a PDE\n");
 			exit(0);
 	}
-
+	
 	int myrank, nprocs;
 	MPI_Init(&argc, &argv);
 	MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
 	MPI_Comm_rank(MPI_COMM_WORLD, &myrank);
 
+	if (myrank == 0)
+	{
+		std::cout << "Dimension: " << config->dim_input << "\n";
+		std::cout << "Total time: " << config->totalTime << "\n";
+		std::cout << "Number of time intervals: " << config->numTimeInterval << "\n";
+		std::cout << "y_init_range: " << config->yInitRange[0] << ", " << config->yInitRange[1] << "\n";
+		std::cout << "Number of neurons in each hidden layer of each subnet: ";
+		for (int i = 0; i < config->subnetLayerNumber - 1; i++)
+		{
+			std::cout << config->subnetHiddenLayerSizes[i] << ", ";
+		}
+	
+		std::cout << "\nEpochs: " << config->train_epoch << "\n";
+		std::cout << "Batch size: " << config->batchSize << "\n";
+		std::cout << "Sample size: " << config->sampleSize << "\n";
+		std::cout << "Logging frequency: " << config->logging_frequency << "\n";
+		std::cout << "Model name: " << config->modelSaveName << "\n";
+		std::cout << "Number of processors: " << nprocs << "\n\n\nTraining:\n";
+	}
+	
 	/*
 	std::cout << config->dim_input << " " << config->dim_output << std::endl;
 	std::cout << config->learning_rate << " " << config->batchSize << std::endl;  

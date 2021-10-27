@@ -36,7 +36,8 @@ private:
     std::vector<Vector<float>> activate_layers;
     std::vector<Vector<float>> gradient_layers;
     std::vector<Vector<float>> y_layers;
-	
+	std::vector<Vector<float>> z_layers;
+
 	// Used in MPI_Reduce: to sum up the updated weights in each process.
 	std::vector<Matrix<float>> sum_weights;
 

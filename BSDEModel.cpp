@@ -63,8 +63,10 @@ void BSDEModel::Setup()
     activate_layers.resize(L * numOfSubnet);
     gradient_layers.resize(L * numOfSubnet);
     y_layers.resize(numOfSubnet + 2);
+	z_layers.resize(numOfSubnet + 1);
 
     y_layers[0].Resize(1);
+	z_layers[0].Resize(m_config.dim_input);
 
     for (int t = 0; t < numOfSubnet; t++)
     {
@@ -76,6 +78,7 @@ void BSDEModel::Setup()
             d_weights[i + t * L].Resize(weights[i + t * L].Row(), weights[i + t * L].Col());
         }
         y_layers[t + 1].Resize(1);
+		z_layers[t + 1].Resize(m_config.dim_input);
     }
     y_layers[numOfSubnet + 1].Resize(1);
 }
@@ -89,9 +92,22 @@ void BSDEModel::ComputeGradient(const Equation& equation, const float y, size_t 
     float Yn_diffYn_1 = y_layers[numOfSubnet + 1][0] - y;
     
 	for (int t = numOfSubnet - 1; t >= 0; t--) {
-        (gradient_layers[(t + 1) * L - 1] = equation.GetDwSample()[index][t + 1]).Mul(Yn_diffYn_1).Mul((float)(1.0 / dim));
+		Vector<float> diff_z; 
+		equation.f_tf_diff_z(diff_z, z_layers[t+1]); 
+		if (diff_z.Size() == 0) 
+		{
+			gradient_layers[(t + 1) * L - 1] = equation.GetDwSample()[index][t + 1];
+		}
+		else
+		{		
+			(gradient_layers[(t + 1) * L - 1] = diff_z).Mul(-delta_t).Add(equation.GetDwSample()[index][t+1]);
+		}
 
-        for (int i = L - 2; i >= 0; i--)
+        //(gradient_layers[(t + 1) * L - 1] = equation.GetDwSample()[index][t + 1]).Mul(Yn_diffYn_1).Mul((float)(1.0 / dim));
+
+		gradient_layers[(t + 1) * L - 1].Mul(Yn_diffYn_1).Mul((float)(1.0 / dim));
+        
+		for (int i = L - 2; i >= 0; i--)
         {
             gradient_layers[i + t * L].AssignMulTMat(weights[i + 1 + t * L],
                 gradient_layers[i + 1 + t * L]);
@@ -157,12 +173,15 @@ float BSDEModel::Eval(const Equation& equation, size_t index)
     size_t L = m_config.subnetLayerNumber;
 
     y_layers[0].Reset(y_init);
-    Vector<float> z(z_init);
-
+    //Vector<float> z(z_init);
+	z_layers[0] = z_init;
     for (size_t t = 0; t < numOfSubnet; t++)
     {   
-        y_layers[t+1][0] = y_layers[t][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][t], y_layers[t][0], z) +
-            Vector<float>::ReduceSum(z, equation.GetDwSample()[index][t]);
+        //y_layers[t+1][0] = y_layers[t][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][t], y_layers[t][0], z) +
+        //    Vector<float>::ReduceSum(z, equation.GetDwSample()[index][t]);
+		
+		y_layers[t+1][0] = y_layers[t][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][t], y_layers[t][0], z_layers[t]) +
+            Vector<float>::ReduceSum(z_layers[t], equation.GetDwSample()[index][t]);
 
         for (size_t i = 0; i < L; i++)
         {
@@ -173,11 +192,17 @@ float BSDEModel::Eval(const Equation& equation, size_t index)
             if (i != L - 1) activate_layers[i + t * L].Sigmod();
             else activate_layers[i + t * L];
         }
-        z = activate_layers[L - 1 + t * L];
-        z.Mul((float)(1.0 / dim));
+        z_layers[t+1] = activate_layers[L - 1 + t * L];
+		z_layers[t+1].Mul((float)(1.0 / dim));
+		
+		//z = activate_layers[L - 1 + t * L];
+        //z.Mul((float)(1.0 / dim));
     }
-    y_layers[numOfSubnet + 1][0] = y_layers[numOfSubnet][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][numOfSubnet], y_layers[numOfSubnet][0], z) +
-        Vector<float>::ReduceSum(z, equation.GetDwSample()[index][numOfSubnet]);
+    //y_layers[numOfSubnet + 1][0] = y_layers[numOfSubnet][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][numOfSubnet], y_layers[numOfSubnet][0], z) +
+    //    Vector<float>::ReduceSum(z, equation.GetDwSample()[index][numOfSubnet]);
+
+	y_layers[numOfSubnet + 1][0] = y_layers[numOfSubnet][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][numOfSubnet], y_layers[numOfSubnet][0], z_layers[numOfSubnet]) +
+        Vector<float>::ReduceSum(z_layers[numOfSubnet], equation.GetDwSample()[index][numOfSubnet]);
 
     y_hat = y_layers[numOfSubnet + 1][0];
     return y_hat;

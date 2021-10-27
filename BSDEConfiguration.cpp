@@ -73,7 +73,7 @@ bool BSDEConfiguration::Load(const std::string& filePath)
     this->subnetLayerNumber = (int)config_model_param[8];
 	this->logging_frequency = (int)config_model_param[9];
     this->modelSaveName = config_file_param[0];
-    std::cout << "Config data loaded successfully!" << std::endl;
+	//    std::cout << "Config data loaded successfully!" << std::endl;
 
     return true;
 }

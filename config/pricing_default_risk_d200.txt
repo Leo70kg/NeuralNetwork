@@ -10,4 +10,4 @@ subnetLayerNumber: 3
 logging_frequency: 100
 y_init_range: 40, 50
 hidden_layer_sizes: 110, 110
-modelSavePath: pricing_default_risk_
+modelSavePath: pricing_default_risk_parallel_
