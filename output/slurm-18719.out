@@ -1,0 +1,231 @@
+Dimension: 200
+Total time: 0.3
+Number of time intervals: 20
+Learning rate: 0.0005
+y_init_range: 0.3, 0.5
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 4000
+Batch size: 128
+Sample size: 1024
+Logging frequency: 100
+Model name: AllenCahn_parallel_
+Number of processors: 16
+
+
+Training:
+Epoch:100
+In training set, loss: 27.2172, Y0: 0.295754
+
+Epoch:200
+In training set, loss: 26.5022, Y0: 0.291584
+
+Epoch:300
+In training set, loss: 25.8126, Y0: 0.287489
+
+Epoch:400
+In training set, loss: 25.1472, Y0: 0.283467
+
+Epoch:500
+In training set, loss: 24.5052, Y0: 0.279516
+
+Epoch:600
+In training set, loss: 23.8855, Y0: 0.275635
+
+Epoch:700
+In training set, loss: 23.2872, Y0: 0.271821
+
+Epoch:800
+In training set, loss: 22.7094, Y0: 0.268073
+
+Epoch:900
+In training set, loss: 22.1512, Y0: 0.26439
+
+Epoch:1000
+In training set, loss: 21.6121, Y0: 0.26077
+
+Epoch:1100
+In training set, loss: 21.0911, Y0: 0.257212
+
+Epoch:1200
+In training set, loss: 20.5876, Y0: 0.253714
+
+Epoch:1300
+In training set, loss: 20.101, Y0: 0.250276
+
+Epoch:1400
+In training set, loss: 19.6305, Y0: 0.246895
+
+Epoch:1500
+In training set, loss: 19.1757, Y0: 0.243572
+
+Epoch:1600
+In training set, loss: 18.7358, Y0: 0.240303
+
+Epoch:1700
+In training set, loss: 18.3104, Y0: 0.237089
+
+Epoch:1800
+In training set, loss: 17.8988, Y0: 0.233928
+
+Epoch:1900
+In training set, loss: 17.5007, Y0: 0.23082
+
+Epoch:2000
+In training set, loss: 17.1155, Y0: 0.227762
+
+Epoch:2100
+In training set, loss: 16.7427, Y0: 0.224755
+
+Epoch:2200
+In training set, loss: 16.3819, Y0: 0.221796
+
+Epoch:2300
+In training set, loss: 16.0325, Y0: 0.218885
+
+Epoch:2400
+In training set, loss: 15.6943, Y0: 0.216021
+
+Epoch:2500
+In training set, loss: 15.367, Y0: 0.213203
+
+Epoch:2600
+In training set, loss: 15.0499, Y0: 0.210431
+
+Epoch:2700
+In training set, loss: 14.7429, Y0: 0.207703
+
+Epoch:2800
+In training set, loss: 14.4456, Y0: 0.205019
+
+Epoch:2900
+In training set, loss: 14.1575, Y0: 0.202377
+
+Epoch:3000
+In training set, loss: 13.8784, Y0: 0.199777
+
+Epoch:3100
+In training set, loss: 13.608, Y0: 0.197217
+
+Epoch:3200
+In training set, loss: 13.346, Y0: 0.194698
+
+Epoch:3300
+In training set, loss: 13.0921, Y0: 0.192219
+
+Epoch:3400
+In training set, loss: 12.8461, Y0: 0.189779
+
+Epoch:3500
+In training set, loss: 12.6076, Y0: 0.187377
+
+Epoch:3600
+In training set, loss: 12.3765, Y0: 0.185013
+
+Epoch:3700
+In training set, loss: 12.1525, Y0: 0.182685
+
+Epoch:3800
+In training set, loss: 11.9353, Y0: 0.180393
+
+Epoch:3900
+In training set, loss: 11.7247, Y0: 0.178137
+
+Epoch:4000
+In training set, loss: 11.5204, Y0: 0.175916
+
+
+
+###############################################################################
+TCHPC Cluster: kelvin
+Job 18719 (BSDE_job_4_procs) for User 'zuoy' in Account 'hpc_21_01207'
+Finished at: Tue Nov  2 20:23:02 GMT 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 18719
+Cluster: kelvin
+User/Group: zuoy/zuoy
+State: COMPLETED (exit code 0)
+Nodes: 2
+Cores per node: 12
+CPU Utilized: 02:53:32
+CPU Efficiency: 33.22% of 08:42:24 core-walltime
+Job Wall-clock time: 00:21:46
+Memory Utilized: 604.33 MB
+Memory Efficiency: 1.31% of 44.92 GB
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+18719        BSDE_job_+        24             2                                                      00:21:46  COMPLETED      0:0 
+18719.batch       batch        12      1      1    618832K   kelvin-n049        0.86M        0.01M   00:21:46  COMPLETED      0:0 
+18719.0           orted        12      1      1                                                      00:21:44  COMPLETED      0:0 
+
+
+Job details:
+============
+
+JobId=18719 JobName=BSDE_job_4_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=12066720 Nice=0 Account=hpc_21_01207 QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   DerivedExitCode=0:0
+   RunTime=00:21:46 TimeLimit=23:00:00 TimeMin=N/A
+   SubmitTime=2021-11-02T17:49:52 EligibleTime=2021-11-02T17:49:52
+   AccrueTime=2021-11-02T17:49:52
+   StartTime=2021-11-02T20:01:16 EndTime=2021-11-02T20:23:02 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-11-02T20:01:16
+   Partition=compute AllocNode:Sid=kelvin01:3879
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=kelvin-n061
+   BatchHost=kelvin-n049
+   NumNodes=1 NumCPUs=24 NumTasks=16 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=24,mem=46000M,node=2,billing=24
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=(null)
+     Nodes=kelvin-n[049,061] CPU_IDs=0-11 Mem=23000 GRES=
+   MinCPUsNode=1 MinMemoryNode=23000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/scripts/script_AllenCahn_d200_b128_n16.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/output/slurm-18719.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/output/slurm-18719.out
+   Power=
+   NtasksPerTRES:0
+
+
+Disk quota details:
+===================
+
+Quota Type           Name  Filesystem     Usage in MB     Limit in MB    % Used
+-------------------------------------------------------------------------------
+USER                 zuoy       /home              69          51,200     0.14%
+
+GROUP              mschpc   /projects             999          51,200     1.95%
+GROUP          pi-dgolden   /projects               0          51,200     0.00%
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+zuoy           2,331 |   HPC_21_01207     2,331 |       100,000    97,669
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################

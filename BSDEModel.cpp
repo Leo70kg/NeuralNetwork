@@ -79,7 +79,7 @@ void BSDEModel::Setup()
         }
         y_layers[t + 1].Resize(1);
 		z_layers[t + 1].Resize(m_config.dim_input);
-    }
+	}
     y_layers[numOfSubnet + 1].Resize(1);
 }
 
@@ -92,21 +92,22 @@ void BSDEModel::ComputeGradient(const Equation& equation, const float y, size_t 
     float Yn_diffYn_1 = y_layers[numOfSubnet + 1][0] - y;
     
 	for (int t = numOfSubnet - 1; t >= 0; t--) {
-		Vector<float> diff_z; 
-		equation.f_tf_diff_z(diff_z, z_layers[t+1]); 
-		if (diff_z.Size() == 0) 
-		{
-			gradient_layers[(t + 1) * L - 1] = equation.GetDwSample()[index][t + 1];
+        Vector<float> diff_z;   
+		equation.f_tf_diff_z(diff_z, z_layers[t + 1]); 
+		
+		if (diff_z.Size() == 0)   
+		{  
+			gradient_layers[(t + 1) * L - 1] = equation.GetDwSample()[index][t + 1]; 
 		}
-		else
-		{		
-			(gradient_layers[(t + 1) * L - 1] = diff_z).Mul(-delta_t).Add(equation.GetDwSample()[index][t+1]);
+		else 
+		{ 
+			(gradient_layers[(t + 1) * L - 1] = diff_z).Mul(-delta_t).Add(equation.GetDwSample()[index][t + 1]); 
 		}
-
-        //(gradient_layers[(t + 1) * L - 1] = equation.GetDwSample()[index][t + 1]).Mul(Yn_diffYn_1).Mul((float)(1.0 / dim));
-
+		
 		gradient_layers[(t + 1) * L - 1].Mul(Yn_diffYn_1).Mul((float)(1.0 / dim));
-        
+
+		//(gradient_layers[(t + 1) * L - 1] = equation.GetDwSample()[index][t + 1]).Mul(Yn_diffYn_1).Mul((float)(1.0 / dim));
+
 		for (int i = L - 2; i >= 0; i--)
         {
             gradient_layers[i + t * L].AssignMulTMat(weights[i + 1 + t * L],
@@ -127,17 +128,19 @@ void BSDEModel::ComputeGradient(const Equation& equation, const float y, size_t 
         Yn_diffYn_1 *= 1 - delta_t * equation.f_tf_diff_y(y_layers[t + 1][0]);
 	}
 	
-	Vector<float> diff_z; 
+	Vector<float> diff_z;
 	equation.f_tf_diff_z(diff_z, z_init); 
-	if (diff_z.Size() == 0) 
+	if (diff_z.Size() == 0)
 	{
 		dz.AddMul(Yn_diffYn_1, equation.GetDwSample()[index][0]);
 	}
-	else
+	else  
 	{
-		diff_z.Mul(-delta_t).Add(equation.GetDwSample()[index][0]);
-		dz.AddMul(Yn_diffYn_1, diff_z);
+		diff_z.Mul(-delta_t).Add(equation.GetDwSample()[index][0]); 
+		dz.AddMul(Yn_diffYn_1, diff_z); 
 	}
+
+	//dz.AddMul(Yn_diffYn_1, equation.GetDwSample()[index][0]);
 	dy += Yn_diffYn_1 * (1 - delta_t * equation.f_tf_diff_y(y_layers[0][0]));
 
 }
@@ -174,16 +177,15 @@ float BSDEModel::Eval(const Equation& equation, size_t index)
 
     y_layers[0].Reset(y_init);
     //Vector<float> z(z_init);
-	z_layers[0] = z_init;
-    for (size_t t = 0; t < numOfSubnet; t++)
-    {   
-        //y_layers[t+1][0] = y_layers[t][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][t], y_layers[t][0], z) +
-        //    Vector<float>::ReduceSum(z, equation.GetDwSample()[index][t]);
-		
-		y_layers[t+1][0] = y_layers[t][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][t], y_layers[t][0], z_layers[t]) +
-            Vector<float>::ReduceSum(z_layers[t], equation.GetDwSample()[index][t]);
+    z_layers[0] = z_init;
 
-        for (size_t i = 0; i < L; i++)
+	for (size_t t = 0; t < numOfSubnet; t++)
+    {   
+        //y_layers[t+1][0] = y_layers[t][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][t], y_layers[t][0], z) + Vector<float>::ReduceSum(z, equation.GetDwSample()[index][t]);
+		
+		y_layers[t+1][0] = y_layers[t][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][t], y_layers[t][0], z_layers[t]) + Vector<float>::ReduceSum(z_layers[t], equation.GetDwSample()[index][t]);
+        
+		for (size_t i = 0; i < L; i++)
         {
             layers[i + t * L].AssignMul(weights[i + t * L],
                 i == 0 ? equation.GetXSample()[index][t + 1] : activate_layers[i - 1 + t * L]);
@@ -192,19 +194,18 @@ float BSDEModel::Eval(const Equation& equation, size_t index)
             if (i != L - 1) activate_layers[i + t * L].Sigmod();
             else activate_layers[i + t * L];
         }
-        z_layers[t+1] = activate_layers[L - 1 + t * L];
+		z_layers[t+1] = activate_layers[L - 1 + t * L];   
 		z_layers[t+1].Mul((float)(1.0 / dim));
-		
+
 		//z = activate_layers[L - 1 + t * L];
         //z.Mul((float)(1.0 / dim));
     }
-    //y_layers[numOfSubnet + 1][0] = y_layers[numOfSubnet][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][numOfSubnet], y_layers[numOfSubnet][0], z) +
-    //    Vector<float>::ReduceSum(z, equation.GetDwSample()[index][numOfSubnet]);
 
-	y_layers[numOfSubnet + 1][0] = y_layers[numOfSubnet][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][numOfSubnet], y_layers[numOfSubnet][0], z_layers[numOfSubnet]) +
-        Vector<float>::ReduceSum(z_layers[numOfSubnet], equation.GetDwSample()[index][numOfSubnet]);
+    //y_layers[numOfSubnet + 1][0] = y_layers[numOfSubnet][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][numOfSubnet], y_layers[numOfSubnet][0], z) + Vector<float>::ReduceSum(z, equation.GetDwSample()[index][numOfSubnet]);
 
-    y_hat = y_layers[numOfSubnet + 1][0];
+	y_layers[numOfSubnet + 1][0] = y_layers[numOfSubnet][0] - delta_t * equation.f_tf(0.0, equation.GetXSample()[index][numOfSubnet], y_layers[numOfSubnet][0], z_layers[numOfSubnet]) + Vector<float>::ReduceSum(z_layers[numOfSubnet], equation.GetDwSample()[index][numOfSubnet]);
+    
+	y_hat = y_layers[numOfSubnet + 1][0];
     return y_hat;
 }
 
@@ -284,7 +285,7 @@ void BSDEModel::Fit(const Equation& equation)
 		for (int j = 0; j < m_config.sampleSize; j++)
         {
 			int chuckSize = m_config.sampleSize / m_nprocs; 
-			if (j < chuckSize * m_rank || j > chuckSize * (m_rank + 1)) continue;
+			if (j < chuckSize * m_rank || j >= chuckSize * (m_rank + 1)) continue;
 			
 			float y = equation.g_tf(0.0, equation.GetXSample()[j][numTimeInterval]);
 			//sum += y;  
@@ -301,8 +302,8 @@ void BSDEModel::Fit(const Equation& equation)
 			loss += Loss(y, pred);
 			
 			//std::cout << pred - y << std::endl;
-            if (j % m_config.batchSize == m_config.batchSize - 1 ||
-                j == m_config.sampleSize - 1)
+            if (j % m_config.batchSize == (m_config.batchSize - 1) ||
+                j == (chuckSize * (m_rank + 1) - 1))
             {
                 Update();
 			}
