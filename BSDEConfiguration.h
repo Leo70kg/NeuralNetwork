@@ -6,6 +6,7 @@
 #include <memory>
 
 class BSDEModel;
+class BSDEModelRing;
 
 class BSDEConfiguration
 {
@@ -16,7 +17,8 @@ public:
     virtual bool Load(const std::string & filePath);
     virtual bool Save(const std::string & filePath);
     virtual std::unique_ptr<BSDEModel> CreateModel(const int rank, const int nprocs);
-    
+    virtual std::unique_ptr<BSDEModelRing> CreateModelRing(const int rank, const int nprocs);
+   
     int train_epoch;
     float learning_rate;
 
