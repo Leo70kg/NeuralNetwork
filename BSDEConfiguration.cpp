@@ -1,6 +1,7 @@
 #include <cassert>
 #include "BSDEConfiguration.h"
 #include "BSDEModel.h"
+#include "BSDEModelRing.h"
 
 bool BSDEConfiguration::Load(const std::string& filePath)
 {
@@ -86,6 +87,11 @@ bool BSDEConfiguration::Save(const std::string& filePath)
 std::unique_ptr<BSDEModel> BSDEConfiguration::CreateModel(const int rank, const int nprocs)
 {
     return std::unique_ptr<BSDEModel>(new BSDEModel(*this, rank, nprocs));
+}
+
+std::unique_ptr<BSDEModelRing> BSDEConfiguration::CreateModelRing(const int rank, const int nprocs)
+{
+    return std::unique_ptr<BSDEModelRing>(new BSDEModelRing(*this, rank, nprocs));
 }
 
 std::unique_ptr<BSDEConfiguration> BSDEConfiguration::CreateConfiguration(const std::string& filePath)

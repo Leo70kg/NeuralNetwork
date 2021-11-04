@@ -1,8 +1,9 @@
 ﻿#include <mpi.h>
 #include "Vector.h"
 #include "Matrix.h"
-#include "BSDEModel.h"
+#include "BSDEModelRing.h"
 #include "BSDEConfiguration.h"
+#include "collectives.h"
 #include "Utility.h"
 #include "PricingDefaultRisk.h"
 #include "HJBLQ.h"
@@ -51,7 +52,7 @@ int main(int argc, char* argv[])
 
 	if (myrank == 0)
 	{
-		std::cout << "Master-Slave Mode\n\n";
+		std::cout << "Ring-AllReduce Mode\n\n";
 		std::cout << "Dimension: " << config->dim_input << "\n";
 		std::cout << "Total time: " << config->totalTime << "\n";
 		std::cout << "Number of time intervals: " << config->numTimeInterval << "\n";
@@ -84,7 +85,7 @@ int main(int argc, char* argv[])
 	std::cout << config->logging_frequency << std::endl;
 	*/
 
-	std::unique_ptr<BSDEModel> lr = config->CreateModel(myrank, nprocs);
+	std::unique_ptr<BSDEModelRing> lr = config->CreateModelRing(myrank, nprocs);
 	lr->Fit(*equation);
 	
 	delete equation;
