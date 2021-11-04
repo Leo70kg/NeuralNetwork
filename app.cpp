@@ -49,6 +49,7 @@ int main(int argc, char* argv[])
 	std::cout << "Dimension: " << config->dim_input << "\n";
 	std::cout << "Total time: " << config->totalTime << "\n";
 	std::cout << "Number of time intervals: " << config->numTimeInterval << "\n";
+	std::cout << "Learning rate: " << config->learning_rate << "\n";
 	std::cout << "y_init_range: " << config->yInitRange[0] << ", " << config->yInitRange[1] << "\n"; 
 	std::cout << "Number of neurons in each hidden layer of each subnet: ";
 	for (int i = 0; i < config->subnetLayerNumber - 1; i++)
