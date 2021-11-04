@@ -1,0 +1,1311 @@
+Dimension: 100
+Total time: 0.3
+Number of time intervals: 20
+Learning rate: 0.0005
+y_init_range: 0.3, 0.5
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 40000
+Batch size: 128
+Sample size: 1024
+Logging frequency: 100
+Model name: AllenCahn_parallel_
+Number of processors: 16
+
+
+Training:
+Epoch:100
+In training set, loss: 25.813, Y0: 0.296194
+
+Epoch:200
+In training set, loss: 25.2398, Y0: 0.292452
+
+Epoch:300
+In training set, loss: 24.6865, Y0: 0.288776
+
+Epoch:400
+In training set, loss: 24.1522, Y0: 0.285164
+
+Epoch:500
+In training set, loss: 23.6364, Y0: 0.281615
+
+Epoch:600
+In training set, loss: 23.1383, Y0: 0.278128
+
+Epoch:700
+In training set, loss: 22.6572, Y0: 0.274702
+
+Epoch:800
+In training set, loss: 22.1923, Y0: 0.271333
+
+Epoch:900
+In training set, loss: 21.743, Y0: 0.268021
+
+Epoch:1000
+In training set, loss: 21.3087, Y0: 0.264765
+
+Epoch:1100
+In training set, loss: 20.8888, Y0: 0.261564
+
+Epoch:1200
+In training set, loss: 20.4829, Y0: 0.258416
+
+Epoch:1300
+In training set, loss: 20.0903, Y0: 0.255321
+
+Epoch:1400
+In training set, loss: 19.7108, Y0: 0.252278
+
+Epoch:1500
+In training set, loss: 19.3436, Y0: 0.249284
+
+Epoch:1600
+In training set, loss: 18.9884, Y0: 0.246341
+
+Epoch:1700
+In training set, loss: 18.6448, Y0: 0.243445
+
+Epoch:1800
+In training set, loss: 18.3123, Y0: 0.240597
+
+Epoch:1900
+In training set, loss: 17.9906, Y0: 0.237796
+
+Epoch:2000
+In training set, loss: 17.6791, Y0: 0.23504
+
+Epoch:2100
+In training set, loss: 17.3777, Y0: 0.232329
+
+Epoch:2200
+In training set, loss: 17.0859, Y0: 0.229661
+
+Epoch:2300
+In training set, loss: 16.8033, Y0: 0.227037
+
+Epoch:2400
+In training set, loss: 16.5297, Y0: 0.224454
+
+Epoch:2500
+In training set, loss: 16.2648, Y0: 0.221913
+
+Epoch:2600
+In training set, loss: 16.0082, Y0: 0.219412
+
+Epoch:2700
+In training set, loss: 15.7597, Y0: 0.216951
+
+Epoch:2800
+In training set, loss: 15.5189, Y0: 0.214529
+
+Epoch:2900
+In training set, loss: 15.2857, Y0: 0.212145
+
+Epoch:3000
+In training set, loss: 15.0597, Y0: 0.209798
+
+Epoch:3100
+In training set, loss: 14.8408, Y0: 0.207489
+
+Epoch:3200
+In training set, loss: 14.6286, Y0: 0.205215
+
+Epoch:3300
+In training set, loss: 14.423, Y0: 0.202978
+
+Epoch:3400
+In training set, loss: 14.2237, Y0: 0.200775
+
+Epoch:3500
+In training set, loss: 14.0306, Y0: 0.198606
+
+Epoch:3600
+In training set, loss: 13.8434, Y0: 0.196471
+
+Epoch:3700
+In training set, loss: 13.6618, Y0: 0.194369
+
+Epoch:3800
+In training set, loss: 13.4859, Y0: 0.1923
+
+Epoch:3900
+In training set, loss: 13.3154, Y0: 0.190263
+
+Epoch:4000
+In training set, loss: 13.15, Y0: 0.188258
+
+Epoch:4100
+In training set, loss: 12.9896, Y0: 0.186282
+
+Epoch:4200
+In training set, loss: 12.8341, Y0: 0.184338
+
+Epoch:4300
+In training set, loss: 12.6832, Y0: 0.182423
+
+Epoch:4400
+In training set, loss: 12.5369, Y0: 0.180537
+
+Epoch:4500
+In training set, loss: 12.395, Y0: 0.178679
+
+Epoch:4600
+In training set, loss: 12.2574, Y0: 0.17685
+
+Epoch:4700
+In training set, loss: 12.1239, Y0: 0.175049
+
+Epoch:4800
+In training set, loss: 11.9944, Y0: 0.173276
+
+Epoch:4900
+In training set, loss: 11.8688, Y0: 0.17153
+
+Epoch:5000
+In training set, loss: 11.7469, Y0: 0.16981
+
+Epoch:5100
+In training set, loss: 11.6287, Y0: 0.168116
+
+Epoch:5200
+In training set, loss: 11.514, Y0: 0.166447
+
+Epoch:5300
+In training set, loss: 11.4026, Y0: 0.164804
+
+Epoch:5400
+In training set, loss: 11.2946, Y0: 0.163185
+
+Epoch:5500
+In training set, loss: 11.1897, Y0: 0.161591
+
+Epoch:5600
+In training set, loss: 11.088, Y0: 0.16002
+
+Epoch:5700
+In training set, loss: 10.9892, Y0: 0.158473
+
+Epoch:5800
+In training set, loss: 10.8934, Y0: 0.156949
+
+Epoch:5900
+In training set, loss: 10.8003, Y0: 0.155448
+
+Epoch:6000
+In training set, loss: 10.71, Y0: 0.153969
+
+Epoch:6100
+In training set, loss: 10.6224, Y0: 0.152513
+
+Epoch:6200
+In training set, loss: 10.5373, Y0: 0.151078
+
+Epoch:6300
+In training set, loss: 10.4547, Y0: 0.149664
+
+Epoch:6400
+In training set, loss: 10.3745, Y0: 0.148272
+
+Epoch:6500
+In training set, loss: 10.2966, Y0: 0.1469
+
+Epoch:6600
+In training set, loss: 10.221, Y0: 0.145548
+
+Epoch:6700
+In training set, loss: 10.1476, Y0: 0.144216
+
+Epoch:6800
+In training set, loss: 10.0763, Y0: 0.142904
+
+Epoch:6900
+In training set, loss: 10.0071, Y0: 0.141612
+
+Epoch:7000
+In training set, loss: 9.93986, Y0: 0.140338
+
+Epoch:7100
+In training set, loss: 9.87458, Y0: 0.139083
+
+Epoch:7200
+In training set, loss: 9.81119, Y0: 0.137847
+
+Epoch:7300
+In training set, loss: 9.74963, Y0: 0.136629
+
+Epoch:7400
+In training set, loss: 9.68983, Y0: 0.135429
+
+Epoch:7500
+In training set, loss: 9.63176, Y0: 0.134246
+
+Epoch:7600
+In training set, loss: 9.57535, Y0: 0.133081
+
+Epoch:7700
+In training set, loss: 9.52055, Y0: 0.131933
+
+Epoch:7800
+In training set, loss: 9.46733, Y0: 0.130802
+
+Epoch:7900
+In training set, loss: 9.41562, Y0: 0.129687
+
+Epoch:8000
+In training set, loss: 9.36539, Y0: 0.128589
+
+Epoch:8100
+In training set, loss: 9.31659, Y0: 0.127506
+
+Epoch:8200
+In training set, loss: 9.26916, Y0: 0.126439
+
+Epoch:8300
+In training set, loss: 9.2231, Y0: 0.125388
+
+Epoch:8400
+In training set, loss: 9.17835, Y0: 0.124353
+
+Epoch:8500
+In training set, loss: 9.13487, Y0: 0.123332
+
+Epoch:8600
+In training set, loss: 9.09264, Y0: 0.122327
+
+Epoch:8700
+In training set, loss: 9.05159, Y0: 0.121336
+
+Epoch:8800
+In training set, loss: 9.01171, Y0: 0.12036
+
+Epoch:8900
+In training set, loss: 8.97296, Y0: 0.119397
+
+Epoch:9000
+In training set, loss: 8.93529, Y0: 0.118449
+
+Epoch:9100
+In training set, loss: 8.89868, Y0: 0.117515
+
+Epoch:9200
+In training set, loss: 8.86311, Y0: 0.116594
+
+Epoch:9300
+In training set, loss: 8.82854, Y0: 0.115686
+
+Epoch:9400
+In training set, loss: 8.79494, Y0: 0.114792
+
+Epoch:9500
+In training set, loss: 8.76227, Y0: 0.113911
+
+Epoch:9600
+In training set, loss: 8.73052, Y0: 0.113042
+
+Epoch:9700
+In training set, loss: 8.69966, Y0: 0.112186
+
+Epoch:9800
+In training set, loss: 8.66966, Y0: 0.111343
+
+Epoch:9900
+In training set, loss: 8.6405, Y0: 0.110511
+
+Epoch:10000
+In training set, loss: 8.61215, Y0: 0.109692
+
+Epoch:10100
+In training set, loss: 8.58459, Y0: 0.108885
+
+Epoch:10200
+In training set, loss: 8.55779, Y0: 0.108089
+
+Epoch:10300
+In training set, loss: 8.53174, Y0: 0.107304
+
+Epoch:10400
+In training set, loss: 8.50641, Y0: 0.106531
+
+Epoch:10500
+In training set, loss: 8.48178, Y0: 0.10577
+
+Epoch:10600
+In training set, loss: 8.45782, Y0: 0.105019
+
+Epoch:10700
+In training set, loss: 8.43452, Y0: 0.104279
+
+Epoch:10800
+In training set, loss: 8.41187, Y0: 0.103549
+
+Epoch:10900
+In training set, loss: 8.38985, Y0: 0.10283
+
+Epoch:11000
+In training set, loss: 8.36843, Y0: 0.102122
+
+Epoch:11100
+In training set, loss: 8.3476, Y0: 0.101424
+
+Epoch:11200
+In training set, loss: 8.32733, Y0: 0.100736
+
+Epoch:11300
+In training set, loss: 8.30762, Y0: 0.100057
+
+Epoch:11400
+In training set, loss: 8.28845, Y0: 0.0993891
+
+Epoch:11500
+In training set, loss: 8.26981, Y0: 0.0987303
+
+Epoch:11600
+In training set, loss: 8.25166, Y0: 0.0980809
+
+Epoch:11700
+In training set, loss: 8.23401, Y0: 0.0974408
+
+Epoch:11800
+In training set, loss: 8.21683, Y0: 0.0968098
+
+Epoch:11900
+In training set, loss: 8.20012, Y0: 0.0961879
+
+Epoch:12000
+In training set, loss: 8.18387, Y0: 0.095575
+
+Epoch:12100
+In training set, loss: 8.16805, Y0: 0.0949711
+
+Epoch:12200
+In training set, loss: 8.15266, Y0: 0.0943758
+
+Epoch:12300
+In training set, loss: 8.13768, Y0: 0.093789
+
+Epoch:12400
+In training set, loss: 8.12309, Y0: 0.0932106
+
+Epoch:12500
+In training set, loss: 8.1089, Y0: 0.0926405
+
+Epoch:12600
+In training set, loss: 8.09509, Y0: 0.0920786
+
+Epoch:12700
+In training set, loss: 8.08164, Y0: 0.0915247
+
+Epoch:12800
+In training set, loss: 8.06855, Y0: 0.0909787
+
+Epoch:12900
+In training set, loss: 8.05581, Y0: 0.0904405
+
+Epoch:13000
+In training set, loss: 8.04341, Y0: 0.0899102
+
+Epoch:13100
+In training set, loss: 8.03133, Y0: 0.0893874
+
+Epoch:13200
+In training set, loss: 8.01957, Y0: 0.0888721
+
+Epoch:13300
+In training set, loss: 8.00812, Y0: 0.0883641
+
+Epoch:13400
+In training set, loss: 7.99697, Y0: 0.0878634
+
+Epoch:13500
+In training set, loss: 7.98612, Y0: 0.08737
+
+Epoch:13600
+In training set, loss: 7.97555, Y0: 0.0868837
+
+Epoch:13700
+In training set, loss: 7.96525, Y0: 0.0864044
+
+Epoch:13800
+In training set, loss: 7.95522, Y0: 0.0859319
+
+Epoch:13900
+In training set, loss: 7.94545, Y0: 0.085466
+
+Epoch:14000
+In training set, loss: 7.93593, Y0: 0.0850068
+
+Epoch:14100
+In training set, loss: 7.92665, Y0: 0.0845542
+
+Epoch:14200
+In training set, loss: 7.91762, Y0: 0.0841081
+
+Epoch:14300
+In training set, loss: 7.90881, Y0: 0.0836683
+
+Epoch:14400
+In training set, loss: 7.90023, Y0: 0.0832348
+
+Epoch:14500
+In training set, loss: 7.89187, Y0: 0.0828074
+
+Epoch:14600
+In training set, loss: 7.88372, Y0: 0.0823862
+
+Epoch:14700
+In training set, loss: 7.87577, Y0: 0.081971
+
+Epoch:14800
+In training set, loss: 7.86802, Y0: 0.0815617
+
+Epoch:14900
+In training set, loss: 7.86047, Y0: 0.0811581
+
+Epoch:15000
+In training set, loss: 7.85311, Y0: 0.0807603
+
+Epoch:15100
+In training set, loss: 7.84593, Y0: 0.0803681
+
+Epoch:15200
+In training set, loss: 7.83893, Y0: 0.0799816
+
+Epoch:15300
+In training set, loss: 7.8321, Y0: 0.0796006
+
+Epoch:15400
+In training set, loss: 7.82544, Y0: 0.0792251
+
+Epoch:15500
+In training set, loss: 7.81895, Y0: 0.0788549
+
+Epoch:15600
+In training set, loss: 7.81261, Y0: 0.0784899
+
+Epoch:15700
+In training set, loss: 7.80643, Y0: 0.0781301
+
+Epoch:15800
+In training set, loss: 7.8004, Y0: 0.0777754
+
+Epoch:15900
+In training set, loss: 7.79451, Y0: 0.0774257
+
+Epoch:16000
+In training set, loss: 7.78877, Y0: 0.077081
+
+Epoch:16100
+In training set, loss: 7.78316, Y0: 0.0767413
+
+Epoch:16200
+In training set, loss: 7.77769, Y0: 0.0764063
+
+Epoch:16300
+In training set, loss: 7.77234, Y0: 0.0760761
+
+Epoch:16400
+In training set, loss: 7.76713, Y0: 0.0757506
+
+Epoch:16500
+In training set, loss: 7.76203, Y0: 0.0754297
+
+Epoch:16600
+In training set, loss: 7.75705, Y0: 0.0751134
+
+Epoch:16700
+In training set, loss: 7.75219, Y0: 0.0748015
+
+Epoch:16800
+In training set, loss: 7.74744, Y0: 0.0744941
+
+Epoch:16900
+In training set, loss: 7.7428, Y0: 0.074191
+
+Epoch:17000
+In training set, loss: 7.73827, Y0: 0.0738923
+
+Epoch:17100
+In training set, loss: 7.73384, Y0: 0.0735978
+
+Epoch:17200
+In training set, loss: 7.7295, Y0: 0.0733076
+
+Epoch:17300
+In training set, loss: 7.72527, Y0: 0.0730215
+
+Epoch:17400
+In training set, loss: 7.72113, Y0: 0.0727395
+
+Epoch:17500
+In training set, loss: 7.71709, Y0: 0.0724615
+
+Epoch:17600
+In training set, loss: 7.71313, Y0: 0.0721875
+
+Epoch:17700
+In training set, loss: 7.70927, Y0: 0.0719174
+
+Epoch:17800
+In training set, loss: 7.70548, Y0: 0.0716511
+
+Epoch:17900
+In training set, loss: 7.70178, Y0: 0.0713886
+
+Epoch:18000
+In training set, loss: 7.69816, Y0: 0.0711298
+
+Epoch:18100
+In training set, loss: 7.69462, Y0: 0.0708748
+
+Epoch:18200
+In training set, loss: 7.69115, Y0: 0.0706233
+
+Epoch:18300
+In training set, loss: 7.68776, Y0: 0.0703756
+
+Epoch:18400
+In training set, loss: 7.68443, Y0: 0.0701314
+
+Epoch:18500
+In training set, loss: 7.68118, Y0: 0.0698907
+
+Epoch:18600
+In training set, loss: 7.678, Y0: 0.0696534
+
+Epoch:18700
+In training set, loss: 7.67488, Y0: 0.0694195
+
+Epoch:18800
+In training set, loss: 7.67182, Y0: 0.0691889
+
+Epoch:18900
+In training set, loss: 7.66883, Y0: 0.0689616
+
+Epoch:19000
+In training set, loss: 7.66589, Y0: 0.0687375
+
+Epoch:19100
+In training set, loss: 7.66302, Y0: 0.0685167
+
+Epoch:19200
+In training set, loss: 7.6602, Y0: 0.068299
+
+Epoch:19300
+In training set, loss: 7.65744, Y0: 0.0680844
+
+Epoch:19400
+In training set, loss: 7.65473, Y0: 0.0678729
+
+Epoch:19500
+In training set, loss: 7.65207, Y0: 0.0676643
+
+Epoch:19600
+In training set, loss: 7.64947, Y0: 0.0674587
+
+Epoch:19700
+In training set, loss: 7.64691, Y0: 0.067256
+
+Epoch:19800
+In training set, loss: 7.6444, Y0: 0.0670561
+
+Epoch:19900
+In training set, loss: 7.64194, Y0: 0.066859
+
+Epoch:20000
+In training set, loss: 7.63952, Y0: 0.0666648
+
+Epoch:20100
+In training set, loss: 7.63714, Y0: 0.0664733
+
+Epoch:20200
+In training set, loss: 7.63481, Y0: 0.0662845
+
+Epoch:20300
+In training set, loss: 7.63252, Y0: 0.0660983
+
+Epoch:20400
+In training set, loss: 7.63027, Y0: 0.0659146
+
+Epoch:20500
+In training set, loss: 7.62806, Y0: 0.0657336
+
+Epoch:20600
+In training set, loss: 7.62589, Y0: 0.0655551
+
+Epoch:20700
+In training set, loss: 7.62375, Y0: 0.0653791
+
+Epoch:20800
+In training set, loss: 7.62165, Y0: 0.0652056
+
+Epoch:20900
+In training set, loss: 7.61958, Y0: 0.0650346
+
+Epoch:21000
+In training set, loss: 7.61755, Y0: 0.064866
+
+Epoch:21100
+In training set, loss: 7.61554, Y0: 0.0646998
+
+Epoch:21200
+In training set, loss: 7.61358, Y0: 0.064536
+
+Epoch:21300
+In training set, loss: 7.61164, Y0: 0.0643744
+
+Epoch:21400
+In training set, loss: 7.60973, Y0: 0.0642152
+
+Epoch:21500
+In training set, loss: 7.60785, Y0: 0.064058
+
+Epoch:21600
+In training set, loss: 7.606, Y0: 0.0639032
+
+Epoch:21700
+In training set, loss: 7.60418, Y0: 0.0637506
+
+Epoch:21800
+In training set, loss: 7.60238, Y0: 0.0636002
+
+Epoch:21900
+In training set, loss: 7.60062, Y0: 0.063452
+
+Epoch:22000
+In training set, loss: 7.59888, Y0: 0.0633058
+
+Epoch:22100
+In training set, loss: 7.59716, Y0: 0.0631618
+
+Epoch:22200
+In training set, loss: 7.59547, Y0: 0.0630198
+
+Epoch:22300
+In training set, loss: 7.5938, Y0: 0.0628798
+
+Epoch:22400
+In training set, loss: 7.59215, Y0: 0.0627418
+
+Epoch:22500
+In training set, loss: 7.59053, Y0: 0.0626056
+
+Epoch:22600
+In training set, loss: 7.58893, Y0: 0.0624714
+
+Epoch:22700
+In training set, loss: 7.58735, Y0: 0.0623392
+
+Epoch:22800
+In training set, loss: 7.58579, Y0: 0.0622089
+
+Epoch:22900
+In training set, loss: 7.58425, Y0: 0.0620804
+
+Epoch:23000
+In training set, loss: 7.58273, Y0: 0.0619537
+
+Epoch:23100
+In training set, loss: 7.58123, Y0: 0.0618288
+
+Epoch:23200
+In training set, loss: 7.57974, Y0: 0.0617057
+
+Epoch:23300
+In training set, loss: 7.57828, Y0: 0.0615843
+
+Epoch:23400
+In training set, loss: 7.57683, Y0: 0.0614646
+
+Epoch:23500
+In training set, loss: 7.5754, Y0: 0.0613466
+
+Epoch:23600
+In training set, loss: 7.57399, Y0: 0.0612303
+
+Epoch:23700
+In training set, loss: 7.57259, Y0: 0.0611156
+
+Epoch:23800
+In training set, loss: 7.57121, Y0: 0.0610026
+
+Epoch:23900
+In training set, loss: 7.56984, Y0: 0.0608911
+
+Epoch:24000
+In training set, loss: 7.56849, Y0: 0.0607813
+
+Epoch:24100
+In training set, loss: 7.56715, Y0: 0.060673
+
+Epoch:24200
+In training set, loss: 7.56583, Y0: 0.0605663
+
+Epoch:24300
+In training set, loss: 7.56452, Y0: 0.0604611
+
+Epoch:24400
+In training set, loss: 7.56322, Y0: 0.0603573
+
+Epoch:24500
+In training set, loss: 7.56193, Y0: 0.0602549
+
+Epoch:24600
+In training set, loss: 7.56066, Y0: 0.060154
+
+Epoch:24700
+In training set, loss: 7.5594, Y0: 0.0600545
+
+Epoch:24800
+In training set, loss: 7.55815, Y0: 0.0599564
+
+Epoch:24900
+In training set, loss: 7.55691, Y0: 0.0598597
+
+Epoch:25000
+In training set, loss: 7.55568, Y0: 0.0597643
+
+Epoch:25100
+In training set, loss: 7.55447, Y0: 0.0596703
+
+Epoch:25200
+In training set, loss: 7.55326, Y0: 0.0595777
+
+Epoch:25300
+In training set, loss: 7.55207, Y0: 0.0594863
+
+Epoch:25400
+In training set, loss: 7.55088, Y0: 0.0593963
+
+Epoch:25500
+In training set, loss: 7.54971, Y0: 0.0593075
+
+Epoch:25600
+In training set, loss: 7.54854, Y0: 0.05922
+
+Epoch:25700
+In training set, loss: 7.54738, Y0: 0.0591337
+
+Epoch:25800
+In training set, loss: 7.54623, Y0: 0.0590486
+
+Epoch:25900
+In training set, loss: 7.5451, Y0: 0.0589648
+
+Epoch:26000
+In training set, loss: 7.54396, Y0: 0.0588822
+
+Epoch:26100
+In training set, loss: 7.54284, Y0: 0.0588007
+
+Epoch:26200
+In training set, loss: 7.54173, Y0: 0.0587205
+
+Epoch:26300
+In training set, loss: 7.54062, Y0: 0.0586413
+
+Epoch:26400
+In training set, loss: 7.53952, Y0: 0.0585632
+
+Epoch:26500
+In training set, loss: 7.53843, Y0: 0.0584863
+
+Epoch:26600
+In training set, loss: 7.53734, Y0: 0.0584105
+
+Epoch:26700
+In training set, loss: 7.53627, Y0: 0.0583357
+
+Epoch:26800
+In training set, loss: 7.5352, Y0: 0.0582619
+
+Epoch:26900
+In training set, loss: 7.53413, Y0: 0.0581893
+
+Epoch:27000
+In training set, loss: 7.53307, Y0: 0.0581175
+
+Epoch:27100
+In training set, loss: 7.53202, Y0: 0.0580469
+
+Epoch:27200
+In training set, loss: 7.53098, Y0: 0.0579772
+
+Epoch:27300
+In training set, loss: 7.52993, Y0: 0.0579085
+
+Epoch:27400
+In training set, loss: 7.5289, Y0: 0.0578408
+
+Epoch:27500
+In training set, loss: 7.52787, Y0: 0.057774
+
+Epoch:27600
+In training set, loss: 7.52685, Y0: 0.0577082
+
+Epoch:27700
+In training set, loss: 7.52583, Y0: 0.0576432
+
+Epoch:27800
+In training set, loss: 7.52482, Y0: 0.0575792
+
+Epoch:27900
+In training set, loss: 7.52381, Y0: 0.0575162
+
+Epoch:28000
+In training set, loss: 7.52281, Y0: 0.057454
+
+Epoch:28100
+In training set, loss: 7.52181, Y0: 0.0573927
+
+Epoch:28200
+In training set, loss: 7.52082, Y0: 0.0573323
+
+Epoch:28300
+In training set, loss: 7.51983, Y0: 0.0572728
+
+Epoch:28400
+In training set, loss: 7.51885, Y0: 0.0572141
+
+Epoch:28500
+In training set, loss: 7.51787, Y0: 0.0571562
+
+Epoch:28600
+In training set, loss: 7.51689, Y0: 0.0570992
+
+Epoch:28700
+In training set, loss: 7.51592, Y0: 0.0570429
+
+Epoch:28800
+In training set, loss: 7.51495, Y0: 0.0569874
+
+Epoch:28900
+In training set, loss: 7.51399, Y0: 0.0569327
+
+Epoch:29000
+In training set, loss: 7.51303, Y0: 0.0568788
+
+Epoch:29100
+In training set, loss: 7.51208, Y0: 0.0568256
+
+Epoch:29200
+In training set, loss: 7.51112, Y0: 0.0567731
+
+Epoch:29300
+In training set, loss: 7.51018, Y0: 0.0567215
+
+Epoch:29400
+In training set, loss: 7.50923, Y0: 0.0566705
+
+Epoch:29500
+In training set, loss: 7.50829, Y0: 0.0566202
+
+Epoch:29600
+In training set, loss: 7.50735, Y0: 0.0565707
+
+Epoch:29700
+In training set, loss: 7.50641, Y0: 0.0565218
+
+Epoch:29800
+In training set, loss: 7.50548, Y0: 0.0564736
+
+Epoch:29900
+In training set, loss: 7.50455, Y0: 0.056426
+
+Epoch:30000
+In training set, loss: 7.50363, Y0: 0.0563792
+
+Epoch:30100
+In training set, loss: 7.5027, Y0: 0.056333
+
+Epoch:30200
+In training set, loss: 7.50178, Y0: 0.0562875
+
+Epoch:30300
+In training set, loss: 7.50087, Y0: 0.0562426
+
+Epoch:30400
+In training set, loss: 7.49995, Y0: 0.0561984
+
+Epoch:30500
+In training set, loss: 7.49904, Y0: 0.0561547
+
+Epoch:30600
+In training set, loss: 7.49813, Y0: 0.0561116
+
+Epoch:30700
+In training set, loss: 7.49722, Y0: 0.0560691
+
+Epoch:30800
+In training set, loss: 7.49632, Y0: 0.0560272
+
+Epoch:30900
+In training set, loss: 7.49542, Y0: 0.0559859
+
+Epoch:31000
+In training set, loss: 7.49452, Y0: 0.0559451
+
+Epoch:31100
+In training set, loss: 7.49362, Y0: 0.0559049
+
+Epoch:31200
+In training set, loss: 7.49272, Y0: 0.0558653
+
+Epoch:31300
+In training set, loss: 7.49183, Y0: 0.0558264
+
+Epoch:31400
+In training set, loss: 7.49094, Y0: 0.055788
+
+Epoch:31500
+In training set, loss: 7.49005, Y0: 0.05575
+
+Epoch:31600
+In training set, loss: 7.48917, Y0: 0.0557128
+
+Epoch:31700
+In training set, loss: 7.48828, Y0: 0.055676
+
+Epoch:31800
+In training set, loss: 7.4874, Y0: 0.0556397
+
+Epoch:31900
+In training set, loss: 7.48652, Y0: 0.0556039
+
+Epoch:32000
+In training set, loss: 7.48564, Y0: 0.0555687
+
+Epoch:32100
+In training set, loss: 7.48476, Y0: 0.0555338
+
+Epoch:32200
+In training set, loss: 7.48388, Y0: 0.0554996
+
+Epoch:32300
+In training set, loss: 7.48301, Y0: 0.0554658
+
+Epoch:32400
+In training set, loss: 7.48214, Y0: 0.0554323
+
+Epoch:32500
+In training set, loss: 7.48126, Y0: 0.0553995
+
+Epoch:32600
+In training set, loss: 7.4804, Y0: 0.0553672
+
+Epoch:32700
+In training set, loss: 7.47953, Y0: 0.0553351
+
+Epoch:32800
+In training set, loss: 7.47866, Y0: 0.0553038
+
+Epoch:32900
+In training set, loss: 7.4778, Y0: 0.0552727
+
+Epoch:33000
+In training set, loss: 7.47693, Y0: 0.0552421
+
+Epoch:33100
+In training set, loss: 7.47607, Y0: 0.0552121
+
+Epoch:33200
+In training set, loss: 7.47521, Y0: 0.0551823
+
+Epoch:33300
+In training set, loss: 7.47435, Y0: 0.0551531
+
+Epoch:33400
+In training set, loss: 7.47349, Y0: 0.0551241
+
+Epoch:33500
+In training set, loss: 7.47264, Y0: 0.0550957
+
+Epoch:33600
+In training set, loss: 7.47178, Y0: 0.0550675
+
+Epoch:33700
+In training set, loss: 7.47093, Y0: 0.05504
+
+Epoch:33800
+In training set, loss: 7.47008, Y0: 0.0550126
+
+Epoch:33900
+In training set, loss: 7.46922, Y0: 0.0549857
+
+Epoch:34000
+In training set, loss: 7.46837, Y0: 0.054959
+
+Epoch:34100
+In training set, loss: 7.46753, Y0: 0.054933
+
+Epoch:34200
+In training set, loss: 7.46668, Y0: 0.054907
+
+Epoch:34300
+In training set, loss: 7.46583, Y0: 0.0548816
+
+Epoch:34400
+In training set, loss: 7.46499, Y0: 0.0548564
+
+Epoch:34500
+In training set, loss: 7.46414, Y0: 0.0548317
+
+Epoch:34600
+In training set, loss: 7.4633, Y0: 0.0548072
+
+Epoch:34700
+In training set, loss: 7.46246, Y0: 0.0547833
+
+Epoch:34800
+In training set, loss: 7.46162, Y0: 0.0547594
+
+Epoch:34900
+In training set, loss: 7.46078, Y0: 0.0547361
+
+Epoch:35000
+In training set, loss: 7.45994, Y0: 0.054713
+
+Epoch:35100
+In training set, loss: 7.4591, Y0: 0.0546903
+
+Epoch:35200
+In training set, loss: 7.45827, Y0: 0.054668
+
+Epoch:35300
+In training set, loss: 7.45743, Y0: 0.0546458
+
+Epoch:35400
+In training set, loss: 7.4566, Y0: 0.054624
+
+Epoch:35500
+In training set, loss: 7.45577, Y0: 0.0546024
+
+Epoch:35600
+In training set, loss: 7.45493, Y0: 0.0545812
+
+Epoch:35700
+In training set, loss: 7.4541, Y0: 0.0545604
+
+Epoch:35800
+In training set, loss: 7.45327, Y0: 0.0545397
+
+Epoch:35900
+In training set, loss: 7.45244, Y0: 0.0545195
+
+Epoch:36000
+In training set, loss: 7.45162, Y0: 0.0544994
+
+Epoch:36100
+In training set, loss: 7.45079, Y0: 0.0544796
+
+Epoch:36200
+In training set, loss: 7.44997, Y0: 0.0544603
+
+Epoch:36300
+In training set, loss: 7.44914, Y0: 0.0544409
+
+Epoch:36400
+In training set, loss: 7.44832, Y0: 0.0544221
+
+Epoch:36500
+In training set, loss: 7.4475, Y0: 0.0544035
+
+Epoch:36600
+In training set, loss: 7.44668, Y0: 0.0543849
+
+Epoch:36700
+In training set, loss: 7.44586, Y0: 0.0543669
+
+Epoch:36800
+In training set, loss: 7.44505, Y0: 0.054349
+
+Epoch:36900
+In training set, loss: 7.44423, Y0: 0.0543313
+
+Epoch:37000
+In training set, loss: 7.44341, Y0: 0.054314
+
+Epoch:37100
+In training set, loss: 7.4426, Y0: 0.0542969
+
+Epoch:37200
+In training set, loss: 7.44178, Y0: 0.0542799
+
+Epoch:37300
+In training set, loss: 7.44097, Y0: 0.0542632
+
+Epoch:37400
+In training set, loss: 7.44016, Y0: 0.0542468
+
+Epoch:37500
+In training set, loss: 7.43935, Y0: 0.0542306
+
+Epoch:37600
+In training set, loss: 7.43854, Y0: 0.0542145
+
+Epoch:37700
+In training set, loss: 7.43773, Y0: 0.0541989
+
+Epoch:37800
+In training set, loss: 7.43691, Y0: 0.0541832
+
+Epoch:37900
+In training set, loss: 7.43611, Y0: 0.0541679
+
+Epoch:38000
+In training set, loss: 7.4353, Y0: 0.054153
+
+Epoch:38100
+In training set, loss: 7.43449, Y0: 0.0541381
+
+Epoch:38200
+In training set, loss: 7.43368, Y0: 0.0541235
+
+Epoch:38300
+In training set, loss: 7.43287, Y0: 0.0541091
+
+Epoch:38400
+In training set, loss: 7.43207, Y0: 0.0540949
+
+Epoch:38500
+In training set, loss: 7.43126, Y0: 0.0540808
+
+Epoch:38600
+In training set, loss: 7.43045, Y0: 0.0540669
+
+Epoch:38700
+In training set, loss: 7.42965, Y0: 0.0540532
+
+Epoch:38800
+In training set, loss: 7.42884, Y0: 0.0540398
+
+Epoch:38900
+In training set, loss: 7.42804, Y0: 0.0540264
+
+Epoch:39000
+In training set, loss: 7.42723, Y0: 0.0540131
+
+Epoch:39100
+In training set, loss: 7.42643, Y0: 0.0540001
+
+Epoch:39200
+In training set, loss: 7.42562, Y0: 0.0539875
+
+Epoch:39300
+In training set, loss: 7.42482, Y0: 0.0539748
+
+Epoch:39400
+In training set, loss: 7.42402, Y0: 0.0539622
+
+Epoch:39500
+In training set, loss: 7.42322, Y0: 0.0539499
+
+Epoch:39600
+In training set, loss: 7.42242, Y0: 0.0539379
+
+Epoch:39700
+In training set, loss: 7.42162, Y0: 0.053926
+
+Epoch:39800
+In training set, loss: 7.42082, Y0: 0.0539141
+
+Epoch:39900
+In training set, loss: 7.42002, Y0: 0.0539026
+
+Epoch:40000
+In training set, loss: 7.41923, Y0: 0.0538911
+
+
+
+###############################################################################
+TCHPC Cluster: kelvin
+Job 19245 (BSDE_job_4_procs) for User 'zuoy' in Account 'hpc_21_01207'
+Finished at: Thu Nov  4 22:12:32 GMT 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 19245
+Cluster: kelvin
+User/Group: zuoy/zuoy
+State: COMPLETED (exit code 0)
+Nodes: 2
+Cores per node: 12
+CPU Utilized: 17:28:35
+CPU Efficiency: 33.31% of 2-04:28:00 core-walltime
+Job Wall-clock time: 02:11:10
+Memory Utilized: 435.59 MB
+Memory Efficiency: 0.95% of 44.92 GB
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+19245        BSDE_job_+        24             2                                                      02:11:10  COMPLETED      0:0 
+19245.batch       batch        12      1      1    446040K   kelvin-n075        0.86M        0.01M   02:11:10  COMPLETED      0:0 
+19245.0           orted        12      1      1                                                      02:11:07  COMPLETED      0:0 
+
+
+Job details:
+============
+
+JobId=19245 JobName=BSDE_job_4_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=11701450 Nice=0 Account=hpc_21_01207 QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   DerivedExitCode=0:0
+   RunTime=02:11:10 TimeLimit=23:00:00 TimeMin=N/A
+   SubmitTime=2021-11-04T18:54:15 EligibleTime=2021-11-04T18:54:15
+   AccrueTime=2021-11-04T18:54:15
+   StartTime=2021-11-04T20:01:21 EndTime=2021-11-04T22:12:31 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-11-04T20:01:21
+   Partition=compute AllocNode:Sid=kelvin01:28454
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=kelvin-n094
+   BatchHost=kelvin-n075
+   NumNodes=1 NumCPUs=24 NumTasks=16 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=24,mem=46000M,node=2,billing=24
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=(null)
+     Nodes=kelvin-n[075,094] CPU_IDs=0-11 Mem=23000 GRES=
+   MinCPUsNode=1 MinMemoryNode=23000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/scripts/script_AllenCahn_d100_b128_n16.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/output/slurm-19245.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/output/slurm-19245.out
+   Power=
+   NtasksPerTRES:0
+
+
+Disk quota details:
+===================
+
+Quota Type           Name  Filesystem     Usage in MB     Limit in MB    % Used
+-------------------------------------------------------------------------------
+USER                 zuoy       /home              70          51,200     0.14%
+
+GROUP              mschpc   /projects             999          51,200     1.95%
+GROUP          pi-dgolden   /projects               0          51,200     0.00%
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+zuoy           4,455 |   HPC_21_01207     4,455 |       100,000    95,545
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################
