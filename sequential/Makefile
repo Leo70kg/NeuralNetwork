@@ -1,0 +1,30 @@
+OBJS 	= BSDEConfiguration.o BSDEModel.o Equation.o HJBLQ.o PricingDefaultRisk.o AllenCahn.o app.o 
+
+OUT = BSDE_sequential 
+CC  = g++ 
+FLAGS  = -g -c -Wall -O3 -std=c++11
+LFLAGS =  
+
+all: $(OBJS)  
+	$(CC) $(OBJS) -o $(OUT) $(LFLAGS) 
+
+%.o: %.cpp 
+	$(CC) $(FLAGS) $< -o $@  
+
+BSDEConfiguration.o: BSDEConfiguration.cpp BSDEConfiguration.h 
+
+BSDEModel.o: BSDEModel.cpp BSDEModel.h 
+
+Equation.o: Equation.cpp Equation.h 
+
+HJBLQ.o: HJBLQ.cpp HJBLQ.h 
+
+AllenCahn.o: AllenCahn.cpp AllenCahn.h
+
+PricingDefaultRisk.o: PricingDefaultRisk.cpp PricingDefaultRisk.h 
+
+app.o: app.cpp
+
+
+clean: 
+	rm -f $(OBJS) $(OUT)

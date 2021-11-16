@@ -1,0 +1,204 @@
+Master-Slave Mode
+
+Dimension: 300
+Total time: 0.3
+Number of time intervals: 20
+Learning rate: 0.0005
+y_init_range: 0.3, 0.5
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 4000
+Batch size: 1
+Sample size: 1024
+Logging frequency: 100
+Model name: AllenCahn_parallel_
+Number of processors: 128
+
+
+Training:
+Epoch:100
+In training set, loss: 20.1069, Y0: 0.23838
+
+Epoch:200
+In training set, loss: 14.3278, Y0: 0.191381
+
+Epoch:300
+In training set, loss: 10.8443, Y0: 0.154962
+
+Epoch:400
+In training set, loss: 8.69879, Y0: 0.126475
+
+Epoch:500
+In training set, loss: 7.35651, Y0: 0.104063
+
+Epoch:600
+In training set, loss: 6.50551, Y0: 0.0863656
+
+Epoch:700
+In training set, loss: 5.95853, Y0: 0.0723589
+
+Epoch:800
+In training set, loss: 5.60114, Y0: 0.0612557
+
+Epoch:900
+In training set, loss: 5.36263, Y0: 0.0524451
+
+Epoch:1000
+In training set, loss: 5.19894, Y0: 0.0454489
+
+Epoch:1100
+In training set, loss: 5.08251, Y0: 0.0398907
+
+Epoch:1200
+In training set, loss: 4.99601, Y0: 0.0354737
+
+Epoch:1300
+In training set, loss: 4.92855, Y0: 0.0319626
+
+Epoch:1400
+In training set, loss: 4.87326, Y0: 0.0291712
+
+Epoch:1500
+In training set, loss: 4.82578, Y0: 0.0269519
+
+Epoch:1600
+In training set, loss: 4.7834, Y0: 0.0251872
+
+Epoch:1700
+In training set, loss: 4.74436, Y0: 0.0237841
+
+Epoch:1800
+In training set, loss: 4.70757, Y0: 0.0226685
+
+Epoch:1900
+In training set, loss: 4.67233, Y0: 0.0217815
+
+Epoch:2000
+In training set, loss: 4.63821, Y0: 0.0210765
+
+Epoch:2100
+In training set, loss: 4.60491, Y0: 0.0205162
+
+Epoch:2200
+In training set, loss: 4.57227, Y0: 0.020071
+
+Epoch:2300
+In training set, loss: 4.54016, Y0: 0.0197174
+
+Epoch:2400
+In training set, loss: 4.50851, Y0: 0.0194367
+
+Epoch:2500
+In training set, loss: 4.47727, Y0: 0.0192141
+
+Epoch:2600
+In training set, loss: 4.44641, Y0: 0.0190377
+
+Epoch:2700
+In training set, loss: 4.41591, Y0: 0.0188979
+
+Epoch:2800
+In training set, loss: 4.38575, Y0: 0.0187875
+
+Epoch:2900
+In training set, loss: 4.35593, Y0: 0.0187003
+
+Epoch:3000
+In training set, loss: 4.32642, Y0: 0.0186317
+
+slurmstepd: error: *** JOB 19787 ON kelvin-n029 CANCELLED AT 2021-11-08T20:22:20 DUE TO NODE FAILURE, SEE SLURMCTLD LOG FOR DETAILS ***
+
+
+###############################################################################
+TCHPC Cluster: kelvin
+Job 19787 (BSDE_job_4_procs) for User 'zuoy' in Account 'hpc_21_01207'
+Finished at: Mon Nov  8 20:22:20 GMT 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 19787
+Cluster: kelvin
+User/Group: zuoy/zuoy
+State: NODE_FAIL (exit code 0)
+Nodes: 11
+Cores per node: 12
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 5-05:06:24 core-walltime
+Job Wall-clock time: 00:56:52
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 247.07 GB (22.46 GB/node)
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+19787        BSDE_job_+       132            11                                                      00:56:52  NODE_FAIL      0:0 
+19787.batch       batch        12      1      1                                                      00:56:52  NODE_FAIL      0:0 
+19787.0           orted       120     10     10                                                      00:56:50  NODE_FAIL      0:0 
+
+
+Job details:
+============
+
+JobId=19787 JobName=BSDE_job_4_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=12124374 Nice=0 Account=hpc_21_01207 QOS=normal
+   JobState=COMPLETING Reason=NodeDown Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   DerivedExitCode=0:0
+   RunTime=00:56:52 TimeLimit=23:00:00 TimeMin=N/A
+   SubmitTime=2021-11-08T13:14:39 EligibleTime=2021-11-08T13:14:39
+   AccrueTime=2021-11-08T13:14:39
+   StartTime=2021-11-08T19:25:28 EndTime=2021-11-08T20:22:20 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-11-08T19:25:28
+   Partition=compute AllocNode:Sid=kelvin01:22494
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=kelvin-n[029,047,051-052,055-056,066,068-070]
+   BatchHost=kelvin-n029
+   NumNodes=10 NumCPUs=120 NumTasks=128 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=132,mem=253000M,node=11,billing=132
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=(null)
+     Nodes=kelvin-n[029,047,051-052,054-056,066,068-070] CPU_IDs=0-11 Mem=23000 GRES=
+   MinCPUsNode=1 MinMemoryNode=23000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/scripts/script_AllenCahn_d300_b1_n128.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/output/slurm-19787.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/output/slurm-19787.out
+   Power=
+   NtasksPerTRES:0
+
+
+Disk quota details:
+===================
+
+Quota Type           Name  Filesystem     Usage in MB     Limit in MB    % Used
+-------------------------------------------------------------------------------
+USER                 zuoy       /home              89          51,200     0.17%
+
+GROUP              mschpc   /projects             999          51,200     1.95%
+GROUP          pi-dgolden   /projects               0          51,200     0.00%
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+zuoy           6,541 |   HPC_21_01207     6,541 |       100,000    93,459
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################

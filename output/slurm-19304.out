@@ -1,0 +1,183 @@
+Ring-AllReduce Mode
+
+Dimension: 300
+Total time: 0.3
+Number of time intervals: 20
+Learning rate: 0.0005
+y_init_range: 0.3, 0.5
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 4000
+Batch size: 1
+Sample size: 1024
+Logging frequency: 100
+Model name: AllenCahn_parallel_
+Number of processors: 4
+
+
+Training:
+rank: 1
+in collective step 1 
+in collective step 2 
+start copy
+rank: 2
+rank: 3
+in collective step 1 
+in collective step 2 
+rank: 0
+in collective step 1 
+start copy
+in collective step 1 
+in collective step 2 
+start copy
+in collective step 2 
+start copy
+[kelvin-n100:04712] *** Process received signal ***
+[kelvin-n100:04712] Signal: Segmentation fault (11)
+[kelvin-n100:04712] Signal code: Invalid permissions (2)
+[kelvin-n100:04712] Failing at address: 0x7f147e3e4100
+[kelvin-n100:04714] *** Process received signal ***
+[kelvin-n100:04714] Signal: Segmentation fault (11)
+[kelvin-n100:04714] Signal code: Address not mapped (1)
+[kelvin-n100:04714] Failing at address: (nil)
+[kelvin-n100:04711] *** Process received signal ***
+[kelvin-n100:04711] Signal: Segmentation fault (11)
+[kelvin-n100:04711] Signal code: Address not mapped (1)
+[kelvin-n100:04711] Failing at address: (nil)
+[kelvin-n100:04713] *** Process received signal ***
+[kelvin-n100:04713] Signal: Segmentation fault (11)
+[kelvin-n100:04713] Signal code: Address not mapped (1)
+[kelvin-n100:04713] Failing at address: (nil)
+[kelvin-n100:04714] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7ffa9f826630]
+[kelvin-n100:04714] [ 1] ./BSDE.out[0x412bde]
+[kelvin-n100:04714] [ 2] ./BSDE.out[0x412fe5]
+[kelvin-n100:04714] [ 3] ./BSDE.out[0x40eb15]
+[kelvin-n100:04714] [ 4] ./BSDE.out[0x403b6c]
+[kelvin-n100:04714] [ 5] [kelvin-n100:04711] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7fc4c7326630]
+[kelvin-n100:04711] [ 1] ./BSDE.out[0x412bde]
+[kelvin-n100:04711] [ 2] ./BSDE.out[0x412fe5]
+[kelvin-n100:04711] [ 3] ./BSDE.out[0x40eb15]
+[kelvin-n100:04711] [ 4] ./BSDE.out[0x403b6c]
+[kelvin-n100:04711] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7fc4c6f6b555]
+[kelvin-n100:04711] [ 6] ./BSDE.out[0x403f2f]
+[kelvin-n100:04712] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7f147efc9630]
+[kelvin-n100:04712] [ 1] ./BSDE.out[0x412bde]
+[kelvin-n100:04712] [ 2] ./BSDE.out[0x412fe5]
+[kelvin-n100:04712] [ 3] ./BSDE.out[0x40eb15]
+[kelvin-n100:04712] [ 4] ./BSDE.out[0x403b6c]
+[kelvin-n100:04712] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f147ec0e555]
+[kelvin-n100:04712] [ 6] ./BSDE.out[0x403f2f]
+[kelvin-n100:04712] *** End of error message ***
+[kelvin-n100:04713] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7fb37f547630]
+[kelvin-n100:04713] [ 1] ./BSDE.out[0x412bde]
+[kelvin-n100:04713] [ 2] ./BSDE.out[0x412fe5]
+[kelvin-n100:04713] [ 3] ./BSDE.out[0x40eb15]
+[kelvin-n100:04713] [ 4] ./BSDE.out[0x403b6c]
+[kelvin-n100:04713] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7ffa9f46b555]
+[kelvin-n100:04714] [ 6] ./BSDE.out[0x403f2f]
+[kelvin-n100:04714] *** End of error message ***
+[kelvin-n100:04711] *** End of error message ***
+/usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7fb37f18c555]
+[kelvin-n100:04713] [ 6] ./BSDE.out[0x403f2f]
+[kelvin-n100:04713] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 1 with PID 4712 on node kelvin-n100 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+
+
+###############################################################################
+TCHPC Cluster: kelvin
+Job 19304 (BSDE_job_4_procs) for User 'zuoy' in Account 'hpc_21_01207'
+Finished at: Thu Nov  4 23:09:49 GMT 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 19304
+Cluster: kelvin
+User/Group: zuoy/zuoy
+State: FAILED (exit code 139)
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 00:00:10
+CPU Efficiency: 11.90% of 00:01:24 core-walltime
+Job Wall-clock time: 00:00:07
+Memory Utilized: 190.82 MB
+Memory Efficiency: 0.83% of 22.46 GB
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+19304        BSDE_job_+        12             1                                                      00:00:07     FAILED     11:0 
+19304.batch       batch        12      1      1    195396K   kelvin-n100            0            0   00:00:07     FAILED     11:0 
+
+
+Job details:
+============
+
+JobId=19304 JobName=BSDE_job_4_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=11667450 Nice=0 Account=hpc_21_01207 QOS=normal
+   JobState=COMPLETING Reason=NonZeroExitCode Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=139:0
+   DerivedExitCode=0:0
+   RunTime=00:00:07 TimeLimit=00:30:00 TimeMin=N/A
+   SubmitTime=2021-11-04T23:09:42 EligibleTime=2021-11-04T23:09:42
+   AccrueTime=2021-11-04T23:09:42
+   StartTime=2021-11-04T23:09:42 EndTime=2021-11-04T23:09:49 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-11-04T23:09:42
+   Partition=debug AllocNode:Sid=kelvin01:28454
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=
+   BatchHost=kelvin-n100
+   NumNodes=1 NumCPUs=12 NumTasks=4 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=12,mem=23000M,node=1,billing=12
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=(null)
+     Nodes=kelvin-n100 CPU_IDs=0-11 Mem=23000 GRES=
+   MinCPUsNode=1 MinMemoryNode=23000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/scripts/script_AllenCahn_d300_b1_n32.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/output/slurm-19304.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/output/slurm-19304.out
+   Power=
+   NtasksPerTRES:0
+
+
+Disk quota details:
+===================
+
+Quota Type           Name  Filesystem     Usage in MB     Limit in MB    % Used
+-------------------------------------------------------------------------------
+USER                 zuoy       /home              78          51,200     0.15%
+
+GROUP              mschpc   /projects             999          51,200     1.95%
+GROUP          pi-dgolden   /projects               0          51,200     0.00%
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+zuoy           4,453 |   HPC_21_01207     4,453 |       100,000    95,547
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################

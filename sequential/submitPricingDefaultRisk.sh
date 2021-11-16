@@ -1,0 +1,27 @@
+#!/bin/bash
+
+sbatch scripts/script_PricingDefaultRisk_d100_b1.sh
+sbatch scripts/script_PricingDefaultRisk_d100_b64.sh
+sbatch scripts/script_PricingDefaultRisk_d100_b128.sh
+sbatch scripts/script_PricingDefaultRisk_d100_b256.sh
+
+sbatch scripts/script_PricingDefaultRisk_d200_b1.sh
+sbatch scripts/script_PricingDefaultRisk_d200_b64.sh
+sbatch scripts/script_PricingDefaultRisk_d200_b128.sh
+sbatch scripts/script_PricingDefaultRisk_d200_b256.sh
+
+sbatch scripts/script_PricingDefaultRisk_d300_b1.sh
+sbatch scripts/script_PricingDefaultRisk_d300_b64.sh
+sbatch scripts/script_PricingDefaultRisk_d300_b128.sh
+sbatch scripts/script_PricingDefaultRisk_d300_b256.sh
+
+sbatch scripts/script_PricingDefaultRisk_d400_b1.sh
+sbatch scripts/script_PricingDefaultRisk_d400_b64.sh
+sbatch scripts/script_PricingDefaultRisk_d400_b128.sh
+sbatch scripts/script_PricingDefaultRisk_d400_b256.sh
+
+sbatch scripts/script_PricingDefaultRisk_d500_b1.sh
+sbatch scripts/script_PricingDefaultRisk_d500_b64.sh
+sbatch scripts/script_PricingDefaultRisk_d500_b128.sh
+sbatch scripts/script_PricingDefaultRisk_d500_b256.sh
+

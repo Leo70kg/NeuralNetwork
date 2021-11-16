@@ -1,0 +1,27 @@
+Config data loaded successfully!
+Dimension: 100
+Total time: 1
+Number of time intervals: 40
+Learning rate: 0.01
+y_init_range: 40, 50
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 64
+Sample size: 256
+Logging frequency: 100
+Model name: pricing_default_risk_serial_
+
+
+Training:
+Epoch:100
+In training set, loss: 3067.04, Y0: 57.014
+
+Epoch:200
+In training set, loss: 2828.34, Y0: 57.4619
+
+Epoch:300
+In training set, loss: 2651.4, Y0: 57.4973
+
+Epoch:400
+In training set, loss: 2504.29, Y0: 57.5196
+

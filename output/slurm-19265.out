@@ -1,0 +1,288 @@
+Ring-AllReduce Mode
+
+Dimension: 100
+Total time: 0.3
+Number of time intervals: 20
+Learning rate: 0.0005
+y_init_range: 0.3, 0.5
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 4000
+Batch size: 64
+Sample size: 1024
+Logging frequency: 100
+Model name: AllenCahn_parallel_
+Number of processors: 16
+
+
+Training:
+[kelvin-n039:04767] *** Process received signal ***
+[kelvin-n039:04767] Signal: Segmentation fault (11)
+[kelvin-n039:04767] Signal code: Address not mapped (1)
+[kelvin-n039:04767] Failing at address: (nil)
+[kelvin-n039:04770] *** Process received signal ***
+[kelvin-n039:04770] Signal: Segmentation fault (11)
+[kelvin-n039:04770] Signal code: Address not mapped (1)
+[kelvin-n039:04770] Failing at address: (nil)
+[kelvin-n039:04771] *** Process received signal ***
+[kelvin-n039:04771] Signal: Segmentation fault (11)
+[kelvin-n039:04771] Signal code: Address not mapped (1)
+[kelvin-n039:04771] Failing at address: (nil)
+[kelvin-n039:04768] *** Process received signal ***
+[kelvin-n039:04769] *** Process received signal ***
+[kelvin-n039:04766] *** Process received signal ***
+[kelvin-n039:04766] Signal: Segmentation fault (11)
+[kelvin-n039:04766] Signal code: Address not mapped (1)
+[kelvin-n039:04766] Failing at address: 0x1
+[kelvin-n039:04768] Signal: Segmentation fault (11)
+[kelvin-n039:04768] Signal code: Address not mapped (1)
+[kelvin-n039:04768] Failing at address: (nil)
+[kelvin-n039:04769] Signal: Segmentation fault (11)
+[kelvin-n039:04769] Signal code: Address not mapped (1)
+[kelvin-n039:04769] Failing at address: (nil)
+[kelvin-n041:30617] *** Process received signal ***
+[kelvin-n041:30617] Signal: Segmentation fault (11)
+[kelvin-n041:30617] Signal code: Address not mapped (1)
+[kelvin-n041:30617] Failing at address: (nil)
+[kelvin-n041:30618] *** Process received signal ***
+[kelvin-n041:30618] Signal: Segmentation fault (11)
+[kelvin-n041:30618] Signal code: Address not mapped (1)
+[kelvin-n041:30618] Failing at address: (nil)
+[kelvin-n041:30619] *** Process received signal ***
+[kelvin-n041:30619] Signal: Segmentation fault (11)
+[kelvin-n041:30619] Signal code: Address not mapped (1)
+[kelvin-n041:30619] Failing at address: (nil)
+[kelvin-n041:30621] *** Process received signal ***
+[kelvin-n041:30621] Signal: Segmentation fault (11)
+[kelvin-n041:30621] Signal code: Address not mapped (1)
+[kelvin-n041:30621] Failing at address: (nil)
+[kelvin-n041:30622] *** Process received signal ***
+[kelvin-n041:30622] Signal: Segmentation fault (11)
+[kelvin-n041:30622] Signal code: Address not mapped (1)
+[kelvin-n041:30622] Failing at address: (nil)
+[kelvin-n041:30623] *** Process received signal ***
+[kelvin-n041:30623] Signal: Segmentation fault (11)
+[kelvin-n041:30623] Signal code: Address not mapped (1)
+[kelvin-n041:30623] Failing at address: (nil)
+[kelvin-n041:30624] *** Process received signal ***
+[kelvin-n041:30624] Signal: Segmentation fault (11)
+[kelvin-n041:30624] Signal code: Address not mapped (1)
+[kelvin-n041:30624] Failing at address: (nil)
+[kelvin-n041:30620] *** Process received signal ***
+[kelvin-n041:30620] Signal: Segmentation fault (11)
+[kelvin-n041:30620] Signal code: Address not mapped (1)
+[kelvin-n041:30620] Failing at address: (nil)
+[kelvin-n041:30623] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7f2146493630]
+[kelvin-n041:30623] [ 1] [kelvin-n041:30617] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7f4b6553a630]
+[kelvin-n041:30617] [ 1] [kelvin-n041:30624] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7f8c12557630]
+[kelvin-n041:30624] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7f8c122d0eb3]
+[kelvin-n041:30624] [ 2] [kelvin-n041:30621] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7fa9c6c86630]
+[kelvin-n041:30621] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7fa9c69ffeb3]
+[kelvin-n041:30621] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n041:30621] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n041:30621] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n041:30620] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7fd05e585630]
+[kelvin-n041:30620] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7fd05e2feeb3]
+[kelvin-n041:30620] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n041:30620] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n041:30620] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n041:30620] [ 5] [kelvin-n041:30621] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7fa9c68cb555]
+[kelvin-n041:30621] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n041:30621] *** End of error message ***
+/usr/lib64/libc.so.6(+0x156eb3)[0x7f214620ceb3]
+[kelvin-n041:30623] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n041:30623] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n041:30623] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n041:30623] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f21460d8555]
+[kelvin-n041:30623] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n041:30623] *** End of error message ***
+[kelvin-n041:30618] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7fe68eb70630]
+[kelvin-n041:30618] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7fe68e8e9eb3]
+[kelvin-n041:30618] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n041:30618] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n041:30618] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n041:30618] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7fe68e7b5555]
+[kelvin-n041:30618] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n041:30618] *** End of error message ***
+/usr/lib64/libc.so.6(+0x156eb3)[0x7f4b652b3eb3]
+[kelvin-n041:30617] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n041:30617] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n041:30617] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n041:30617] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f4b6517f555]
+[kelvin-n041:30617] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n041:30617] *** End of error message ***
+./BSDE.out[0x412d8e]
+[kelvin-n041:30624] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n041:30624] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n041:30624] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f8c1219c555]
+[kelvin-n041:30624] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n041:30624] *** End of error message ***
+[kelvin-n041:30622] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7fc019260630]
+[kelvin-n041:30622] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7fc018fd9eb3]
+[kelvin-n041:30622] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n041:30622] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n041:30622] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n041:30622] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7fc018ea5555]
+[kelvin-n041:30622] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n041:30622] *** End of error message ***
+/usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7fd05e1ca555]
+[kelvin-n041:30620] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n041:30620] *** End of error message ***
+[kelvin-n041:30619] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7f7ad5419630]
+[kelvin-n041:30619] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7f7ad5192eb3]
+[kelvin-n041:30619] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n041:30619] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n041:30619] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n041:30619] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f7ad505e555]
+[kelvin-n041:30619] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n041:30619] *** End of error message ***
+[kelvin-n039:04768] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7fe9533d6630]
+[kelvin-n039:04768] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7fe95314feb3]
+[kelvin-n039:04768] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n039:04768] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n039:04768] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n039:04768] [ 5] [kelvin-n039:04771] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7f2d03921630]
+[kelvin-n039:04771] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7f2d0369aeb3]
+[kelvin-n039:04771] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n039:04771] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n039:04771] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n039:04771] [ 5] [kelvin-n039:04766] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7f31ee0df630]
+[kelvin-n039:04766] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7f31ede58eb3]
+[kelvin-n039:04766] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n039:04766] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n039:04766] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n039:04766] [ 5] [kelvin-n039:04767] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7fec82443630]
+[kelvin-n039:04767] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7fec821bceb3]
+[kelvin-n039:04767] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n039:04767] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n039:04767] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n039:04767] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7fec82088555]
+[kelvin-n039:04767] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n039:04770] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7fc7cd63e630]
+[kelvin-n039:04770] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7fc7cd3b7eb3]
+[kelvin-n039:04770] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n039:04770] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n039:04770] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n039:04770] [ 5] /usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7fc7cd283555]
+[kelvin-n039:04770] [ 6] [kelvin-n039:04769] [ 0] /usr/lib64/libpthread.so.0(+0xf630)[0x7f072ae7b630]
+[kelvin-n039:04769] [ 1] /usr/lib64/libc.so.6(+0x156eb3)[0x7f072abf4eb3]
+[kelvin-n039:04769] [ 2] ./BSDE.out[0x412d8e]
+[kelvin-n039:04769] [ 3] ./BSDE.out[0x40eb80]
+[kelvin-n039:04769] [ 4] ./BSDE.out[0x403c3c]
+[kelvin-n039:04769] [ 5] ./BSDE.out[0x403fff]
+[kelvin-n039:04770] *** End of error message ***
+/usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7fe95301b555]
+[kelvin-n039:04768] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n039:04768] *** End of error message ***
+/usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f2d03566555]
+[kelvin-n039:04771] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n039:04771] *** End of error message ***
+/usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f31edd24555]
+[kelvin-n039:04766] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n039:04766] *** End of error message ***
+[kelvin-n039:04767] *** End of error message ***
+/usr/lib64/libc.so.6(__libc_start_main+0xf5)[0x7f072aac0555]
+[kelvin-n039:04769] [ 6] ./BSDE.out[0x403fff]
+[kelvin-n039:04769] *** End of error message ***
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun noticed that process rank 5 with PID 0 on node kelvin-n039 exited on signal 11 (Segmentation fault).
+--------------------------------------------------------------------------
+
+
+###############################################################################
+TCHPC Cluster: kelvin
+Job 19265 (BSDE_job_4_procs) for User 'zuoy' in Account 'hpc_21_01207'
+Finished at: Thu Nov  4 22:28:36 GMT 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 19265
+Cluster: kelvin
+User/Group: zuoy/zuoy
+State: FAILED (exit code 139)
+Nodes: 2
+Cores per node: 12
+CPU Utilized: 00:00:04
+CPU Efficiency: 4.17% of 00:01:36 core-walltime
+Job Wall-clock time: 00:00:04
+Memory Utilized: 3.48 MB
+Memory Efficiency: 0.01% of 44.92 GB
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+19265        BSDE_job_+        24             2                                                      00:00:04     FAILED     11:0 
+19265.batch       batch        12      1      1      3568K   kelvin-n039            0            0   00:00:04     FAILED     11:0 
+19265.0           orted        12      1      1                                                      00:00:03     FAILED      0:0 
+
+
+Job details:
+============
+
+JobId=19265 JobName=BSDE_job_4_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=11669158 Nice=0 Account=hpc_21_01207 QOS=normal
+   JobState=COMPLETING Reason=NonZeroExitCode Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=139:0
+   DerivedExitCode=0:0
+   RunTime=00:00:04 TimeLimit=23:00:00 TimeMin=N/A
+   SubmitTime=2021-11-04T22:26:21 EligibleTime=2021-11-04T22:26:21
+   AccrueTime=2021-11-04T22:26:21
+   StartTime=2021-11-04T22:28:32 EndTime=2021-11-04T22:28:36 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-11-04T22:28:32
+   Partition=compute AllocNode:Sid=kelvin01:11264
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=kelvin-n041
+   BatchHost=kelvin-n039
+   NumNodes=1 NumCPUs=24 NumTasks=16 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=24,mem=46000M,node=2,billing=24
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=(null)
+     Nodes=kelvin-n[039,041] CPU_IDs=0-11 Mem=23000 GRES=
+   MinCPUsNode=1 MinMemoryNode=23000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/scripts/script_AllenCahn_d100_b64_n16.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/output/slurm-19265.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/output/slurm-19265.out
+   Power=
+   NtasksPerTRES:0
+
+
+Disk quota details:
+===================
+
+Quota Type           Name  Filesystem     Usage in MB     Limit in MB    % Used
+-------------------------------------------------------------------------------
+USER                 zuoy       /home              74          51,200     0.15%
+
+GROUP              mschpc   /projects             999          51,200     1.95%
+GROUP          pi-dgolden   /projects               0          51,200     0.00%
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+zuoy           4,453 |   HPC_21_01207     4,453 |       100,000    95,547
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################

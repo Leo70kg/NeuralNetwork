@@ -1,0 +1,13 @@
+dim_input: 100
+dim_output: 100
+batchSize: 1
+learning_rate: 0.01
+train_epoch: 1000
+total_time: 1
+num_time_interval: 40
+sample_size: 256
+subnetLayerNumber: 3
+logging_frequency: 100
+y_init_range: 40, 50
+hidden_layer_sizes: 110, 110
+modelSavePath: pricing_default_risk_serial_
