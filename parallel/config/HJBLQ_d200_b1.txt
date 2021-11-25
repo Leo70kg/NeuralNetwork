@@ -2,13 +2,13 @@ dim_input: 200
 dim_output: 200
 batchSize: 1
 learning_rate: 0.01
-train_epoch: 3000
+train_epoch: 1000
 total_time: 1
 num_time_interval: 20
-sample_size: 256
+sample_size: 1024
 subnetLayerNumber: 3
 logging_frequency: 100
 y_init_range: 0, 1
 hidden_layer_sizes: 110, 110
 modelSavePath: HJBLQ_parallel_
-parallelMode: Master-Slave
+parallelMode: Ring-Allreduce

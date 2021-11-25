@@ -1,0 +1,46 @@
+Dimension: 200
+Total time: 1
+Number of time intervals: 20
+y_init_range: 0, 1
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 64
+Sample size: 1024
+Logging frequency: 100
+Number of processors: 16
+
+
+Training:
+Dimension: 100
+Total time: 1
+Number of time intervals: 20
+y_init_range: 0, 1
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 64
+Sample size: 1024
+Logging frequency: 100
+Number of processors: 16
+
+
+Training:
+Epoch: 100, Y0: 4.50795, Loss: 37.4497, Runtime(sec): 23.0369
+Epoch: 100, Y0: 5.20655, Loss: 23.9408, Runtime(sec): 40.0896
+Epoch: 200, Y0: 4.52378, Loss: 32.4842, Runtime(sec): 45.8176
+Epoch: 300, Y0: 4.52909, Loss: 30.8069, Runtime(sec): 68.5547
+Epoch: 200, Y0: 5.24674, Loss: 14.3925, Runtime(sec): 80.1136
+Epoch: 400, Y0: 4.53131, Loss: 29.8337, Runtime(sec): 91.426
+Epoch: 500, Y0: 4.53244, Loss: 29.0496, Runtime(sec): 114.111
+Epoch: 300, Y0: 5.26153, Loss: 12.0756, Runtime(sec): 120.077
+Epoch: 600, Y0: 4.53312, Loss: 28.3328, Runtime(sec): 136.797
+Epoch: 700, Y0: 4.53358, Loss: 27.6504, Runtime(sec): 159.559
+Epoch: 400, Y0: 5.26807, Loss: 11.2636, Runtime(sec): 159.999
+Epoch: 800, Y0: 4.53394, Loss: 26.9918, Runtime(sec): 182.282
+Epoch: 500, Y0: 5.27127, Loss: 10.8886, Runtime(sec): 199.867
+Epoch: 900, Y0: 4.53424, Loss: 26.3533, Runtime(sec): 204.89
+Epoch: 1000, Y0: 4.5345, Loss: 25.7333, Runtime(sec): 227.744
+Epoch: 600, Y0: 5.27296, Loss: 10.6697, Runtime(sec): 239.625
+Epoch: 700, Y0: 5.27389, Loss: 10.5138, Runtime(sec): 279.359
+Epoch: 800, Y0: 5.27442, Loss: 10.3859, Runtime(sec): 319.061
+Epoch: 900, Y0: 5.27475, Loss: 10.2712, Runtime(sec): 358.977
+Epoch: 1000, Y0: 5.27494, Loss: 10.1635, Runtime(sec): 398.684

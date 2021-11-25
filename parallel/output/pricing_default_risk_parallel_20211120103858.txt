@@ -1,0 +1,23 @@
+Dimension: 100
+Total time: 1
+Number of time intervals: 40
+y_init_range: 40, 50
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 64
+Sample size: 256
+Logging frequency: 100
+Number of processors: 64
+
+
+Training:
+Epoch: 100, Y0: 41.0671, Loss: 38136.7, Runtime(sec): 28.1877
+Epoch: 200, Y0: 42.0625, Loss: 33620.6, Runtime(sec): 56.188
+Epoch: 300, Y0: 42.9912, Loss: 29695.5, Runtime(sec): 84.2364
+Epoch: 400, Y0: 43.8576, Loss: 26279.8, Runtime(sec): 112.179
+Epoch: 500, Y0: 44.6662, Loss: 23306.4, Runtime(sec): 140.136
+Epoch: 600, Y0: 45.4209, Loss: 20716.6, Runtime(sec): 168.076
+Epoch: 700, Y0: 46.1253, Loss: 18469.3, Runtime(sec): 196.069
+Epoch: 800, Y0: 46.784, Loss: 16546, Runtime(sec): 224.018
+Epoch: 900, Y0: 47.401, Loss: 14901.7, Runtime(sec): 251.978
+Epoch: 1000, Y0: 47.9797, Loss: 13490.1, Runtime(sec): 279.969

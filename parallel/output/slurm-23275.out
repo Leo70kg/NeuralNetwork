@@ -1,0 +1,113 @@
+Parallel Mode: Master-Slave
+Dimension: 200
+Total time: 1
+Number of time intervals: 20
+Learning rate: 0.01
+y_init_range: 0, 1
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 64
+Sample size: 1024
+Logging frequency: 100
+Model name: HJBLQ_parallel_
+Number of processors: 32
+
+
+Training:
+slurmstepd: error: *** JOB 23275 ON kelvin-n051 CANCELLED AT 2021-11-23T16:39:11 ***
+
+
+###############################################################################
+TCHPC Cluster: kelvin
+Job 23275 (BSDE_job_4_procs) for User 'zuoy' in Account 'hpc_21_01207'
+Finished at: Tue Nov 23 16:39:11 GMT 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 23275
+Cluster: kelvin
+User/Group: zuoy/zuoy
+State: CANCELLED (exit code 0)
+Nodes: 3
+Cores per node: 12
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 07:21:00 core-walltime
+Job Wall-clock time: 00:12:15
+Memory Utilized: 0.00 MB (estimated maximum)
+Memory Efficiency: 0.00% of 67.38 GB (22.46 GB/node)
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+23275        BSDE_job_+        36             3                                                      00:12:15 CANCELLED+      0:0 
+23275.batch       batch        12      1      1                                                      00:12:15  CANCELLED      0:0 
+23275.0           orted        24      2      2                                                      00:12:14  CANCELLED      0:0 
+
+
+Job details:
+============
+
+JobId=23275 JobName=BSDE_job_4_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=10920949 Nice=0 Account=hpc_21_01207 QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   DerivedExitCode=0:0
+   RunTime=00:12:15 TimeLimit=23:00:00 TimeMin=N/A
+   SubmitTime=2021-11-23T02:11:51 EligibleTime=2021-11-23T02:11:51
+   AccrueTime=2021-11-23T02:11:51
+   StartTime=2021-11-23T16:26:56 EndTime=2021-11-23T16:39:11 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-11-23T16:26:56
+   Partition=compute AllocNode:Sid=kelvin01:730
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=kelvin-n[051,054,056]
+   BatchHost=kelvin-n051
+   NumNodes=3 NumCPUs=36 NumTasks=32 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=36,mem=69000M,node=3,billing=36
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=(null)
+     Nodes=kelvin-n[051,054,056] CPU_IDs=0-11 Mem=23000 GRES=
+   MinCPUsNode=1 MinMemoryNode=23000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/parallel/scripts/script_HJBLQ_d200_b64_n32.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/parallel
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/parallel/output/slurm-23275.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/parallel/output/slurm-23275.out
+   Power=
+   NtasksPerTRES:0
+
+
+Disk quota details:
+===================
+
+Quota Type           Name  Filesystem     Usage in MB     Limit in MB    % Used
+-------------------------------------------------------------------------------
+USER                 zuoy       /home             137          51,200     0.27%
+
+GROUP              mschpc   /projects             999          51,200     1.95%
+GROUP          pi-dgolden   /projects               0          51,200     0.00%
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+zuoy          27,399 |   HPC_21_01207    27,399 |       100,000    72,601
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################

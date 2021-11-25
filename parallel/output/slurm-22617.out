@@ -1,0 +1,243 @@
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  kelvin-n034.cluster
+  System call: open(2) 
+  Error:       Permission denied (errno 13)
+--------------------------------------------------------------------------
+Parallel Mode: Master-Slave
+Dimension: 100
+Total time: 0.2
+Number of time intervals: 20
+Learning rate: 0.0005
+y_init_range: 0.2, 0.5
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 4000
+Batch size: 64
+Sample size: 1024
+Logging frequency: 100
+Model name: AllenCahn_parallel_
+Number of processors: 32
+
+
+Training:
+[kelvin-n034.cluster:24800] 1 more process has sent help message help-opal-shmem-mmap.txt / sys call fail
+[kelvin-n034.cluster:24800] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+Epoch:100
+In training set, loss: 11.0012, Y0: 0.197768
+
+Epoch:200
+In training set, loss: 10.8032, Y0: 0.195574
+
+Epoch:300
+In training set, loss: 10.6123, Y0: 0.19342
+
+Epoch:400
+In training set, loss: 10.4281, Y0: 0.191304
+
+Epoch:500
+In training set, loss: 10.2505, Y0: 0.189226
+
+Epoch:600
+In training set, loss: 10.0791, Y0: 0.187185
+
+Epoch:700
+In training set, loss: 9.91377, Y0: 0.18518
+
+Epoch:800
+In training set, loss: 9.75426, Y0: 0.183211
+
+Epoch:900
+In training set, loss: 9.60036, Y0: 0.181277
+
+Epoch:1000
+In training set, loss: 9.45187, Y0: 0.179378
+
+Epoch:1100
+In training set, loss: 9.3086, Y0: 0.177513
+
+Epoch:1200
+In training set, loss: 9.17033, Y0: 0.17568
+
+Epoch:1300
+In training set, loss: 9.03691, Y0: 0.17388
+
+Epoch:1400
+In training set, loss: 8.90815, Y0: 0.172112
+
+Epoch:1500
+In training set, loss: 8.78388, Y0: 0.170375
+
+Epoch:1600
+In training set, loss: 8.66395, Y0: 0.168669
+
+Epoch:1700
+In training set, loss: 8.54819, Y0: 0.166993
+
+Epoch:1800
+In training set, loss: 8.43644, Y0: 0.165346
+
+Epoch:1900
+In training set, loss: 8.32857, Y0: 0.163729
+
+Epoch:2000
+In training set, loss: 8.22445, Y0: 0.162139
+
+Epoch:2100
+In training set, loss: 8.12394, Y0: 0.160578
+
+Epoch:2200
+In training set, loss: 8.02691, Y0: 0.159045
+
+Epoch:2300
+In training set, loss: 7.93322, Y0: 0.157537
+
+Epoch:2400
+In training set, loss: 7.84277, Y0: 0.156057
+
+Epoch:2500
+In training set, loss: 7.75544, Y0: 0.154602
+
+Epoch:2600
+In training set, loss: 7.67113, Y0: 0.153173
+
+Epoch:2700
+In training set, loss: 7.58972, Y0: 0.151769
+
+Epoch:2800
+In training set, loss: 7.51111, Y0: 0.15039
+
+Epoch:2900
+In training set, loss: 7.43519, Y0: 0.149034
+
+Epoch:3000
+In training set, loss: 7.36189, Y0: 0.147702
+
+Epoch:3100
+In training set, loss: 7.2911, Y0: 0.146394
+
+Epoch:3200
+In training set, loss: 7.22274, Y0: 0.145108
+
+Epoch:3300
+In training set, loss: 7.15671, Y0: 0.143844
+
+Epoch:3400
+In training set, loss: 7.09294, Y0: 0.142603
+
+Epoch:3500
+In training set, loss: 7.03135, Y0: 0.141383
+
+Epoch:3600
+In training set, loss: 6.97187, Y0: 0.140184
+
+Epoch:3700
+In training set, loss: 6.9144, Y0: 0.139006
+
+Epoch:3800
+In training set, loss: 6.8589, Y0: 0.137849
+
+Epoch:3900
+In training set, loss: 6.80528, Y0: 0.136711
+
+Epoch:4000
+In training set, loss: 6.75349, Y0: 0.135594
+
+
+
+###############################################################################
+TCHPC Cluster: kelvin
+Job 22617 (BSDE_job_4_procs) for User 'zuoy' in Account 'hpc_21_01207'
+Finished at: Sun Nov 21 15:27:44 GMT 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 22617
+Cluster: kelvin
+User/Group: zuoy/zuoy
+State: COMPLETED (exit code 0)
+Nodes: 3
+Cores per node: 12
+CPU Utilized: 03:36:33
+CPU Efficiency: 30.38% of 11:52:48 core-walltime
+Job Wall-clock time: 00:19:48
+Memory Utilized: 687.21 MB
+Memory Efficiency: 1.00% of 67.38 GB
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+22617        BSDE_job_+        36             3                                                      00:19:48  COMPLETED      0:0 
+22617.batch       batch        12      1      1    703700K   kelvin-n034        0.86M        0.01M   00:19:48  COMPLETED      0:0 
+22617.0           orted        24      2      2                                                      00:19:47  COMPLETED      0:0 
+
+
+Job details:
+============
+
+JobId=22617 JobName=BSDE_job_4_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=10998125 Nice=0 Account=hpc_21_01207 QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   DerivedExitCode=0:0
+   RunTime=00:19:48 TimeLimit=23:00:00 TimeMin=N/A
+   SubmitTime=2021-11-21T13:03:25 EligibleTime=2021-11-21T13:03:25
+   AccrueTime=2021-11-21T13:03:25
+   StartTime=2021-11-21T15:07:56 EndTime=2021-11-21T15:27:44 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-11-21T15:07:56
+   Partition=compute AllocNode:Sid=kelvin01:30506
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=kelvin-n[035-036]
+   BatchHost=kelvin-n034
+   NumNodes=2 NumCPUs=36 NumTasks=32 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=36,mem=69000M,node=3,billing=36
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=(null)
+     Nodes=kelvin-n[034-036] CPU_IDs=0-11 Mem=23000 GRES=
+   MinCPUsNode=1 MinMemoryNode=23000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/parallel/scripts/script_AllenCahn_d300_b64_n32.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/parallel
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/parallel/output/slurm-22617.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/parallel/output/slurm-22617.out
+   Power=
+   NtasksPerTRES:0
+
+
+Disk quota details:
+===================
+
+Quota Type           Name  Filesystem     Usage in MB     Limit in MB    % Used
+-------------------------------------------------------------------------------
+USER                 zuoy       /home             124          51,200     0.24%
+
+GROUP              mschpc   /projects             999          51,200     1.95%
+GROUP          pi-dgolden   /projects               0          51,200     0.00%
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+zuoy          19,202 |   HPC_21_01207    19,202 |       100,000    80,798
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################

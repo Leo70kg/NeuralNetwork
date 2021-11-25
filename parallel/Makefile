@@ -1,6 +1,6 @@
 OBJ 	= BSDEConfiguration.o BSDEModel.o BSDEModelMs.o BSDEModelRing.o Equation.o HJBLQ.o PricingDefaultRisk.o AllenCahn.o collectives.o app.o
 
-EXEC	= BSDE.out
+EXEC	= BSDE_parallel
 
 MPICC 	= mpicxx
 

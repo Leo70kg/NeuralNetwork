@@ -1,0 +1,59 @@
+Dimension: 300
+Total time: 1
+Number of time intervals: 40
+y_init_range: 40, 50
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 1
+Sample size: 256
+Logging frequency: 100
+Number of processors: 16
+
+
+Training:
+Dimension: 500
+Total time: 1
+Number of time intervals: 40
+y_init_range: 40, 50
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 1
+Sample size: 256
+Logging frequency: 100
+Number of processors: 16
+
+
+Training:
+Dimension: 400
+Total time: 1
+Number of time intervals: 40
+y_init_range: 40, 50
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 1
+Sample size: 256
+Logging frequency: 100
+Number of processors: 16
+
+
+Training:
+Epoch: 100, Y0: 50.9725, Loss: 886.725, Runtime(sec): 69.8102
+Epoch: 100, Y0: 49.6077, Loss: 606.633, Runtime(sec): 87.5158
+Epoch: 200, Y0: 51.0557, Loss: 528.868, Runtime(sec): 139.394
+Epoch: 200, Y0: 49.6247, Loss: 303.695, Runtime(sec): 174.192
+Epoch: 300, Y0: 51.1027, Loss: 357.976, Runtime(sec): 209.057
+Epoch: 300, Y0: 49.6275, Loss: 178.948, Runtime(sec): 260.733
+Epoch: 400, Y0: 51.1312, Loss: 258.184, Runtime(sec): 278.758
+Epoch: 400, Y0: 49.625, Loss: 114.552, Runtime(sec): 347.624
+Epoch: 500, Y0: 51.1497, Loss: 194.265, Runtime(sec): 348.463
+Epoch: 600, Y0: 51.1627, Loss: 150.761, Runtime(sec): 418.245
+Epoch: 500, Y0: 49.6205, Loss: 77.1754, Runtime(sec): 435.294
+Epoch: 700, Y0: 51.1724, Loss: 119.91, Runtime(sec): 488.077
+Epoch: 600, Y0: 49.6154, Loss: 53.8692, Runtime(sec): 522.685
+Epoch: 800, Y0: 51.1799, Loss: 97.2222, Runtime(sec): 557.647
+Epoch: 700, Y0: 49.6106, Loss: 38.576, Runtime(sec): 610.262
+Epoch: 900, Y0: 51.1861, Loss: 80.077, Runtime(sec): 627.164
+Epoch: 1000, Y0: 51.1911, Loss: 66.8262, Runtime(sec): 696.789
+Epoch: 800, Y0: 49.6061, Loss: 28.1701, Runtime(sec): 698.036
+Epoch: 900, Y0: 49.6021, Loss: 20.8975, Runtime(sec): 785.334
+Epoch: 1000, Y0: 49.5985, Loss: 15.7041, Runtime(sec): 872.605

@@ -188,20 +188,27 @@ void BSDEModel::ComputeGradient(const Equation& equation, const float y, size_t 
 
 void BSDEModel::Update()
 {
-    int numOfSubnet = m_config.numTimeInterval - 1;
+	int m_nprocs;
+	int mpi_error = MPI_Comm_size(MPI_COMM_WORLD, &m_nprocs);
+	if (mpi_error != MPI_SUCCESS)       
+		throw std::runtime_error("MPI_Comm_size failed with an error");
+	int batch = m_config.batchSize / m_nprocs;
+	batch = batch == 0 ? 1 : batch;
+
+	int numOfSubnet = m_config.numTimeInterval - 1;
     int L = m_config.subnetLayerNumber;
 
     for (int t = 0; t < numOfSubnet; t++) {
         for (int i = 0; i < L; i++)
         {
-            d_weights[i + t * L].Div((float)m_config.batchSize);
+            d_weights[i + t * L].Div((float)batch);
             weights[i + t * L].Sub(m_config.learning_rate, d_weights[i + t * L]);
         }
 
     }
 
-	dy /= (float) m_config.batchSize;
-	dz.Div((float)m_config.batchSize);
+	dy /= (float) batch;
+	dz.Div((float) batch);
 
 	y_init -= m_config.learning_rate * dy;
 	z_init.Sub(m_config.learning_rate, dz);

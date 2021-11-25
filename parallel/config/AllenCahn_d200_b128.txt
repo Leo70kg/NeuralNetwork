@@ -1,14 +1,14 @@
-dim_input: 200
-dim_output: 200
+dim_input: 100
+dim_output: 100
 batchSize: 128
 learning_rate: 0.0005
 train_epoch: 4000
-total_time: 0.3
+total_time: 0.25
 num_time_interval: 20
-sample_size: 256
+sample_size: 1024
 subnetLayerNumber: 3
 logging_frequency: 100
-y_init_range: 0.3, 0.5
+y_init_range: 0.25, 0.5
 hidden_layer_sizes: 110, 110
 modelSavePath: AllenCahn_parallel_
 parallelMode: Master-Slave
