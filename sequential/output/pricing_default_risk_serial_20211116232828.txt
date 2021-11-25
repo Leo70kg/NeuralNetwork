@@ -15,3 +15,9 @@ Epoch: 100, Y0: 57.014, Loss: 3067.04, Runtime(sec): 180.65
 Epoch: 200, Y0: 57.4619, Loss: 2828.34, Runtime(sec): 360.74
 Epoch: 300, Y0: 57.4973, Loss: 2651.4, Runtime(sec): 539.8
 Epoch: 400, Y0: 57.5196, Loss: 2504.29, Runtime(sec): 718.71
+Epoch: 500, Y0: 57.5392, Loss: 2379.76, Runtime(sec): 897.65
+Epoch: 600, Y0: 57.557, Loss: 2272.77, Runtime(sec): 1076.53
+Epoch: 700, Y0: 57.5731, Loss: 2179.54, Runtime(sec): 1255.4
+Epoch: 800, Y0: 57.5881, Loss: 2097.72, Runtime(sec): 1434.02
+Epoch: 900, Y0: 57.6019, Loss: 2025, Runtime(sec): 1612.71
+Epoch: 1000, Y0: 57.6145, Loss: 1959.8, Runtime(sec): 1791.72

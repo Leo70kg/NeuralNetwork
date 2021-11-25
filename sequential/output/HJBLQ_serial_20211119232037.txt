@@ -1,0 +1,23 @@
+Dimension: 300
+Total time: 1
+Number of time intervals: 20
+y_init_range: 0, 1
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 64
+Sample size: 1024
+Logging frequency: 100
+Model name: HJBLQ_serial_
+
+
+Training:
+Epoch: 100, Y0: 5.58105, Loss: 23.6472, Runtime(sec): 422.81
+Epoch: 200, Y0: 5.63465, Loss: 11.1174, Runtime(sec): 843.59
+Epoch: 300, Y0: 5.65625, Loss: 7.89543, Runtime(sec): 1265.15
+Epoch: 400, Y0: 5.66686, Loss: 6.73328, Runtime(sec): 1685.91
+Epoch: 500, Y0: 5.67267, Loss: 6.21433, Runtime(sec): 2106.52
+Epoch: 600, Y0: 5.67609, Loss: 5.94546, Runtime(sec): 2526.91
+Epoch: 700, Y0: 5.6782, Loss: 5.78847, Runtime(sec): 2947.26
+Epoch: 800, Y0: 5.67954, Loss: 5.68644, Runtime(sec): 3367.62
+Epoch: 900, Y0: 5.68043, Loss: 5.61328, Runtime(sec): 3788
+Epoch: 1000, Y0: 5.68102, Loss: 5.55609, Runtime(sec): 4208.41

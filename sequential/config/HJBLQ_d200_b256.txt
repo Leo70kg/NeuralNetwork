@@ -1,11 +1,11 @@
 dim_input: 200
 dim_output: 200
-batchSize: 256
+batchSize: 64
 learning_rate: 0.01
-train_epoch: 3000
+train_epoch: 1000
 total_time: 1
 num_time_interval: 20
-sample_size: 256
+sample_size: 64
 subnetLayerNumber: 3
 logging_frequency: 100
 y_init_range: 0, 1

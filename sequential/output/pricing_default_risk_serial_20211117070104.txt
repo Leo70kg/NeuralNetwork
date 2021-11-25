@@ -1,0 +1,23 @@
+Dimension: 300
+Total time: 1
+Number of time intervals: 40
+y_init_range: 40, 50
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 1
+Sample size: 256
+Logging frequency: 100
+Model name: pricing_default_risk_serial_
+
+
+Training:
+Epoch: 100, Y0: 51.8547, Loss: 132.229, Runtime(sec): 471.66
+Epoch: 200, Y0: 51.7747, Loss: 45.6683, Runtime(sec): 936.37
+Epoch: 300, Y0: 51.7102, Loss: 19.8022, Runtime(sec): 1400.72
+Epoch: 400, Y0: 51.6666, Loss: 9.7436, Runtime(sec): 1864.83
+Epoch: 500, Y0: 51.6377, Loss: 5.19908, Runtime(sec): 2329.06
+Epoch: 600, Y0: 51.6183, Loss: 2.91618, Runtime(sec): 2793.27
+Epoch: 700, Y0: 51.6051, Loss: 1.69039, Runtime(sec): 3257.23
+Epoch: 800, Y0: 51.596, Loss: 0.99992, Runtime(sec): 3721.18
+Epoch: 900, Y0: 51.5895, Loss: 0.600258, Runtime(sec): 4185.03
+Epoch: 1000, Y0: 51.5848, Loss: 0.362968, Runtime(sec): 4648.8

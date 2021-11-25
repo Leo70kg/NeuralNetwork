@@ -1,0 +1,86 @@
+Dimension: 200
+Total time: 1
+Number of time intervals: 20
+y_init_range: 0, 1
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 3000
+Batch size: 256
+Sample size: 256
+Logging frequency: 100
+Model name: HJBLQ_serial_
+
+
+Training:
+Dimension: 300
+Total time: 1
+Number of time intervals: 20
+y_init_range: 0, 1
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 3000
+Batch size: 1
+Sample size: 256
+Logging frequency: 100
+Model name: HJBLQ_serial_
+
+
+Training:
+Epoch: 100, Y0: 3.24294, Loss: 433.728, Runtime(sec): 75.79
+Epoch: 200, Y0: 4.34234, Loss: 63.6634, Runtime(sec): 150.42
+Epoch: 100, Y0: 5.43255, Loss: 0.135771, Runtime(sec): 154.18
+Epoch: 300, Y0: 4.71685, Loss: 21.1375, Runtime(sec): 225.16
+Epoch: 400, Y0: 4.8521, Loss: 14.6748, Runtime(sec): 299.46
+Epoch: 200, Y0: 5.4414, Loss: 0.0397519, Runtime(sec): 308.55
+Epoch: 500, Y0: 4.90811, Loss: 12.4029, Runtime(sec): 373.72
+Epoch: 600, Y0: 4.93708, Loss: 10.8586, Runtime(sec): 447.95
+Epoch: 300, Y0: 5.44407, Loss: 0.0156629, Runtime(sec): 461.52
+Epoch: 700, Y0: 4.95614, Loss: 9.61618, Runtime(sec): 522.2
+Epoch: 800, Y0: 4.97102, Loss: 8.58562, Runtime(sec): 596.43
+Epoch: 400, Y0: 5.4451, Loss: 0.00682876, Runtime(sec): 612.94
+Epoch: 900, Y0: 4.98371, Loss: 7.72236, Runtime(sec): 670.68
+Epoch: 1000, Y0: 4.99497, Loss: 6.99423, Runtime(sec): 744.9
+Epoch: 500, Y0: 5.44558, Loss: 0.00313612, Runtime(sec): 764.7
+Epoch: 1100, Y0: 5.00514, Loss: 6.37599, Runtime(sec): 819.13
+Epoch: 1200, Y0: 5.01442, Loss: 5.84764, Runtime(sec): 893.37
+Epoch: 600, Y0: 5.44584, Loss: 0.00149399, Runtime(sec): 916.04
+Epoch: 1300, Y0: 5.02291, Loss: 5.39314, Runtime(sec): 967.6
+Epoch: 1400, Y0: 5.03073, Loss: 4.9997, Runtime(sec): 1041.85
+Epoch: 700, Y0: 5.446, Loss: 0.000734795, Runtime(sec): 1066.96
+Epoch: 1500, Y0: 5.03795, Loss: 4.65697, Runtime(sec): 1115.83
+Epoch: 1600, Y0: 5.04464, Loss: 4.35661, Runtime(sec): 1190.06
+Epoch: 800, Y0: 5.4461, Loss: 0.000374089, Runtime(sec): 1217.81
+Epoch: 1700, Y0: 5.05086, Loss: 4.09185, Runtime(sec): 1264.03
+Epoch: 1800, Y0: 5.05664, Loss: 3.85716, Runtime(sec): 1338.26
+Epoch: 900, Y0: 5.44617, Loss: 0.000198495, Runtime(sec): 1367.87
+Epoch: 1900, Y0: 5.06204, Loss: 3.64802, Runtime(sec): 1412.5
+Epoch: 2000, Y0: 5.0671, Loss: 3.46072, Runtime(sec): 1486.73
+Epoch: 1000, Y0: 5.44623, Loss: 0.000110656, Runtime(sec): 1517.87
+Epoch: 2100, Y0: 5.07184, Loss: 3.29216, Runtime(sec): 1560.7
+Epoch: 2200, Y0: 5.07629, Loss: 3.1398, Runtime(sec): 1635.01
+Epoch: 1100, Y0: 5.44626, Loss: 6.50866e-05, Runtime(sec): 1667.89
+Epoch: 2300, Y0: 5.08049, Loss: 3.0015, Runtime(sec): 1709.32
+Epoch: 2400, Y0: 5.08444, Loss: 2.87546, Runtime(sec): 1783.58
+Epoch: 1200, Y0: 5.44629, Loss: 4.03324e-05, Runtime(sec): 1817.88
+Epoch: 2500, Y0: 5.08818, Loss: 2.76018, Runtime(sec): 1857.83
+Epoch: 2600, Y0: 5.09172, Loss: 2.65437, Runtime(sec): 1932.09
+Epoch: 1300, Y0: 5.44631, Loss: 2.61561e-05, Runtime(sec): 1967.92
+Epoch: 2700, Y0: 5.09507, Loss: 2.55692, Runtime(sec): 2006.09
+Epoch: 2800, Y0: 5.09826, Loss: 2.46694, Runtime(sec): 2080.35
+Epoch: 1400, Y0: 5.44632, Loss: 1.76107e-05, Runtime(sec): 2121.16
+Epoch: 2900, Y0: 5.10128, Loss: 2.38358, Runtime(sec): 2154.36
+Epoch: 3000, Y0: 5.10416, Loss: 2.30616, Runtime(sec): 2228.62
+Epoch: 1500, Y0: 5.44634, Loss: 1.21953e-05, Runtime(sec): 2272.06
+Epoch: 1600, Y0: 5.44636, Loss: 8.651e-06, Runtime(sec): 2422.99
+Epoch: 1700, Y0: 5.44636, Loss: 6.25366e-06, Runtime(sec): 2573.87
+Epoch: 1800, Y0: 5.44637, Loss: 4.59726e-06, Runtime(sec): 2724.75
+Epoch: 1900, Y0: 5.44638, Loss: 3.41742e-06, Runtime(sec): 2875.65
+Epoch: 2000, Y0: 5.44638, Loss: 2.57385e-06, Runtime(sec): 3025.69
+Epoch: 2100, Y0: 5.44638, Loss: 1.95868e-06, Runtime(sec): 3175.69
+Epoch: 2200, Y0: 5.44638, Loss: 1.49968e-06, Runtime(sec): 3325.71
+Epoch: 2300, Y0: 5.44637, Loss: 1.15681e-06, Runtime(sec): 3475.68
+Epoch: 2400, Y0: 5.44638, Loss: 8.97537e-07, Runtime(sec): 3625.65
+Epoch: 2500, Y0: 5.44638, Loss: 7.00262e-07, Runtime(sec): 3775.63
+Epoch: 2600, Y0: 5.44638, Loss: 5.50685e-07, Runtime(sec): 3925.62
+Epoch: 2700, Y0: 5.44638, Loss: 4.32287e-07, Runtime(sec): 4075.6
+Epoch: 2800, Y0: 5.44637, Loss: 3.43624e-07, Runtime(sec): 4225.57
+Epoch: 2900, Y0: 5.44635, Loss: 2.74396e-07, Runtime(sec): 4375.53
+Epoch: 3000, Y0: 5.44633, Loss: 2.21465e-07, Runtime(sec): 4525.51

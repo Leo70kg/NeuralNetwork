@@ -1,0 +1,141 @@
+Config data loaded successfully!
+Dimension: 400
+Total time: 1
+Number of time intervals: 40
+Learning rate: 0.01
+y_init_range: 40, 50
+Number of neurons in each hidden layer of each subnet: 110, 110, 
+Epochs: 1000
+Batch size: 128
+Sample size: 256
+Logging frequency: 100
+Model name: pricing_default_risk_serial_
+
+
+Training:
+Epoch:100
+In training set, loss: 2048.41, Y0: 49.0038
+
+Epoch:200
+In training set, loss: 1617.92, Y0: 50.1507
+
+Epoch:300
+In training set, loss: 1431.9, Y0: 50.3297
+
+Epoch:400
+In training set, loss: 1282.1, Y0: 50.372
+
+Epoch:500
+In training set, loss: 1157.81, Y0: 50.3945
+
+Epoch:600
+In training set, loss: 1053.55, Y0: 50.4138
+
+Epoch:700
+In training set, loss: 965.267, Y0: 50.432
+
+Epoch:800
+In training set, loss: 889.86, Y0: 50.4494
+
+Epoch:900
+In training set, loss: 824.887, Y0: 50.4659
+
+Epoch:1000
+In training set, loss: 768.393, Y0: 50.4815
+
+
+
+###############################################################################
+TCHPC Cluster: kelvin
+Job 20914 (BSDE_job_1_procs) for User 'zuoy' in Account 'hpc_21_01207'
+Finished at: Wed Nov 17 03:54:07 GMT 2021
+
+Job efficiency estimates:
+=========================
+
+Job ID: 20914
+Cluster: kelvin
+User/Group: zuoy/zuoy
+State: RUNNING
+Nodes: 1
+Cores per node: 12
+CPU Utilized: 01:15:06
+CPU Efficiency: 8.33% of 15:01:24 core-walltime
+Job Wall-clock time: 01:15:07
+Memory Utilized: 63.41 MB
+Memory Efficiency: 0.28% of 22.46 GB
+WARNING: Efficiency statistics may be misleading for RUNNING jobs.
+
+Job completion status:
+======================
+
+       JobID    JobName AllocCPUS NTasks NNodes     MaxRSS    MaxRSSNode  MaxDiskRead MaxDiskWrite    Elapsed      State ExitCode 
+------------ ---------- --------- ------ ------ ---------- ------------- ------------ ------------ ---------- ---------- -------- 
+20914        BSDE_job_+        12             1                                                      01:15:07  COMPLETED      0:0 
+20914.batch       batch        12      1      1     64932K   kelvin-n035        0.87M        0.01M   01:15:07  COMPLETED      0:0 
+
+
+Job details:
+============
+
+JobId=20914 JobName=BSDE_job_1_procs
+   UserId=zuoy(1582) GroupId=zuoy(1252) MCS_label=N/A
+   Priority=11839297 Nice=0 Account=hpc_21_01207 QOS=normal
+   JobState=COMPLETING Reason=None Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   DerivedExitCode=0:0
+   RunTime=01:15:07 TimeLimit=2-23:00:00 TimeMin=N/A
+   SubmitTime=2021-11-17T01:48:33 EligibleTime=2021-11-17T01:48:33
+   AccrueTime=2021-11-17T01:48:33
+   StartTime=2021-11-17T02:39:00 EndTime=2021-11-17T03:54:07 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2021-11-17T02:39:00
+   Partition=compute AllocNode:Sid=kelvin01:7052
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=
+   BatchHost=kelvin-n035
+   NumNodes=1 NumCPUs=12 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=12,mem=23000M,node=1,billing=12
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   JOB_GRES=(null)
+     Nodes=kelvin-n035 CPU_IDs=0-11 Mem=23000 GRES=
+   MinCPUsNode=1 MinMemoryNode=23000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) Network=(null)
+   Command=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/sequential/scripts/script_PricingDefaultRisk_d400_b128.sh
+   WorkDir=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/sequential
+   StdErr=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/sequential/output/slurm-20914.out
+   StdIn=/dev/null
+   StdOut=/home/users/mschpc/2019/zuoy/HPC/NeuralNetwork/sequential/output/slurm-20914.out
+   Power=
+   NtasksPerTRES:0
+
+
+Disk quota details:
+===================
+
+Quota Type           Name  Filesystem     Usage in MB     Limit in MB    % Used
+-------------------------------------------------------------------------------
+USER                 zuoy       /home             102          51,200     0.20%
+
+GROUP              mschpc   /projects             999          51,200     1.95%
+GROUP          pi-dgolden   /projects               0          51,200     0.00%
+
+
+SLURM Bank Statement:
+=====================
+
+User           Usage |        Account     Usage | Account Limit Available (CPU hrs)
+---------- --------- + -------------- --------- + ------------- ---------
+zuoy           5,328 |   HPC_21_01207     5,328 |       100,000    94,672
+
+
+Acknowledgements:
+=================
+
+Note that usage of TCHPC Resources *must* be acknowledged in all publications.
+
+Please see this page for details relevant to this cluster:
+
+http://www.tchpc.tcd.ie/resources/acknowledgementpolicy
+
+################################################################################
